@@ -10,6 +10,7 @@ import LogIn from './pages/LogIn.';
 import SignUpReporter from './pages/SignUpReporter';
 import SignUpHospital from './pages/SignUpHospital';
 import UpdateProfileHospital from './pages/UpdateProfileHospital';
+import UpdateProfileReporter from './pages/UpdateProfileReporter';
 
 
 
@@ -52,6 +53,11 @@ function App() {
 
           <Route path="/Hospital">
             <Route path="UpdateProfile" element={<UpdateProfileHospital/>}></Route>
+
+          </Route>
+
+          <Route path="/Reporter">
+            <Route path="UpdateProfile" element={<UpdateProfileReporter/>}></Route>
 
           </Route>
 
