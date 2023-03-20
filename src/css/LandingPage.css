@@ -1,0 +1,97 @@
+.nav_bar_button{
+    border: none;
+    background-color: #7B0BB0 !important;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 13px;
+    font-size:15px;
+}
+
+
+
+.main_page{
+    height: fit-content;
+    /* width: 1600x; */
+    /* border: 2px; */
+    background-image: url("../images/landing_ambulance.jpg");
+    padding-top: 190px;
+    padding-bottom: 5px;
+}
+
+
+.image_box{
+    width: 100vh;
+    
+    /* height: 108; */
+}
+
+.heading_box{
+    text-align: left;
+    padding-left: 30px;
+    color: white;
+}
+
+#main_heading{
+    font-size: 80px;
+    text-align: left;
+}
+#guaranteed{
+    font-size: 80px;
+    text-align: left;
+    font-weight:645;
+    letter-spacing: 8px;
+    /* width: 100; */
+}
+
+#main_text{
+    margin-top: 80px;
+    font-size: 25px;
+    font-weight: 700px !important;
+    color: white;
+    /* background-color: #9e13de5f; */
+}
+.text_box{
+    /* padding-left: 4; */
+    width: 500px;
+    background-image: radial-gradient(#9e13de5f,#9e13de1d, rgba(0, 128, 0, 0));
+    border-radius: 1000px;
+    
+
+}
+
+.partner_boxes{
+    margin-top: 160px;
+    color: white;
+    margin-bottom: 80px;
+}
+
+.button{
+    background-color: #7B0BB0;
+    color: white !important;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 20px;
+}
+
+.button h1{
+    font-size: 18px;
+    font-weight: 800px !important;
+    color: white !important;
+    letter-spacing: normal !important;
+}
+
+
+#mission_statement_box  {
+    text-align: left;
+    /* color: red; */
+    padding: 120px 60px;
+}
+#mission_statement_box h1{
+    color: #7B0BB0;
+    letter-spacing: 5px;
+}
+
+#mission_statement_box p{
+    font-size: 22px;
+}

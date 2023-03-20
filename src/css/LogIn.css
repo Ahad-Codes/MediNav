@@ -1,0 +1,13 @@
+.main_box{
+    background-image: url("../images/ambulance_login.jpg");
+    height: 100vh;
+    /* width: 100vh; */
+    
+}
+
+
+.form_box{
+    background-color: white;
+    width: 500px;
+    padding: 80px 40px;
+}
