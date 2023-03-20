@@ -16,22 +16,12 @@ export default function UpdateProfileHospital() {
                     <div className="form_box">
                         {/* <Link to="/">back</Link> */}
                         <form className="row g-3">
+                           
                             <div className="mb-3 form_row">
-                                <label for="exampleInputEmail1" className="form-label">Hospital Name</label>
-                                <input type="text" className="form-control" id="exampleInputEmail1" placeholder="Enter your full name" />
+                                <label for="exampleInputEmail1" className="form-label">Change Landline number</label>
+                                <input type="number" className="form-control" id="exampleInputEmail1" placeholder="" />
                             </div>
-                            <div className="mb-3 form_row">
-                                <label for="exampleInputEmail1" className="form-label">Address</label>
-                                <input type="address" className="form-control" id="exampleInputEmail1" placeholder="Enter your address" />
-                            </div>
-                            <div class="col-md-6" >
-                                <label for="inputEmail4" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="inputEmail4" />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputPassword4" class="form-label">Landline Number</label>
-                                <input type="number" class="form-control" id="inputPassword4" />
-                            </div>
+                           
                             <div class="col-md-6">
                                 <label for="inputEmail4" class="form-label">Primary Mobile Number</label>
                                 <input type="number" class="form-control" id="inputEmail4" />
@@ -48,10 +38,24 @@ export default function UpdateProfileHospital() {
                                 <label for="inputPassword4" class="form-label">Number of Operational Ambulances</label>
                                 <input type="number" class="form-control" id="inputPassword4" />
                             </div>
-                            <div className="bring_child_to_center">
-                                <button type="submit" className="btn btn-primary button">Creat Account</button>
+                            
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Enter New Password</label>
+                                <input type="password" class="form-control" id="inputEmail4" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputPassword4" class="form-label">Re-enter New Password</label>
+                                <input type="password" class="form-control" id="inputPassword4" />
                             </div>
 
+                            <div className="mb-3 form_row">
+                                <label for="exampleInputEmail1" className="form-label">Enter Old Password</label>
+                                <input type="password" className="form-control" id="exampleInputEmail1" placeholder="" />
+                            </div>
+
+                            <div className="bring_child_to_center">
+                                <button type="submit" className="btn btn-primary button">Update Profile</button>
+                            </div>  
 
 
 

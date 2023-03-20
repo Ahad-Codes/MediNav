@@ -18,7 +18,7 @@ export default function SignUpHospital() {
                         </div>
                         <div className="mb-3 form_row">
                             <label for="exampleInputEmail1" className="form-label">Address</label>
-                            <input type="address" className="form-control" id="exampleInputEmail1" placeholder="Enter your address" />
+                            <input type="text" className="form-control" id="exampleInputEmail1" placeholder="Enter your address" />
                         </div>
                         <div class="col-md-6" >
                             <label for="inputEmail4" class="form-label">Email</label>
