@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
 import "../css/LandingPage.css"
-
+import gop from "../images/gop_logo.png"
+import edhi from "../images/edhi_logo.png"
 export default function LandingPage() {
 
     return (
@@ -68,8 +69,7 @@ export default function LandingPage() {
                 
                 <div class="container text-center partner_boxes">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                        <div class="col">Column</div>
-                        <div class="col">Column</div>
+                        <img src={gop} style={{ height:70, width:100}}/>
                         <div class="col">Column</div>
                         <div class="col">Column</div>
                     </div>
