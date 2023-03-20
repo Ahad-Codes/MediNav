@@ -20,10 +20,17 @@ export default function LandingPage() {
                         <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Enter Your Password" />
                     </div>
                     <div className="bring_child_to_center">
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-primary button">Submit</button>
                     </div>
 
                 </form>
+
+                <div className="bring_child_to_center">
+                    <p>Don't have an accout?&nbsp; </p><p>Sign Up</p>
+                </div>
+                
+
+            
             </div>
 
         </div>

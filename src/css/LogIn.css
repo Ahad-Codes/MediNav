@@ -35,3 +35,12 @@
     justify-content: center;
     align-items: center;
 }
+
+.button{
+    background-color: #7B0BB0;
+    color: white !important;
+    border-radius: 5px;
+    padding: 8px 90px;
+    border: none;
+    margin-top: 20px;
+}
