@@ -4,11 +4,21 @@ import { Link, useNavigate } from "react-router-dom";
 import "../css/LandingPage.css"
 import gop from "../images/gop_logo.png"
 import edhi from "../images/edhi_logo.png"
+import nh from "../images/nh_logo.png"
+import chipa from "../images/chipa.png"
+import sk from "../images/sk_logo.png"
+
+
+
+
+
+
+
 export default function LandingPage() {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg bg-light">
+            <nav className="navbar navbar-expand-lg bg-light ">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">MediNav</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,10 +78,16 @@ export default function LandingPage() {
 
                 
                 <div class="container text-center partner_boxes">
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                        <img src={gop} style={{ height:70, width:100}}/>
-                        <div class="col">Column</div>
-                        <div class="col">Column</div>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mx-auto">
+                        <img src={gop} style={{ marginLeft:110, height:70, width:100}}/>
+                        <img src={edhi} style={{marginLeft:110, height:70, width:100}}/>
+                        <img src={nh} style={{marginLeft:110, height:70, width:100}}/>
+                        <img src={chipa} style={{marginLeft:110, height:70, width:100}}/>
+                        <img src={sk} style={{marginLeft:110,  height:100, width:180}}/>
+
+
+
+                        
                     </div>
                 </div>
             </div>
