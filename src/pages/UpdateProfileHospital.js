@@ -54,7 +54,9 @@ export default function UpdateProfileHospital() {
                             </div>
 
                             <div className="bring_child_to_center">
-                                <button type="submit" className="btn btn-primary button">Update Profile</button>
+                                <button type="submit" className="updateButton">Update Profile</button>
+                                <button type="submit" className="cancelButton">Cancel</button>
+
                             </div>  
 
 
