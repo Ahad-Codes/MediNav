@@ -23,16 +23,35 @@ export default function LandingPage() {
                         <button type="submit" className="btn btn-primary button">Submit</button>
                     </div>
 
+
                 </form>
 
-                <div className="bring_child_to_center">
-                    <p>Don't have an accout?&nbsp; </p><p>Sign Up</p>
-                </div>
-                
+               
+               
 
-            
+                {/* <div className="bring_child_to_center">
+                    <div>
+                        <p>Don't have an accout? <Link>Sign Up</Link></p>
+                        
+                    </div> 
+                    <div>
+                        <p>Don't have an accout? <Link>Sign Up</Link></p>
+                        
+                    </div> 
+                </div> */}
+                
+                {/* <div className="bring_child_to_center">
+                    <p>Don't have an accout?&nbsp; </p><p>Sign Up</p>
+                </div> */}
+
+                <p className="bring_link_to_center">Don't have an accout?<Link>Sign Up</Link></p>
+                <p className="bring_link_to_center">Forget Your Password?<Link>CLick Here</Link></p>
+
+
+                
             </div>
 
+            
         </div>
     )
 }
