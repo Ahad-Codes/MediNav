@@ -46,7 +46,7 @@ export default function SignUpReporter() {
                    
 
                     <p className="bring_link_to_center">Already an account?<Link to="/LogIn">Log In</Link></p>
-                    <p className="bring_link_to_center">Forget Your Password?<Link>Click Here</Link></p>
+                    <p className="bring_link_to_center"><Link to="/SignUp/Hospital">Sign Up as Hospital</Link></p>
 
 
 

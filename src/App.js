@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import LandingPage from './pages/LandingPage';
 import LogIn from './pages/LogIn.';
 import SignUpReporter from './pages/SignUpReporter';
+import SignUpHospital from './pages/SignUpHospital';
 
 
 
@@ -45,6 +46,7 @@ function App() {
           <Route path="/SignUp">
             {/* <Route index element={<LogIn />}></Route> */}
             <Route path="Reporter" element={<SignUpReporter/>}></Route>
+            <Route path="Hospital" element={<SignUpHospital/>}></Route>
           </Route>
 
         </Routes>
