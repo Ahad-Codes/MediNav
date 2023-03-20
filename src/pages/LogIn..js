@@ -8,6 +8,7 @@ export default function LandingPage() {
     return (
         <div className="main_box">
             <div className="form_box">
+                
                 <form>
                     <div className="mb-3">
                         <label for="exampleInputEmail1" className="form-label">Email address</label>
