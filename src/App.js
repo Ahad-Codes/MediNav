@@ -9,6 +9,7 @@ import LandingPage from './pages/LandingPage';
 import LogIn from './pages/LogIn.';
 import SignUpReporter from './pages/SignUpReporter';
 import SignUpHospital from './pages/SignUpHospital';
+import UpdateProfileHospital from './pages/UpdateProfileHospital';
 
 
 
@@ -45,8 +46,13 @@ function App() {
           </Route>
           <Route path="/SignUp">
             {/* <Route index element={<LogIn />}></Route> */}
-            <Route path="Reporter" element={<SignUpReporter/>}></Route>
-            <Route path="Hospital" element={<SignUpHospital/>}></Route>
+            <Route path="Reporter" element={<SignUpReporter />}></Route>
+            <Route path="Hospital" element={<SignUpHospital />}></Route>
+          </Route>
+
+          <Route path="/Hospital">
+            <Route path="UpdateProfile" element={<UpdateProfileHospital/>}></Route>
+
           </Route>
 
         </Routes>
