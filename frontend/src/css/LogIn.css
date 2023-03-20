@@ -1,7 +1,7 @@
 .main_box{
     background-image: url("../images/pakka_main_Ambulance_main.jpg");
     height: 100vh;
-    
+ 
     display: flex;
     justify-content: center;
     align-items: center;    
