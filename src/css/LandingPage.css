@@ -1,4 +1,4 @@
-.nav_bar_button{
+.LandingPage .nav_bar_button{
     border: none;
     background-color: #7B0BB0 !important;
     color: white;
@@ -9,7 +9,7 @@
 
 
 
-.main_page{
+.LandingPage .main_page{
     height: fit-content;
     /* width: 1600x; */
     /* border: 2px; */
@@ -19,23 +19,23 @@
 }
 
 
-.image_box{
+.LandingPage .image_box{
     width: 100vh;
     
     /* height: 108; */
 }
 
-.heading_box{
+.LandingPage .heading_box{
     text-align: left;
     padding-left: 30px;
     color: white;
 }
 
-#main_heading{
+.LandingPage #main_heading{
     font-size: 80px;
     text-align: left;
 }
-#guaranteed{
+.LandingPage #guaranteed{
     font-size: 80px;
     text-align: left;
     font-weight:645;
@@ -43,14 +43,14 @@
     /* width: 100; */
 }
 
-#main_text{
+.LandingPage #main_text{
     margin-top: 80px;
     font-size: 25px;
     font-weight: 700px !important;
     color: white;
     /* background-color: #9e13de5f; */
 }
-.text_box{
+.LandingPage .text_box{
     /* padding-left: 4; */
     width: 500px;
     background-image: radial-gradient(#9e13de5f,#9e13de1d, rgba(0, 128, 0, 0));
@@ -59,13 +59,13 @@
 
 }
 
-.partner_boxes{
+.LandingPage .partner_boxes{
     margin-top: 160px;
     color: white;
     margin-bottom: 80px;
 }
 
-.button{
+.LandingPage .button{
     background-color: #7B0BB0;
     color: white !important;
     border-radius: 5px;
@@ -74,7 +74,7 @@
     margin-top: 20px;
 }
 
-.button h1{
+.LandingPage .button h1{
     font-size: 18px;
     font-weight: 800px !important;
     color: white !important;
@@ -82,16 +82,16 @@
 }
 
 
-#mission_statement_box  {
+.LandingPage #mission_statement_box  {
     text-align: left;
     /* color: red; */
     padding: 120px 60px;
 }
-#mission_statement_box h1{
+.LandingPage #mission_statement_box h1{
     color: #7B0BB0;
     letter-spacing: 5px;
 }
 
-#mission_statement_box p{
+.LandingPage #mission_statement_box p{
     font-size: 22px;
 }

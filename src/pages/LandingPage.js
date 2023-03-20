@@ -6,7 +6,7 @@ import "../css/LandingPage.css"
 export default function LandingPage() {
 
     return (
-        <div>
+        <div className="LandingPage">
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">MediNav</a>
