@@ -16,6 +16,22 @@
     text-align: left;
     background-color: white;
     width: 500px;
-    padding: 80px 40px;
+    padding: 60px 40px;
+    border-radius: 13px;
     
+}
+
+.form_box h3{
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.form_row{
+    padding-bottom: 10px;
+}
+
+.bring_child_to_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
