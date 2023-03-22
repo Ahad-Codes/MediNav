@@ -7,15 +7,14 @@ export default function ReportHistoryHospital() {
 
     return (
         <div className="ReportHistoryHospital">
-
             <div className="main_box">
-                <div>
-                    <div className="updateProfileHeading">
-                        <h1>Report History</h1>
-                    </div>
-                    <table class="table info_table">
+                <div className="updateProfileHeading">
+                    <h1>Pending Requests</h1>
+                </div>
+                <div className="table_box">
+                    <table className="table info_table table-borderless table-hover">
                         <thead>
-                            <tr>
+                            <tr >
                                 <th scope="col">Date</th>
                                 <th scope="col">Time</th>
                                 <th scope="col">Incident Location</th>
@@ -23,9 +22,9 @@ export default function ReportHistoryHospital() {
                                 <th scope="col"></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody >
                             {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
-                            <tr>
+                            <tr className="table_row">
                                 <td>obj.date</td>
                                 <td>obj.time</td>
                                 <td>obj.name</td>
@@ -34,7 +33,7 @@ export default function ReportHistoryHospital() {
                                     <button className="table_button Pending">Pending</button>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr className="table_row">
                                 <td>obj.date</td>
                                 <td>obj.time</td>
                                 <td>obj.name</td>
@@ -43,7 +42,7 @@ export default function ReportHistoryHospital() {
                                     <button className="table_button Rejected">Rejected</button>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr className="table_row">
                                 <td>obj.date</td>
                                 <td>obj.time</td>
                                 <td>obj.name</td>
@@ -55,10 +54,9 @@ export default function ReportHistoryHospital() {
 
                         </tbody>
                     </table>
-
-
                 </div>
             </div>
         </div>
+      
     )
 }

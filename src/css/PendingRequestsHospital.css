@@ -1,34 +1,56 @@
+
+.PendingRequestsHospital{
+    background-image: url("../images/update_bg.jpg");
+    height: 100vh;
+    /* width: 100%; */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: row  !important; */
+    /* border: 2px solid red; */
+
+    
+    
+}
+
+.PendingRequestsHospital .main_box{
+    width: 90%;
+    height: fit-content;
+
+   
+}
+
 .PendingRequestsHospital .updateProfileHeading{
     background-color:#7c0bb07f;
     color: white;
     border-radius: 13px;
     padding: 2px;
     margin-bottom: 10px;
+    width: 100%;
 }
 
-.PendingRequestsHospital .main_box{
-    background-image: url("../images/update_bg.jpg");
-    height: 100vh;
-    /* width: 100vh; */
-    display: flex;
+
+.PendingRequestsHospital .table_box{
+    background-color: #F4FCFF !important;
+    min-width: fit-content;
+    width: 100%;
+    height:fit-content;
+    /* border: 2px solid red; */
+    /* height: fit-content; */
+    /* padding: 40px 30px;s */
+    /* padding-top: 0px; */
+    border-radius: 13px;
+    /* border: none !important; */
+
+    display: flex; 
     justify-content: center;
     align-items: center;
-    flex-direction: row  !important;
-
-    
-    
 }
-
 
 .PendingRequestsHospital .info_table{
     
-    /* text-align: left; */
-    background-color: #F4FCFF;
-    width: 1200px;
-    padding: 40px 30px;
-    /* padding-top: 0px; */
-    border-radius: 13px;
-    border: none !important;
+    width: 95%;
+    
     
 }
 
@@ -42,14 +64,19 @@
     border: none;
 }
 
-/* .PendingRequestsHospital .Accepted{
+.PendingRequestsHospital .Accepted{
     background-color: #38D063;
 }
 
 .PendingRequestsHospital .Rejected{
-    background-color: yellow;
+    background-color: #DE3A3A;
 }
 
 .PendingRequestsHospital .Pending{
     background-color: #BCB6BE;
-} */
+}
+
+.PendingRequestsHospital .table_row{
+    border-top: 1px #EDD8F7 solid;
+    
+}
