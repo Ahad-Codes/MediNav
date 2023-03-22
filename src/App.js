@@ -14,7 +14,7 @@ import UpdateProfileReporter from './pages/UpdateProfileReporter';
 import ReportHistoryReporter from './pages/ReportHistoryReporter';
 import ReportHistoryHospital from './pages/ReportHistoryHospital';
 import PendingRequestsHospital from './pages/PendingRequestsHospital';
-
+import ReportHistoryAdmin from './pages/ReportHistoryAdmin';
 
 // import Khuzaimah  from './pages/Reporter'
 
@@ -67,6 +67,10 @@ function App() {
             <Route path="UpdateProfile" element={<UpdateProfileReporter />}></Route>
             <Route path="ReportHistory" element={<ReportHistoryReporter />}></Route>
 
+          </Route >
+
+          <Route path="/Admin">
+            <Route path="ReportHistory" element={<ReportHistoryAdmin/>}></Route>
           </Route>
 
           {/* <Route path="/khuzaimah">
