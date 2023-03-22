@@ -16,6 +16,7 @@ import ReportHistoryHospital from './pages/ReportHistoryHospital';
 import PendingRequestsHospital from './pages/PendingRequestsHospital';
 import ReportHistoryAdmin from './pages/ReportHistoryAdmin';
 import ManangeActiveReportersAdmin from './pages/ManageActiveReportersAdmin';
+import PendingRequestsPolice from './pages/PendingRequestsPolice';
 // import Khuzaimah  from './pages/Reporter'
 
 
@@ -72,6 +73,11 @@ function App() {
           <Route path="/Admin">
             <Route path="ReportHistory" element={<ReportHistoryAdmin/>}></Route>
             <Route path="ManageActiveReporters" element={<ManangeActiveReportersAdmin/>}></Route>
+          </Route>
+
+          <Route path="/Police">
+            <Route index element={<PendingRequestsPolice/>}></Route>
+            <Route path="PendingRequests" element={<PendingRequestsPolice/>}></Route>
           </Route>
 
           {/* <Route path="/khuzaimah">
