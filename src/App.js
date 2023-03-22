@@ -12,8 +12,8 @@ import SignUpHospital from './pages/SignUpHospital';
 import UpdateProfileHospital from './pages/UpdateProfileHospital';
 import UpdateProfileReporter from './pages/UpdateProfileReporter';
 import ReportHistoryReporter from './pages/ReportHistoryReporter';
-
-
+import ReportHistoryHospital from './pages/ReportHistoryHospital';
+import PendingRequestsHospital from './pages/PendingRequestsHospital';
 
 
 // import Khuzaimah  from './pages/Reporter'
@@ -58,6 +58,8 @@ function App() {
 
           <Route path="/Hospital">
             <Route path="UpdateProfile" element={<UpdateProfileHospital />}></Route>
+            <Route path="ReportHistory" element={<ReportHistoryHospital />}></Route>
+            <Route path="PendingRequests" element={<PendingRequestsHospital />}></Route>
 
           </Route>
 

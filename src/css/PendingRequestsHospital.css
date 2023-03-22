@@ -1,0 +1,55 @@
+.PendingRequestsHospital .updateProfileHeading{
+    background-color:#7c0bb07f;
+    color: white;
+    border-radius: 13px;
+    padding: 2px;
+    margin-bottom: 10px;
+}
+
+.PendingRequestsHospital .main_box{
+    background-image: url("../images/update_bg.jpg");
+    height: 100vh;
+    /* width: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row  !important;
+
+    
+    
+}
+
+
+.PendingRequestsHospital .info_table{
+    
+    /* text-align: left; */
+    background-color: #F4FCFF;
+    width: 1200px;
+    padding: 40px 30px;
+    /* padding-top: 0px; */
+    border-radius: 13px;
+    border: none !important;
+    
+}
+
+.PendingRequestsHospital .table_button{
+    
+    color: white;
+    font-weight: 500;
+    border-radius: 12px;
+    width: 85px;
+    height: 30px;
+    border: none;
+}
+
+/* .PendingRequestsHospital .Accepted{
+    background-color: #38D063;
+}
+
+.PendingRequestsHospital .Rejected{
+    background-color: yellow;
+}
+
+.PendingRequestsHospital .Pending{
+    background-color: #BCB6BE;
+} */
