@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
-import "../css/ReportHistoryAdmin.css"
+import "../css/ManageActiveUsers.css"
 
-export default function ReportHistoryAdmin() {
+export default function ManageActiveUsers() {
 
     return (
-        <div className="ReportHistoryAdmin">
+        <div className="ManageActiveUsers">
             <div className="main_box">
                 <div className="updateProfileHeading">
                     <div className="heading_items">
-                        <h1>Report History</h1>
+                        <h1>Manage Active Users</h1>
                         <div className="heading_features">
-                            <form  role="search" >
-                                <input className="form-control search_box" type="search" placeholder="Search for Reporter" aria-label="Search"/>
+                            <form role="search" >
+                                <input className="form-control search_box" type="search" placeholder="Search for Reporter" aria-label="Search" />
                             </form>
                             <p>
                                 <button className="btn heading_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -34,38 +34,38 @@ export default function ReportHistoryAdmin() {
                     <table className="table info_table table-borderless table-hover">
                         <thead>
                             <tr >
-                                <th scope="col">Date</th>
-                                <th scope="col">Time</th>
-                                <th scope="col">Hospital</th>
-                                <th scope="col">Reporter</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">CNIC</th>
+                                <th scope="col">Phone Number</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody >
                             {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
                             <tr className="table_row">
-                                <td className="non_button_item">obj.date</td>
-                                <td className="non_button_item">obj.time</td>
-                                <td className="non_button_item">obj.hospital</td>
-                                <td className="non_button_item">obj.reporter</td>
+                                <td className="non_button_item">obj.name</td>
+                                <td className="non_button_item">obj.email</td>
+                                <td className="non_button_item">obj.cnic</td>
+                                <td className="non_button_item">obj.phone_number</td>
                                 <td>
                                     <button className="table_button Pending">Pending</button>
                                 </td>
                             </tr>
                             <tr className="table_row">
-                                <td className="non_button_item">obj.date</td>
-                                <td className="non_button_item">obj.time</td>
-                                <td className="non_button_item">obj.hospital</td>
-                                <td className="non_button_item">obj.reporter</td>
+                                <td className="non_button_item">obj.name</td>
+                                <td className="non_button_item">obj.email</td>
+                                <td className="non_button_item">obj.cnic</td>
+                                <td className="non_button_item">obj.phone_number</td>
                                 <td>
                                     <button className="table_button Rejected">Rejected</button>
                                 </td>
                             </tr>
                             <tr className="table_row">
-                                <td className="non_button_item">obj.date</td>
-                                <td className="non_button_item">obj.time</td>
-                                <td className="non_button_item">obj.hospital</td>
-                                <td className="non_button_item">obj.reporter</td>
+                                <td className="non_button_item">obj.name</td>
+                                <td className="non_button_item">obj.email</td>
+                                <td className="non_button_item">obj.cnic</td>
+                                <td className="non_button_item">obj.phone_number</td>
                                 <td>
                                     <button className="table_button Accepted">Accepted</button>
                                 </td>
