@@ -1,5 +1,5 @@
 
-.ManageActiveUsers{
+.ManageActiveReportersAdmin{
     background-image: url("../images/update_bg.jpg");
     height: 100vh;
     /* width: 100%; */
@@ -13,14 +13,14 @@
     
 }
 
-.ManageActiveUsers .main_box{
+.ManageActiveReportersAdmin .main_box{
     width: 90%;
     height: fit-content;
 
    
 }
 
-.ManageActiveUsers .updateProfileHeading{
+.ManageActiveReportersAdmin .updateProfileHeading{
     background-color:#7c0bb07f;
     color: white;
     border-radius: 13px;
@@ -29,7 +29,7 @@
     width: 100%;
 }
 
-.ManageActiveUsers .heading_items{
+.ManageActiveReportersAdmin .heading_items{
     display: flex;
     justify-content: space-between;
     /* align-items: center; */
@@ -38,7 +38,7 @@
     margin-bottom: 0px;
 }
 
-.ManageActiveUsers .heading_features{
+.ManageActiveReportersAdmin .heading_features{
     margin-top: 8px;
     margin-bottom: 0px;
     display: flex;
@@ -46,21 +46,21 @@
     gap: 5px;
     width: 400px;
 }
-.ManageActiveUsers .search_box{
+.ManageActiveReportersAdmin .search_box{
     background-color: #EDD8F7;
     border-radius: 12px;
     width: 335px;
 
 }
-.ManageActiveUsers .heading_button{
+.ManageActiveReportersAdmin .heading_button{
     background-color: #EDD8F7;
     border-radius: 12px;
 }
-.ManageActiveUsers .filter_box{
+.ManageActiveReportersAdmin .filter_box{
     color: black;
 }
 
-.ManageActiveUsers .table_box{
+.ManageActiveReportersAdmin .table_box{
     background-color: #F4FCFF !important;
     min-width: fit-content;
     width: 100%;
@@ -78,14 +78,14 @@
     
 }
 
-.ManageActiveUsers .info_table{
+.ManageActiveReportersAdmin .info_table{
     
     width: 95%;
     
     
 }
 
-.ManageActiveUsers .table_button{
+.ManageActiveReportersAdmin .table_button{
     
     color: white;
     font-weight: 500;
@@ -95,22 +95,22 @@
     border: none;
 }
 
-.ManageActiveUsers .Accepted{
+.ManageActiveReportersAdmin .Accepted{
     background-color: #38D063;
 }
 
-.ManageActiveUsers .Rejected{
+.ManageActiveReportersAdmin .Rejected{
     background-color: #DE3A3A;
 }
 
-.ManageActiveUsers .Pending{
+.ManageActiveReportersAdmin .Pending{
     background-color: #BCB6BE;
 }
 
-.ManageActiveUsers .table_row{
+.ManageActiveReportersAdmin .table_row{
     border-top: 1.5px #EDD8F7 solid;
 
 }
-.ManageActiveUsers .non_button_item{
+.ManageActiveReportersAdmin .non_button_item{
     padding-top: 9.5px;
 }

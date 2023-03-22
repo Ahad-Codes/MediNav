@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
-import "../css/ManageActiveUsers.css"
+import "../css/ManageActiveReportersAdmin.css"
 
-export default function ManageActiveUsers() {
+export default function ManageActiveReportersAdmin() {
 
     return (
-        <div className="ManageActiveUsers">
+        <div className="ManageActiveReportersAdmin">
             <div className="main_box">
                 <div className="updateProfileHeading">
                     <div className="heading_items">
-                        <h1>Manage Active Users</h1>
+                        <h1>Manage Active Reporters</h1>
                         <div className="heading_features">
                             <form role="search" >
                                 <input className="form-control search_box" type="search" placeholder="Search for Reporter" aria-label="Search" />
