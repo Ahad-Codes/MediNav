@@ -11,7 +11,12 @@ import SignUpReporter from './pages/SignUpReporter';
 import SignUpHospital from './pages/SignUpHospital';
 import UpdateProfileHospital from './pages/UpdateProfileHospital';
 import UpdateProfileReporter from './pages/UpdateProfileReporter';
+import ReportHistoryReporter from './pages/ReportHistoryReporter';
 
+
+
+
+// import Khuzaimah  from './pages/Reporter'
 
 
 
@@ -52,15 +57,20 @@ function App() {
           </Route>
 
           <Route path="/Hospital">
-            <Route path="UpdateProfile" element={<UpdateProfileHospital/>}></Route>
+            <Route path="UpdateProfile" element={<UpdateProfileHospital />}></Route>
 
           </Route>
 
           <Route path="/Reporter">
-            <Route path="UpdateProfile" element={<UpdateProfileReporter/>}></Route>
+            <Route path="UpdateProfile" element={<UpdateProfileReporter />}></Route>
+            <Route path="ReportHistory" element={<ReportHistoryReporter />}></Route>
 
           </Route>
 
+          {/* <Route path="/khuzaimah">
+            <Route index element={<Khuzaimah />}></Route>
+
+          </Route> */}
         </Routes>
       </Router>
 
