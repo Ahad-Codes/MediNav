@@ -17,6 +17,7 @@ import PendingRequestsHospital from './pages/PendingRequestsHospital';
 import ReportHistoryAdmin from './pages/ReportHistoryAdmin';
 import ManangeActiveReportersAdmin from './pages/ManageActiveReportersAdmin';
 import PendingRequestsPolice from './pages/PendingRequestsPolice';
+import ManageReporterRequestsAdmin from './pages/ManageReporterRequestsAdmin';
 // import Khuzaimah  from './pages/Reporter'
 
 
@@ -73,6 +74,7 @@ function App() {
           <Route path="/Admin">
             <Route path="ReportHistory" element={<ReportHistoryAdmin/>}></Route>
             <Route path="ManageActiveReporters" element={<ManangeActiveReportersAdmin/>}></Route>
+            <Route path="ManageReporterRequests" element={<ManageReporterRequestsAdmin/>}></Route>
           </Route>
 
           <Route path="/Police">
