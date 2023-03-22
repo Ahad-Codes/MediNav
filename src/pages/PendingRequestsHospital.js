@@ -15,40 +15,53 @@ export default function PendingRequestsHospital() {
                     <table className="table info_table table-borderless table-hover">
                         <thead>
                             <tr >
-                                <th scope="col">Date</th>
-                                <th scope="col">Time</th>
-                                <th scope="col">Incident Location</th>
-                                <th scope="col">Reported By</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Victims</th>
+                                <th scope="col">Nearest Landmark</th>
+                                <th scope="col">Additional Details</th>
+                                <th scope="col">Posted</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody >
                             {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
                             <tr className="table_row">
-                                <td>obj.date</td>
-                                <td>obj.time</td>
-                                <td>obj.name</td>
-                                <td>obj.reporter</td>
+                                <td className="non_button_item">obj.type</td>
+                                <td className="non_button_item">obj.victims</td>
+                                <td className="non_button_item">obj.nearest_landmark</td>
+                                <td className="non_button_item">obj.additional_details</td>
+                                <td className="non_button_item">obj.time</td>
                                 <td>
-                                    <button className="table_button Pending">Pending</button>
+                                    <div className="btn-group">
+                                        <button  className="btn button_left">Accept</button>
+                                        <button  className="btn button_right">Reject</button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr className="table_row">
-                                <td>obj.date</td>
-                                <td>obj.time</td>
-                                <td>obj.name</td>
-                                <td>obj.reporter</td>
+                            <td className="non_button_item">obj.type</td>
+                                <td className="non_button_item">obj.victims</td>
+                                <td className="non_button_item">obj.nearest_landmark</td>
+                                <td className="non_button_item">obj.additional_details</td>
+                                <td className="non_button_item">obj.time</td>
                                 <td>
-                                    <button className="table_button Rejected">Rejected</button>
+                                    <div className="btn-group">
+                                        <button  className="btn button_left">Accept</button>
+                                        <button  className="btn button_right">Reject</button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr className="table_row">
-                                <td>obj.date</td>
-                                <td>obj.time</td>
-                                <td>obj.name</td>
-                                <td>obj.reporter</td>
+                            <td className="non_button_item">obj.type</td>
+                                <td className="non_button_item">obj.victims</td>
+                                <td className="non_button_item">obj.nearest_landmark</td>
+                                <td className="non_button_item">obj.additional_details</td>
+                                <td className="non_button_item">obj.time</td>
                                 <td>
-                                    <button className="table_button Accepted">Accepted</button>
+                                    <div className="btn-group">
+                                        <button  className="btn button_left">Accept</button>
+                                        <button  className="btn button_right">Reject</button>
+                                    </div>
                                 </td>
                             </tr>
 
@@ -57,60 +70,6 @@ export default function PendingRequestsHospital() {
                 </div>
             </div>
         </div>
-        // <div className="PendingRequestsHospital">
 
-        //     <div className="main_box">
-        //         <div>
-        //             <div className="updateProfileHeading">
-        //                 <h1>Pending Requests</h1>
-        //             </div>
-        //             <div className="table_box">
-        //                 <table className="table info_table table-borderless table-hover">
-        //                     <thead>
-        //                         <tr >
-        //                             <th scope="col">Date</th>
-        //                             <th scope="col">Time</th>
-        //                             <th scope="col">Incident Location</th>
-        //                             <th scope="col">Reported By</th>
-        //                             <th scope="col"></th>
-        //                         </tr>
-        //                     </thead>
-        //                     <tbody >
-        //                         {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
-        //                         <tr className="table_row">
-        //                             <td>obj.date</td>
-        //                             <td>obj.time</td>
-        //                             <td>obj.name</td>
-        //                             <td>obj.reporter</td>
-        //                             <td>
-        //                                 <button className="table_button Pending">Pending</button>
-        //                             </td>
-        //                         </tr>
-        //                         <tr>
-        //                             <td>obj.date</td>
-        //                             <td>obj.time</td>
-        //                             <td>obj.name</td>
-        //                             <td>obj.reporter</td>
-        //                             <td>
-        //                                 <button className="table_button Rejected">Rejected</button>
-        //                             </td>
-        //                         </tr>
-        //                         <tr>
-        //                             <td>obj.date</td>
-        //                             <td>obj.time</td>
-        //                             <td>obj.name</td>
-        //                             <td>obj.reporter</td>
-        //                             <td>
-        //                                 <button className="table_button Accepted">Accepted</button>
-        //                             </td>
-        //                         </tr>
-
-        //                     </tbody>
-        //                 </table>
-        //             </div>
-
-        //         </div>
-        //     </div>
-        // </div>
     )
 }

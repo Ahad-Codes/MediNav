@@ -80,3 +80,23 @@
     border-top: 1px #EDD8F7 solid;
     
 }
+
+
+.PendingRequestsHospital .button_left{
+    background-color: #8705C3;
+    color: #EDD8F7;
+    font-weight: 600;
+    border-right: 2px solid #EDD8F7;
+}
+.PendingRequestsHospital .button_left:hover{
+    background-color: #61028d;
+}
+.PendingRequestsHospital .button_right{
+    background-color: #8705C3;
+    color: #EDD8F7;
+    font-weight: 600;
+    border-left: 2px solid #EDD8F7;
+}
+.PendingRequestsHospital .button_right:hover{
+    background-color: #61028d;
+}
