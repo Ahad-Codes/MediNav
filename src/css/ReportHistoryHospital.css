@@ -45,6 +45,7 @@
     display: flex; 
     justify-content: center;
     align-items: center;
+    
 }
 
 .ReportHistoryHospital .info_table{
@@ -77,6 +78,9 @@
 }
 
 .ReportHistoryHospital .table_row{
-    border-top: 1px #EDD8F7 solid;
-    
+    border-top: 1.5px #EDD8F7 solid;
+
+}
+.ReportHistoryHospital .non_button_item{
+    padding-top: 9.5px;
 }

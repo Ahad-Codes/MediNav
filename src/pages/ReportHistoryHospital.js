@@ -9,7 +9,7 @@ export default function ReportHistoryHospital() {
         <div className="ReportHistoryHospital">
             <div className="main_box">
                 <div className="updateProfileHeading">
-                    <h1>Pending Requests</h1>
+                    <h1>Report History</h1>
                 </div>
                 <div className="table_box">
                     <table className="table info_table table-borderless table-hover">
@@ -25,28 +25,28 @@ export default function ReportHistoryHospital() {
                         <tbody >
                             {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
                             <tr className="table_row">
-                                <td>obj.date</td>
-                                <td>obj.time</td>
-                                <td>obj.name</td>
-                                <td>obj.reporter</td>
+                                <td className="non_button_item">obj.date</td>
+                                <td className="non_button_item">obj.time</td>
+                                <td className="non_button_item">obj.name</td>
+                                <td className="non_button_item">obj.reporter</td>
                                 <td>
                                     <button className="table_button Pending">Pending</button>
                                 </td>
                             </tr>
                             <tr className="table_row">
-                                <td>obj.date</td>
-                                <td>obj.time</td>
-                                <td>obj.name</td>
-                                <td>obj.reporter</td>
+                                <td className="non_button_item">obj.date</td>
+                                <td className="non_button_item">obj.time</td>
+                                <td className="non_button_item">obj.name</td>
+                                <td className="non_button_item">obj.reporter</td>
                                 <td>
                                     <button className="table_button Rejected">Rejected</button>
                                 </td>
                             </tr>
                             <tr className="table_row">
-                                <td>obj.date</td>
-                                <td>obj.time</td>
-                                <td>obj.name</td>
-                                <td>obj.reporter</td>
+                                <td className="non_button_item">obj.date</td>
+                                <td className="non_button_item">obj.time</td>
+                                <td className="non_button_item">obj.name</td>
+                                <td className="non_button_item">obj.reporter</td>
                                 <td>
                                     <button className="table_button Accepted">Accepted</button>
                                 </td>
