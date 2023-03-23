@@ -18,6 +18,7 @@ import ReportHistoryAdmin from './pages/ReportHistoryAdmin';
 import ManangeActiveReportersAdmin from './pages/ManageActiveReportersAdmin';
 import PendingRequestsPolice from './pages/PendingRequestsPolice';
 import ManageReporterRequestsAdmin from './pages/ManageReporterRequestsAdmin';
+import ManageHospitalRequestsAdmin from './pages/ManageHospitalRequestsAdmin';
 // import Khuzaimah  from './pages/Reporter'
 
 
@@ -53,12 +54,13 @@ function App() {
             <Route index element={<LogIn />}></Route>
           </Route>
           <Route path="/SignUp">
-            {/* <Route index element={<LogIn />}></Route> */}
+            <Route index element={<SignUpReporter />}></Route>
             <Route path="Reporter" element={<SignUpReporter />}></Route>
             <Route path="Hospital" element={<SignUpHospital />}></Route>
           </Route>
 
           <Route path="/Hospital">
+            <Route index element={<PendingRequestsHospital/>}></Route>
             <Route path="UpdateProfile" element={<UpdateProfileHospital />}></Route>
             <Route path="ReportHistory" element={<ReportHistoryHospital />}></Route>
             <Route path="PendingRequests" element={<PendingRequestsHospital />}></Route>
@@ -72,9 +74,11 @@ function App() {
           </Route >
 
           <Route path="/Admin">
+            <Route index element={<ManageReporterRequestsAdmin/>}></Route>
             <Route path="ReportHistory" element={<ReportHistoryAdmin/>}></Route>
             <Route path="ManageActiveReporters" element={<ManangeActiveReportersAdmin/>}></Route>
             <Route path="ManageReporterRequests" element={<ManageReporterRequestsAdmin/>}></Route>
+            <Route path="ManageHospitalRequests" element={<ManageHospitalRequestsAdmin/>}></Route>
           </Route>
 
           <Route path="/Police">

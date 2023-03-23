@@ -86,7 +86,7 @@
     background-color: #8705C3;
     color: #EDD8F7;
     font-weight: 600;
-    border-right: 2px solid #EDD8F7;
+    border-right: 1px solid #EDD8F7;
 }
 .PendingRequestsHospital .button_left:hover{
     background-color: #61028d;
@@ -95,7 +95,7 @@
     background-color: #8705C3;
     color: #EDD8F7;
     font-weight: 600;
-    border-left: 2px solid #EDD8F7;
+    border-left: 1px solid #EDD8F7;
 }
 .PendingRequestsHospital .button_right:hover{
     background-color: #61028d;
