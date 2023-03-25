@@ -1,0 +1,57 @@
+.SignUpHospital .main_box{
+    background-image: url("../images/ambulance_login.jpg");
+    height: auto;
+    /* width: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+    
+}
+
+
+.SignUpHospital .form_box{
+    
+    text-align: left;
+    background-color: white;
+    width: 600px;
+    padding: 40px 30px;
+    padding-top: 0px;
+    border-radius: 13px;
+    
+}
+
+.SignUpHospital .form_box h3{
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.SignUpHospital .form_row{
+    padding:0px;
+    margin: 0px;
+}
+
+.SignUpHospital .bring_child_to_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SignUpHospital .button{
+    background-color: #7B0BB0;
+    color: white !important;
+    border-radius: 5px;
+    padding: 8px 90px;
+    border: none;
+    /* margin-top: 20px; */
+    margin-bottom: 10px;
+}
+
+
+.SignUpHospital .bring_link_to_center{
+    text-align: center;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    /* margin-top: 2px; */
+}
