@@ -21,13 +21,22 @@ export default function LogIn() {
         number,
         password,
       });
-      setCookies("access_token", response.data.token);
-      window.localStorage.setItem("userID", response.data.userID);
-      navigate(
-        response.data.type === "Hospital"
-          ? "/Hospital/UpdateProfile"
-          : "/Reporter/UpdateProfile"
-      );
+      if (response.data.message) {
+        alert(response.data.message);
+      } else {
+        setCookies("access_token", response.data.token);
+        window.localStorage.setItem("userID", response.data.userID);
+        window.localStorage.setItem("userType", response.data.type);
+        navigate(
+          response.data.type === "Hospital"
+            ? "/Hospital"
+            : response.data.type === "Warden"
+            ? "/Police"
+            : response.data.type === "Admin"
+            ? "/Admin"
+            : "/Reporter/UpdateProfile"
+        );
+      }
     } catch (error) {
       console.error(error);
     }

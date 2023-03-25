@@ -3,10 +3,10 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/SignUpReporter.css";
 
-export default function SignUpReporter() {
+export default function SignUpWarden() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
-  const [cnic, setCnic] = useState("");
+  const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,11 +15,11 @@ export default function SignUpReporter() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/user/signupRep", {
-        cnic,
-        number,
+      await axios.post("http://localhost:3001/user/signupWard", {
         name,
+        number,
         email,
+        address,
         password,
       });
       navigate("/Login");
@@ -67,16 +67,16 @@ export default function SignUpReporter() {
             </div>
             <div className="mb-3 form_row">
               <label for="exampleInputEmail1" className="form-label">
-                CNIC
+                Department Address
               </label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
                 id="exampleInputEmail1"
-                placeholder="3************"
-                value={cnic}
+                placeholder="Enter your address"
+                value={address}
                 onChange={(e) => {
-                  setCnic(e.target.value);
+                  setAddress(e.target.value);
                 }}
               />
             </div>
@@ -125,7 +125,7 @@ export default function SignUpReporter() {
             <Link to="/SignUp/Hospital">Sign Up as Hospital</Link>
           </p>
           <p className="bring_link_to_center">
-            <Link to="/SignUp/Warden">Sign Up as Warden</Link>
+            <Link to="/SignUp/Reporter">Sign Up as Reporter</Link>
           </p>
         </div>
       </div>
