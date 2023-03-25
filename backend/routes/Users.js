@@ -10,6 +10,12 @@ const AdminModel = require("../models/Admin");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
+router.get("/repList", (req, res) => {
+  ReporterModel.find({ approved: { $ne: 0, $ne: 3 } }).then(function (lists) {
+    res.json(lists);
+  });
+});
+
 router.get("/notApprovedRep", (req, res) => {
   ReporterModel.find({ approved: 0 }).then(function (lists) {
     res.json(lists);
@@ -31,6 +37,12 @@ router.post("/approveRep", async (req, res) => {
 router.post("/rejectRep", async (req, res) => {
   const { number } = req.body;
   await ReporterModel.updateOne({ number: number }, { approved: 3 });
+  res.json({ message: "User rejected" });
+});
+
+router.post("/blockRep", async (req, res) => {
+  const { number } = req.body;
+  await ReporterModel.updateOne({ number: number }, { approved: 5 });
   res.json({ message: "User rejected" });
 });
 
