@@ -11,6 +11,7 @@ export default function UpdateProfileReporter() {
   const logout = () => {
     setCookies("access_token", "");
     window.localStorage.removeItem("userID");
+    window.localStorage.removeItem("userType");
     navigate("/");
   };
 

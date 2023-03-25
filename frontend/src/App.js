@@ -18,6 +18,7 @@ import ManangeActiveReportersAdmin from "./pages/ManageActiveReportersAdmin";
 import PendingRequestsPolice from "./pages/PendingRequestsPolice";
 import ManageReporterRequestsAdmin from "./pages/ManageReporterRequestsAdmin";
 import ManageHospitalRequestsAdmin from "./pages/ManageHospitalRequestsAdmin";
+import SignUpWarden from "./pages/SignUpWarden";
 // import Khuzaimah  from './pages/Reporter'
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
             <Route index element={<SignUpReporter />}></Route>
             <Route path="Reporter" element={<SignUpReporter />}></Route>
             <Route path="Hospital" element={<SignUpHospital />}></Route>
+            <Route path="Warden" element={<SignUpWarden />}></Route>
           </Route>
 
           <Route path="/Hospital">
@@ -102,7 +104,6 @@ function App() {
               element={<ManageHospitalRequestsAdmin />}
             ></Route>
           </Route>
-
           <Route path="/Police">
             <Route index element={<PendingRequestsPolice />}></Route>
             <Route

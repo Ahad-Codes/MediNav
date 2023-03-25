@@ -1,22 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
 import "../css/UpdateProfileHospital.css";
 
 export default function UpdateProfileHospital() {
-  const [cookies, setCookies] = useCookies(["access_token"]);
-  const navigate = useNavigate();
-
-  const logout = () => {
-    setCookies("access_token", "");
-    window.localStorage.removeItem("userID");
-    navigate("/");
-  };
-
   return (
     <div className="UpdateProfileHospital">
-      <button onClick={logout}>Logout</button>
       <div className="main_box">
         <div>
           <div className="updateProfileHeading">

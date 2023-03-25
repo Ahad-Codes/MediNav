@@ -1,6 +1,6 @@
 .SignUpReporter .main_box{
     background-image: url("../images/ambulance_login.jpg");
-    height: 100vh;
+    height: auto;
     /* width: 100vh; */
     display: flex;
     justify-content: center;

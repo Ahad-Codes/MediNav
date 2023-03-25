@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const ReporterModel = require("../models/Reporter");
 const HospitalModel = require("../models/Hospital");
+const WardenModel = require("../models/Warden");
+const AdminModel = require("../models/Admin");
+
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -79,22 +82,61 @@ router.post("/signupHosp", async (req, res) => {
   res.json({ message: "User Registered Succesfully" });
 });
 
+router.post("/signupWard", async (req, res) => {
+  const { name, number, email, address, password } = req.body;
+  const fetchUserHosp = await HospitalModel.findOne({
+    $or: [{ email: email }, { p_number: number }],
+  });
+  const fetchUserRep = await ReporterModel.findOne({
+    $or: [{ email: email }, { number: number }],
+  });
+  const fetchUserWard = await WardenModel.findOne({
+    $or: [{ email: email }, { number: number }],
+  });
+  if (fetchUserHosp || fetchUserRep || fetchUserWard) {
+    res.json({ message: "A user with this email or number already exists" });
+    return;
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const newUser = new WardenModel({
+    number,
+    name,
+    email,
+    address,
+    password: hashedPassword,
+  });
+  await newUser.save();
+
+  res.json({ message: "User Registered Succesfully" });
+});
+
 router.post("/login", async (req, res) => {
   const { number, password } = req.body;
   const fetchUserRep = await ReporterModel.findOne({ number: number });
   const fetchUserHosp = await HospitalModel.findOne({ p_number: number });
+  const fetchUserWard = await WardenModel.findOne({ number: number });
+  const fetchUserAdmin = await AdminModel.findOne({ number: number });
 
-  if (!fetchUserRep && !fetchUserHosp) {
+  if (!fetchUserRep && !fetchUserHosp && !fetchUserWard && !fetchUserAdmin) {
     res.json({ message: "No such user exists" });
     return;
   }
 
   let fetchUser = fetchUserRep;
+  if (fetchUserAdmin) {
+    fetchUser = fetchUserAdmin;
+  }
   if (fetchUserHosp) {
     fetchUser = fetchUserHosp;
   }
+  if (fetchUserWard) {
+    fetchUser = fetchUserWard;
+  }
 
-  const isValid = await bcrypt.compare(password, fetchUser.password);
+  const isValid = fetchUserAdmin
+    ? password === fetchUser.password
+    : await bcrypt.compare(password, fetchUser.password);
   if (!isValid) {
     return res.json({ message: "Incorrect Password" });
   }
@@ -103,7 +145,13 @@ router.post("/login", async (req, res) => {
   res.json({
     token,
     userID: fetchUser._id,
-    type: fetchUserHosp ? "Hospital" : "Reporter",
+    type: fetchUserHosp
+      ? "Hospital"
+      : fetchUserWard
+      ? "Warden"
+      : fetchUserAdmin
+      ? "Admin"
+      : "Reporter",
   });
 });
 

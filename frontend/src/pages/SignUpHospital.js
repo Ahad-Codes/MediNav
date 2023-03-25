@@ -185,6 +185,9 @@ export default function SignUpHospital() {
           <p className="bring_link_to_center">
             <Link to="/SignUp/Reporter">Sign up as Reporter</Link>
           </p>
+          <p className="bring_link_to_center">
+            <Link to="/SignUp/Warden">Sign up as Warden</Link>
+          </p>
         </div>
       </div>
     </div>
