@@ -14,6 +14,14 @@ router.get("/userlist", (req, res) => {
 
 router.post("/signup", async (req, res) => {
   const { cnic, number, name, email, password } = req.body;
+  const fetchUser = await UserModel.findOne({
+    $or: [{ email: email }, { number: number }],
+  });
+  if (fetchUser) {
+    res.json({ message: "A user with this email or password already exists" });
+    return;
+  }
+
   const hashedPassword = await bcrypt.hash(password, 10);
   const newUser = new UserModel({
     cnic,
@@ -29,7 +37,6 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const { number, password } = req.body;
-  // console.log(number);
   const fetchUser = await UserModel.findOne({ number: number });
   if (!fetchUser) {
     res.json({ message: "No such user exists" });
@@ -43,13 +50,6 @@ router.post("/login", async (req, res) => {
 
   const token = jwt.sign({ id: fetchUser._id }, "secret");
   res.json({ token, userID: fetchUser._id });
-
-  // if (fetchUser.password == password) {
-  //   res.json("Success");
-  //   return;
-  // } else {
-  //   res.json("Incorrect Password");
-  // }
 });
 
 module.exports = router;
