@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require("mongoose");
 const router = express.Router();
 const UserModel = require("../models/Users");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 router.get("/userlist", (req, res) => {
   UserModel.find().then(function (lists) {
@@ -11,27 +13,43 @@ router.get("/userlist", (req, res) => {
 });
 
 router.post("/signup", async (req, res) => {
-  const user = req.body;
-  const newUser = new UserModel(user);
+  const { cnic, number, name, email, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const newUser = new UserModel({
+    cnic,
+    number,
+    name,
+    email,
+    password: hashedPassword,
+  });
   await newUser.save();
 
-  res.json(user);
+  res.json({ message: "User Registered Succesfully" });
 });
 
-router.get("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   const { number, password } = req.body;
   // console.log(number);
   const fetchUser = await UserModel.findOne({ number: number });
-  if (fetchUser == null) {
-    res.json("No such user exists");
+  if (!fetchUser) {
+    res.json({ message: "No such user exists" });
     return;
   }
-  if (fetchUser.password == password) {
-    res.json("Success");
-    return;
-  } else {
-    res.json("Incorrect Password");
+
+  const isValid = await bcrypt.compare(password, fetchUser.password);
+  if (!isValid) {
+    return res.json({ message: "Incorrect Password" });
   }
+
+  const token = jwt.sign({ id: fetchUser._id }, "secret");
+  res.json({ token, userID: fetchUser._id });
+
+  // if (fetchUser.password == password) {
+  //   res.json("Success");
+  //   return;
+  // } else {
+  //   res.json("Incorrect Password");
+  // }
 });
 
 module.exports = router;
