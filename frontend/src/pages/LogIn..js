@@ -23,7 +23,11 @@ export default function LogIn() {
       });
       setCookies("access_token", response.data.token);
       window.localStorage.setItem("userID", response.data.userID);
-      navigate("/Reporter");
+      navigate(
+        response.data.type === "Hospital"
+          ? "/Hospital/UpdateProfile"
+          : "/Reporter/UpdateProfile"
+      );
     } catch (error) {
       console.error(error);
     }

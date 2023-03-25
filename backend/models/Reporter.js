@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const UsersSchema = new mongoose.Schema({
+const ReportersSchema = new mongoose.Schema({
   cnic: {
     type: String,
     required: true,
@@ -25,5 +25,5 @@ const UsersSchema = new mongoose.Schema({
   },
 });
 
-const UserModel = mongoose.model("users", UsersSchema);
-module.exports = UserModel;
+const ReporterModel = mongoose.model("reporters", ReportersSchema);
+module.exports = ReporterModel;

@@ -15,7 +15,7 @@ export default function SignUpReporter() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/user/signup", {
+      await axios.post("http://localhost:3001/user/signupRep", {
         cnic,
         number,
         name,
