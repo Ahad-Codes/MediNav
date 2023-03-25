@@ -7,26 +7,20 @@ export default function SignUpReporter() {
 
     return (
 
-        
+
         <div className="UpdateProfile">
 
 
             <div className="main_box">
 
-            <div className="mainUpdatebox">
-                
+                <div className="mainUpdatebox">
+
                 <div className="updateText">Update Profile</div>
-                
-                
-                
                 </div>
 
 
                 <div className="form_box">
                     <Link to="/">back</Link>
-                    
-                    
-
 
 
                     <form>
@@ -38,7 +32,7 @@ export default function SignUpReporter() {
                             <label for="exampleInputEmail1" className="form-label">Contact Number</label>
                             <input type="number" className="form-control" id="exampleInputEmail1" placeholder="03XXXXXXXXX" />
                         </div>
-                   
+
 
                         <div className="mb-3 form_row">
                             <label for="exampleInputPassword1" className="form-label">New Password</label>
@@ -56,7 +50,7 @@ export default function SignUpReporter() {
                         </div>
 
 
-                        
+
 
                         <div className="bring_child_to_center">
                             <button type="submit" className="btn btn-primary button">Update Details</button>
@@ -72,7 +66,7 @@ export default function SignUpReporter() {
 
 
 
-               </div>
+                </div>
 
 
             </div>

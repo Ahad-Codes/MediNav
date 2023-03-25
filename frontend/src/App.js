@@ -19,6 +19,7 @@ import PendingRequestsPolice from "./pages/PendingRequestsPolice";
 import ManageReporterRequestsAdmin from "./pages/ManageReporterRequestsAdmin";
 import ManageHospitalRequestsAdmin from "./pages/ManageHospitalRequestsAdmin";
 import SignUpWarden from "./pages/SignUpWarden";
+import TempDashboard from "./pages/RepoterDashboard";
 // import Khuzaimah  from './pages/Reporter'
 
 function App() {
@@ -73,6 +74,12 @@ function App() {
               element={<PendingRequestsHospital />}
             ></Route>
           </Route>
+
+          <Route
+              path="/TempDashboard"
+              element={<TempDashboard />}
+            ></Route>
+
 
           <Route path="/Reporter">
             <Route
