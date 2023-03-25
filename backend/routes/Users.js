@@ -10,11 +10,41 @@ const AdminModel = require("../models/Admin");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-// router.get("/userlist", (req, res) => {
-//   UserModel.find().then(function (lists) {
-//     res.json(lists);
-//   });
-// });
+router.get("/notApprovedRep", (req, res) => {
+  ReporterModel.find({ approved: 0 }).then(function (lists) {
+    res.json(lists);
+  });
+});
+
+router.get("/notApprovedHosp", (req, res) => {
+  HospitalModel.find({ approved: 0 }).then(function (lists) {
+    res.json(lists);
+  });
+});
+
+router.post("/approveRep", async (req, res) => {
+  const { number } = req.body;
+  await ReporterModel.updateOne({ number: number }, { approved: 1 });
+  res.json({ message: "User approved" });
+});
+
+router.post("/rejectRep", async (req, res) => {
+  const { number } = req.body;
+  await ReporterModel.updateOne({ number: number }, { approved: 3 });
+  res.json({ message: "User rejected" });
+});
+
+router.post("/approveHosp", async (req, res) => {
+  const { number } = req.body;
+  await HospitalModel.updateOne({ p_number: number }, { approved: 1 });
+  res.json({ message: "User approved" });
+});
+
+router.post("/rejectHosp", async (req, res) => {
+  const { number } = req.body;
+  await HospitalModel.updateOne({ p_number: number }, { approved: 3 });
+  res.json({ message: "User rejected" });
+});
 
 router.post("/signupRep", async (req, res) => {
   const { cnic, number, name, email, password } = req.body;
@@ -36,6 +66,7 @@ router.post("/signupRep", async (req, res) => {
     name,
     email,
     password: hashedPassword,
+    approved: 0,
   });
   await newUser.save();
 
@@ -76,6 +107,7 @@ router.post("/signupHosp", async (req, res) => {
     s_number,
     doctors,
     ambulances,
+    approved: 0,
   });
   await newUser.save();
 
@@ -139,6 +171,17 @@ router.post("/login", async (req, res) => {
     : await bcrypt.compare(password, fetchUser.password);
   if (!isValid) {
     return res.json({ message: "Incorrect Password" });
+  }
+
+  if (fetchUserRep) {
+    if (fetchUserRep.approved !== 1) {
+      return res.json({ message: "User not approved" });
+    }
+  }
+  if (fetchUserHosp) {
+    if (fetchUserHosp.approved !== 1) {
+      return res.json({ message: "User not approved" });
+    }
   }
 
   const token = jwt.sign({ id: fetchUser._id }, "secret");

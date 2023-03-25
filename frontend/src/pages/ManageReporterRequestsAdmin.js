@@ -6,6 +6,8 @@ import "../css/ManageReporterRequestsAdmin.css";
 
 export default function ManageReporterRequestsAdmin() {
   const [cookies, setCookies] = useCookies(["access_token"]);
+  const [notApprovedList, setNotApprovedList] = useState([]);
+
   const navigate = useNavigate();
 
   const logout = () => {
@@ -14,6 +16,44 @@ export default function ManageReporterRequestsAdmin() {
     window.localStorage.removeItem("userType");
     navigate("/");
   };
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3001/user/notApprovedRep"
+        );
+        setNotApprovedList(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
+  const approveHandler = async (number) => {
+    try {
+      await axios.post(`http://localhost:3001/user/approveRep`, { number });
+      const response = await axios.get(
+        "http://localhost:3001/user/notApprovedRep"
+      );
+      setNotApprovedList(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const rejectHandler = async (number) => {
+    try {
+      await axios.post(`http://localhost:3001/user/rejectRep`, { number });
+      const response = await axios.get(
+        "http://localhost:3001/user/notApprovedRep"
+      );
+      setNotApprovedList(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="ManageReporterRequestsAdmin">
       <button onClick={logout}>Logout</button>
@@ -47,42 +87,31 @@ export default function ManageReporterRequestsAdmin() {
             </thead>
             <tbody>
               {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
-              <tr className="table_row">
-                <td className="non_button_item">obj.name</td>
-                <td className="non_button_item">obj.email</td>
-                <td className="non_button_item">obj.cnic</td>
-                <td className="non_button_item">obj.phone_number</td>
-                <td>
-                  <div className="btn-group">
-                    <button className="btn button_left">Accept</button>
-                    <button className="btn button_right">Reject</button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="table_row">
-                <td className="non_button_item">obj.name</td>
-                <td className="non_button_item">obj.email</td>
-                <td className="non_button_item">obj.cnic</td>
-                <td className="non_button_item">obj.phone_number</td>
-                <td>
-                  <div className="btn-group">
-                    <button className="btn button_left">Accept</button>
-                    <button className="btn button_right">Reject</button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="table_row">
-                <td className="non_button_item">obj.name</td>
-                <td className="non_button_item">obj.email</td>
-                <td className="non_button_item">obj.cnic</td>
-                <td className="non_button_item">obj.phone_number</td>
-                <td>
-                  <div className="btn-group">
-                    <button className="btn button_left">Accept</button>
-                    <button className="btn button_right">Reject</button>
-                  </div>
-                </td>
-              </tr>
+              {notApprovedList.length > 0 &&
+                notApprovedList.map((obj) => (
+                  <tr key={obj.id} className="table_row">
+                    <td className="non_button_item">{obj.name}</td>
+                    <td className="non_button_item">{obj.email}</td>
+                    <td className="non_button_item">{obj.cnic}</td>
+                    <td className="non_button_item">{obj.number}</td>
+                    <td>
+                      <div className="btn-group">
+                        <button
+                          className="btn button_left"
+                          onClick={() => approveHandler(obj.number)}
+                        >
+                          Accept
+                        </button>
+                        <button
+                          className="btn button_right"
+                          onClick={() => rejectHandler(obj.number)}
+                        >
+                          Reject
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

@@ -39,6 +39,10 @@ const HospitalsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  approved: {
+    type: Number,
+    required: true,
+  },
 });
 
 const HospitalModel = mongoose.model("hospitals", HospitalsSchema);

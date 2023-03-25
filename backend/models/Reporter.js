@@ -23,6 +23,10 @@ const ReportersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  approved: {
+    type: Number,
+    required: true,
+  },
 });
 
 const ReporterModel = mongoose.model("reporters", ReportersSchema);
