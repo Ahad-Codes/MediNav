@@ -1,0 +1,102 @@
+
+.PendingRequestsHospital{
+    background-image: url("../images/update_bg.jpg");
+    height: 100vh;
+    /* width: 100%; */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: row  !important; */
+    /* border: 2px solid red; */
+
+    
+    
+}
+
+.PendingRequestsHospital .main_box{
+    width: 90%;
+    height: fit-content;
+
+   
+}
+
+.PendingRequestsHospital .updateProfileHeading{
+    background-color:#7c0bb07f;
+    color: white;
+    border-radius: 13px;
+    padding: 2px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
+.PendingRequestsHospital .table_box{
+    background-color: #F4FCFF !important;
+    min-width: fit-content;
+    width: 100%;
+    height:fit-content;
+    /* border: 2px solid red; */
+    /* height: fit-content; */
+    /* padding: 40px 30px;s */
+    /* padding-top: 0px; */
+    border-radius: 13px;
+    /* border: none !important; */
+
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.PendingRequestsHospital .info_table{
+    
+    width: 95%;
+    
+    
+}
+
+.PendingRequestsHospital .table_button{
+    
+    color: white;
+    font-weight: 500;
+    border-radius: 12px;
+    width: 85px;
+    height: 30px;
+    border: none;
+}
+
+.PendingRequestsHospital .Accepted{
+    background-color: #38D063;
+}
+
+.PendingRequestsHospital .Rejected{
+    background-color: #DE3A3A;
+}
+
+.PendingRequestsHospital .Pending{
+    background-color: #BCB6BE;
+}
+
+.PendingRequestsHospital .table_row{
+    border-top: 1px #EDD8F7 solid;
+    
+}
+
+
+.PendingRequestsHospital .button_left{
+    background-color: #8705C3;
+    color: #EDD8F7;
+    font-weight: 600;
+    border-right: 1px solid #EDD8F7;
+}
+.PendingRequestsHospital .button_left:hover{
+    background-color: #61028d;
+}
+.PendingRequestsHospital .button_right{
+    background-color: #8705C3;
+    color: #EDD8F7;
+    font-weight: 600;
+    border-left: 1px solid #EDD8F7;
+}
+.PendingRequestsHospital .button_right:hover{
+    background-color: #61028d;
+}
