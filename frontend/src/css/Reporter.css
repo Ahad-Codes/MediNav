@@ -1,4 +1,4 @@
-.LandingPage .nav_bar_button{
+.nav_bar_button{
     border: none;
     background-color: #7B0BB0 !important;
     color: white;
@@ -9,48 +9,43 @@
 
 
 
-.LandingPage .main_page{
+.main_page_2{
     height: fit-content;
     /* width: 1600x; */
     /* border: 2px; */
-    background-image: url("../images/landing_ambulance.jpg");
+    background-image: url("../images/ambulance_reporter.jpg");
     padding-top: 190px;
     padding-bottom: 5px;
 }
 
 
-.LandingPage .image_box{
+.image_box{
     width: 100vh;
     
     /* height: 108; */
 }
 
-.LandingPage .heading_box{
+.heading_box{
     text-align: left;
     padding-left: 30px;
     color: white;
 }
 
-.LandingPage #main_heading{
-    font-size: 80px;
-    text-align: left;
-}
-.LandingPage #guaranteed{
-    font-size: 80px;
-    text-align: left;
-    font-weight:645;
-    letter-spacing: 8px;
-    /* width: 100; */
+#main_heading_2{
+    height: 80px;
+    background-color: #7B0BB0;
+    font-size: 60px;
+    text-align:center;
 }
 
-.LandingPage #main_text{
+#main_text{
     margin-top: 80px;
     font-size: 25px;
     font-weight: 700px !important;
     color: white;
     /* background-color: #9e13de5f; */
 }
-.LandingPage .text_box{
+.text_box{
     /* padding-left: 4; */
     width: 500px;
     background-image: radial-gradient(#9e13de5f,#9e13de1d, rgba(0, 128, 0, 0));
@@ -59,13 +54,14 @@
 
 }
 
-.LandingPage .partner_boxes{
+.partner_boxes_2{
     margin-top: 160px;
-    color: white;
+    background-color: rgb(215, 215, 215);
+    color:black;
     margin-bottom: 80px;
 }
 
-.LandingPage .button{
+.button{
     background-color: #7B0BB0;
     color: white !important;
     border-radius: 5px;
@@ -74,24 +70,14 @@
     margin-top: 20px;
 }
 
-.LandingPage .button h1{
+.button h1{
     font-size: 18px;
     font-weight: 800px !important;
     color: white !important;
     letter-spacing: normal !important;
 }
 
+th {
+    padding-inline: 100px;
 
-.LandingPage #mission_statement_box  {
-    text-align: left;
-    /* color: red; */
-    padding: 120px 60px;
-}
-.LandingPage #mission_statement_box h1{
-    color: #7B0BB0;
-    letter-spacing: 5px;
-}
-
-.LandingPage #mission_statement_box p{
-    font-size: 22px;
-}
+  }

@@ -7,7 +7,19 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 import LandingPage from './pages/LandingPage';
 import LogIn from './pages/LogIn.';
-
+import SignUpReporter from './pages/SignUpReporter';
+import SignUpHospital from './pages/SignUpHospital';
+import UpdateProfileHospital from './pages/UpdateProfileHospital';
+import UpdateProfileReporter from './pages/UpdateProfileReporter';
+import ReportHistoryReporter from './pages/ReportHistoryReporter';
+import ReportHistoryHospital from './pages/ReportHistoryHospital';
+import PendingRequestsHospital from './pages/PendingRequestsHospital';
+import ReportHistoryAdmin from './pages/ReportHistoryAdmin';
+import ManangeActiveReportersAdmin from './pages/ManageActiveReportersAdmin';
+import PendingRequestsPolice from './pages/PendingRequestsPolice';
+import ManageReporterRequestsAdmin from './pages/ManageReporterRequestsAdmin';
+import ManageHospitalRequestsAdmin from './pages/ManageHospitalRequestsAdmin';
+// import Khuzaimah  from './pages/Reporter'
 
 
 
@@ -35,10 +47,49 @@ function App() {
           <Route path="/">
             <Route index element={<LandingPage />}></Route>
           </Route>
-          <Route path="/logIn">
+          <Route path="/LogIn">
             <Route index element={<LogIn />}></Route>
           </Route>
+          <Route path="/LogIn">
+            <Route index element={<LogIn />}></Route>
+          </Route>
+          <Route path="/SignUp">
+            <Route index element={<SignUpReporter />}></Route>
+            <Route path="Reporter" element={<SignUpReporter />}></Route>
+            <Route path="Hospital" element={<SignUpHospital />}></Route>
+          </Route>
 
+          <Route path="/Hospital">
+            <Route index element={<PendingRequestsHospital/>}></Route>
+            <Route path="UpdateProfile" element={<UpdateProfileHospital />}></Route>
+            <Route path="ReportHistory" element={<ReportHistoryHospital />}></Route>
+            <Route path="PendingRequests" element={<PendingRequestsHospital />}></Route>
+
+          </Route>
+
+          <Route path="/Reporter">
+            <Route path="UpdateProfile" element={<UpdateProfileReporter />}></Route>
+            <Route path="ReportHistory" element={<ReportHistoryReporter />}></Route>
+
+          </Route >
+
+          <Route path="/Admin">
+            <Route index element={<ManageReporterRequestsAdmin/>}></Route>
+            <Route path="ReportHistory" element={<ReportHistoryAdmin/>}></Route>
+            <Route path="ManageActiveReporters" element={<ManangeActiveReportersAdmin/>}></Route>
+            <Route path="ManageReporterRequests" element={<ManageReporterRequestsAdmin/>}></Route>
+            <Route path="ManageHospitalRequests" element={<ManageHospitalRequestsAdmin/>}></Route>
+          </Route>
+
+          <Route path="/Police">
+            <Route index element={<PendingRequestsPolice/>}></Route>
+            <Route path="PendingRequests" element={<PendingRequestsPolice/>}></Route>
+          </Route>
+
+          {/* <Route path="/khuzaimah">
+            <Route index element={<Khuzaimah />}></Route>
+
+          </Route> */}
         </Routes>
       </Router>
 
