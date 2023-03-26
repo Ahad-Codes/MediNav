@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 import "../css/TempDashboard.css"
 
 export default function TempDashboard() {
