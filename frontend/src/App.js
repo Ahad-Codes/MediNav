@@ -19,7 +19,7 @@ import PendingRequestsPolice from "./pages/PendingRequestsPolice";
 import ManageReporterRequestsAdmin from "./pages/ManageReporterRequestsAdmin";
 import ManageHospitalRequestsAdmin from "./pages/ManageHospitalRequestsAdmin";
 import SignUpWarden from "./pages/SignUpWarden";
-import ReporterDashboard from "./pages/RepoterDashboard";
+import ReporterDashboard from "./pages/ReporterDashboard";
 import ViewBroadcasts from "./pages/ViewBroadcasts";
 import ViewHospitals from "./pages/ViewHospitals";
 
