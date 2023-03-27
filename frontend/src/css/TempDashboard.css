@@ -70,6 +70,16 @@
     border: none;
 }
 
+.MainDashboard .button{
+    background-color: #7B0BB0;
+    color: white !important;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
 .MainDashboard .Accepted{
     background-color: #38D063;
 }
