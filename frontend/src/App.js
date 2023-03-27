@@ -20,6 +20,8 @@ import ManageReporterRequestsAdmin from "./pages/ManageReporterRequestsAdmin";
 import ManageHospitalRequestsAdmin from "./pages/ManageHospitalRequestsAdmin";
 import SignUpWarden from "./pages/SignUpWarden";
 import ReporterDashboard from "./pages/RepoterDashboard";
+import ViewBroadcasts from "./pages/ViewBroadcasts";
+import ViewHospitals from "./pages/ViewHospitals";
 
 
 function App() {
@@ -84,6 +86,14 @@ function App() {
             <Route
               path="ReportHistory"
               element={<ReportHistoryReporter />}
+            ></Route>
+            <Route
+              path="ViewBroadcasts"
+              element={<ViewBroadcasts />}
+            ></Route>
+            <Route
+              path="ViewHospitals"
+              element={<ViewHospitals />}
             ></Route>
           </Route>
 
