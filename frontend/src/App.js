@@ -19,8 +19,8 @@ import PendingRequestsPolice from "./pages/PendingRequestsPolice";
 import ManageReporterRequestsAdmin from "./pages/ManageReporterRequestsAdmin";
 import ManageHospitalRequestsAdmin from "./pages/ManageHospitalRequestsAdmin";
 import SignUpWarden from "./pages/SignUpWarden";
-import TempDashboard from "./pages/RepoterDashboard";
-// import Khuzaimah  from './pages/Reporter'
+import ReporterDashboard from "./pages/RepoterDashboard";
+
 
 function App() {
   return (
@@ -76,6 +76,7 @@ function App() {
           </Route>
 
           <Route path="/Reporter">
+            <Route index element={<ReporterDashboard />}></Route>
             <Route
               path="UpdateProfile"
               element={<UpdateProfileReporter />}
@@ -86,10 +87,6 @@ function App() {
             ></Route>
           </Route>
 
-          <Route
-              path="/TempDashboard"
-              element={<TempDashboard />}
-            ></Route>
 
           <Route path="/Admin">
             <Route index element={<ManageReporterRequestsAdmin />}></Route>
@@ -117,11 +114,7 @@ function App() {
               element={<PendingRequestsPolice />}
             ></Route>
           </Route>
-
-          {/* <Route path="/khuzaimah">
-            <Route index element={<Khuzaimah />}></Route>
-
-          </Route> */}
+          
         </Routes>
       </Router>
     </div>
