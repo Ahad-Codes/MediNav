@@ -217,7 +217,7 @@ router.post("/login", async (req, res) => {
 // this method will return all the pending open requests for the police
 router.get('/policePending', async (req, res) => {
   try {
-    const reports = await Report.find({ status: 'open' })
+    const reports = await Report.find({ status: 'accepted_hospital' })
       .sort({ createdAt: -1 })
       .exec();
     res.json(reports);
@@ -231,7 +231,7 @@ router.put("/policePendingAccepted/:id", async (req, res) => {
   try {
     const report = await Report.findByIdAndUpdate(
       req.params.id,
-      { status: "closed" },
+      { status: "accepted_police" },
       { new: true }
     );
     res.send(report);
@@ -255,5 +255,54 @@ router.put("/policePendingRejected/:id", async (req, res) => {
     res.status(500).send("Internal server error");
   }
 });
+
+
+
+
+router.get('/hospitalPending', async (req, res) => {
+  try {
+    const reports = await Report.find({ status: 'open' })
+      .sort({ createdAt: -1 })
+      .exec();
+    res.json(reports);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+// this is will process the accept and rejects from the hospitals
+router.put("/hospitalPendingAccepted/:id", async (req, res) => {
+  try {
+    const report = await Report.findByIdAndUpdate(
+      req.params.id,
+      { status: "accepted_hospital" },
+      { new: true }
+    );
+    res.send(report);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal server error");
+  }
+});
+
+// Update report status to rejected
+router.put("/hospitalPendingRejected/:id", async (req, res) => {
+  try {
+    const report = await Report.findByIdAndUpdate(
+      req.params.id,
+      { status: "rejected" },
+      { new: true }
+    );
+    res.send(report);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal server error");
+  }
+});
+
+// reporter : report history
+
+
+
 
 module.exports = router;

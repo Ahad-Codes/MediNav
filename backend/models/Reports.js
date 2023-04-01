@@ -37,7 +37,7 @@ const reportSchema = new mongoose.Schema({
     },
     status: {
       type: String,
-      enum: ['open', 'accepted', 'rejected'],
+      enum: ['open', 'accepted_hospital', 'rejected', "accepted_police"],
       required: true
     },
     createdAt: {

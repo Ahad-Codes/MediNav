@@ -47,7 +47,7 @@ export default function PendingRequestsPolice() {
   const handleReject = async (reportID) => {
     try {
       const response = await axios.put(
-        `http://localhost:3001/reports/policePendingRejected/${reportID}`,
+        `http://localhost:3001/user/policePendingRejected/${reportID}`,
         { status: "rejected" }
       );
       console.log(response.data);

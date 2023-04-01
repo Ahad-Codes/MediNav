@@ -1,23 +1,47 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
 import "../css/PendingRequestsHospital.css";
 
 export default function PendingRequestsHospital() {
-  const [cookies, setCookies] = useCookies(["access_token"]);
-  const navigate = useNavigate();
+  const [requests, setRequests] = useState([]);
 
+  useEffect(() => {
+    const fetchRequests = async () => {
+      const res = await axios.get("http://localhost:3001/user/hospitalPending");
+      setRequests(res.data);
+    };
+    fetchRequests();
+  }, []);
 
-  const logout = () => {
-    setCookies("access_token", "");
-    window.localStorage.removeItem("userID");
-    window.localStorage.removeItem("userType");
-    navigate("/");
+  const acceptRequest = async (id) => {
+    try {
+      const res = await axios.put(`http://localhost:3001/user/hospitalPendingAccepted/${id}`);
+      setRequests((prevRequests) =>
+        prevRequests.filter((request) => request._id !== id)
+      );
+     
+    } catch (error) {
+      console.error(error);
+    
+    }
   };
+
+  const rejectRequest = async (id) => {
+    try {
+      const res = await axios.put(`http://localhost:3001/user/hospitalPendingRejected/${id}`);
+      setRequests((prevRequests) =>
+        prevRequests.filter((request) => request._id !== id)
+      );
+     
+    } catch (error) {
+      console.error(error);
+     
+    }
+  };
+
   return (
     <div className="PendingRequestsHospital">
-      <button onClick={logout}>Logout</button>
       <div className="main_box">
         <div className="updateProfileHeading">
           <h1>Pending Requests</h1>
@@ -35,46 +59,21 @@ export default function PendingRequestsHospital() {
               </tr>
             </thead>
             <tbody>
-              {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
-              <tr className="table_row">
-                <td className="non_button_item">obj.type</td>
-                <td className="non_button_item">obj.victims</td>
-                <td className="non_button_item">obj.nearest_landmark</td>
-                <td className="non_button_item">obj.additional_details</td>
-                <td className="non_button_item">obj.time</td>
-                <td>
-                  <div className="btn-group">
-                    <button className="btn button_left">Accept</button>
-                    <button className="btn button_right">Reject</button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="table_row">
-                <td className="non_button_item">obj.type</td>
-                <td className="non_button_item">obj.victims</td>
-                <td className="non_button_item">obj.nearest_landmark</td>
-                <td className="non_button_item">obj.additional_details</td>
-                <td className="non_button_item">obj.time</td>
-                <td>
-                  <div className="btn-group">
-                    <button className="btn button_left">Accept</button>
-                    <button className="btn button_right">Reject</button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="table_row">
-                <td className="non_button_item">obj.type</td>
-                <td className="non_button_item">obj.victims</td>
-                <td className="non_button_item">obj.nearest_landmark</td>
-                <td className="non_button_item">obj.additional_details</td>
-                <td className="non_button_item">obj.time</td>
-                <td>
-                  <div className="btn-group">
-                    <button className="btn button_left">Accept</button>
-                    <button className="btn button_right">Reject</button>
-                  </div>
-                </td>
-              </tr>
+              {requests.map((request) => (
+                <tr key={request._id} className="table_row">
+                  <td className="non_button_item">{request.title}</td>
+                  <td className="non_button_item">{0}</td>
+                  <td className="non_button_item">{"-"}</td>
+                  <td className="non_button_item">{request.description}</td>
+                  <td className="non_button_item">{request.createdAt}</td>
+                  <td>
+                    <div className="btn-group">
+                      <button className="btn button_left" onClick={() => acceptRequest(request._id)}>Accept</button>
+                      <button className="btn button_right" onClick={() => rejectRequest(request._id)}>Reject</button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
