@@ -8,6 +8,7 @@ export default function PendingRequestsHospital() {
   const [cookies, setCookies] = useCookies(["access_token"]);
   const navigate = useNavigate();
 
+
   const logout = () => {
     setCookies("access_token", "");
     window.localStorage.removeItem("userID");

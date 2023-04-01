@@ -2,13 +2,16 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const router = express.Router();
+// importing mongo models
 const ReporterModel = require("../models/Reporter");
 const HospitalModel = require("../models/Hospital");
 const WardenModel = require("../models/Warden");
 const AdminModel = require("../models/Admin");
+const Report = require("../models/Reports");
+
 
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 router.get("/repList", (req, res) => {
   ReporterModel.find({ approved: { $ne: 0, $ne: 3 } }).then(function (lists) {
@@ -81,7 +84,6 @@ router.post("/signupRep", async (req, res) => {
     approved: 0,
   });
   await newUser.save();
-
   res.json({ message: "User Registered Succesfully" });
 });
 
@@ -195,7 +197,6 @@ router.post("/login", async (req, res) => {
       return res.json({ message: "User not approved" });
     }
   }
-
   const token = jwt.sign({ id: fetchUser._id }, "secret");
   res.json({
     token,
@@ -208,6 +209,51 @@ router.post("/login", async (req, res) => {
       ? "Admin"
       : "Reporter",
   });
+});
+
+
+// moving on to the lists part where we have to show the lists to the actors
+
+// this method will return all the pending open requests for the police
+router.get('/policePending', async (req, res) => {
+  try {
+    const reports = await Report.find({ status: 'open' })
+      .sort({ createdAt: -1 })
+      .exec();
+    res.json(reports);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+// this function will accept and reject the requests from the police end
+router.put("/policePendingAccepted/:id", async (req, res) => {
+  try {
+    const report = await Report.findByIdAndUpdate(
+      req.params.id,
+      { status: "closed" },
+      { new: true }
+    );
+    res.send(report);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal server error");
+  }
+});
+
+// Update report status to rejected
+router.put("/policePendingRejected/:id", async (req, res) => {
+  try {
+    const report = await Report.findByIdAndUpdate(
+      req.params.id,
+      { status: "rejected" },
+      { new: true }
+    );
+    res.send(report);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal server error");
+  }
 });
 
 module.exports = router;
