@@ -3,10 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import "../css/LogIn.css";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-// import {AiOutlineArrowLeft} from 'react-icons/fa'
 export default function LogIn() {
   const [number, setNumber] = useState("");
   const [password, setPassword] = useState("");
@@ -34,7 +31,7 @@ export default function LogIn() {
             ? "/Police"
             : response.data.type === "Admin"
             ? "/Admin"
-            : "/Reporter/UpdateProfile"
+            : "/Reporter"
         );
       }
     } catch (error) {
@@ -46,9 +43,6 @@ export default function LogIn() {
     <div className="LogIn">
       <div className="main_box">
         <div className="form_box">
-          {/* <p><i className="fa-solid fa-left"></i></p> */}
-          {/* <FontAwesomeIcon icon="fa-solid fa-left" /> */}
-          {/* <i className="fa fa-gear"></i> */}
           <Link to="/">back</Link>
           <h3>Login to Medinav</h3>
           <form onSubmit={onSubmit}>
@@ -66,7 +60,6 @@ export default function LogIn() {
                   setNumber(e.target.value);
                 }}
               />
-              {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
             </div>
             <div className="mb-3 form_row">
               <label for="exampleInputPassword1" className="form-label">
@@ -89,21 +82,6 @@ export default function LogIn() {
               </button>
             </div>
           </form>
-
-          {/* <div className="bring_child_to_center">
-                    <div>
-                        <p>Don't have an accout? <Link>Sign Up</Link></p>
-                        
-                    </div> 
-                    <div>
-                        <p>Don't have an accout? <Link>Sign Up</Link></p>
-                        
-                    </div> 
-                </div> */}
-
-          {/* <div className="bring_child_to_center">
-                    <p>Don't have an accout?&nbsp; </p><p>Sign Up</p>
-                </div> */}
 
           <p className="bring_link_to_center">
             Don't have an accout?<Link to="/SignUp/Reporter"> Sign Up</Link>

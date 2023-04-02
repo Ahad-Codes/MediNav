@@ -9,7 +9,6 @@ const WardenModel = require("../models/Warden");
 const AdminModel = require("../models/Admin");
 const Report = require("../models/Reports");
 
-
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
@@ -211,19 +210,18 @@ router.post("/login", async (req, res) => {
   });
 });
 
-
 // moving on to the lists part where we have to show the lists to the actors
 
 // this method will return all the pending open requests for the police
-router.get('/policePending', async (req, res) => {
+router.get("/policePending", async (req, res) => {
   try {
-    const reports = await Report.find({ status: 'accepted_hospital' })
+    const reports = await Report.find({ status: "accepted_hospital" })
       .sort({ createdAt: -1 })
       .exec();
     res.json(reports);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Server error' });
+    res.status(500).json({ error: "Server error" });
   }
 });
 // this function will accept and reject the requests from the police end
@@ -256,20 +254,18 @@ router.put("/policePendingRejected/:id", async (req, res) => {
   }
 });
 
-
-
-
-router.get('/hospitalPending', async (req, res) => {
+router.get("/hospitalPending", async (req, res) => {
   try {
-    const reports = await Report.find({ status: 'open' })
+    const reports = await Report.find({ status: "open" })
       .sort({ createdAt: -1 })
       .exec();
     res.json(reports);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Server error' });
+    res.status(500).json({ error: "Server error" });
   }
 });
+
 // this is will process the accept and rejects from the hospitals
 router.put("/hospitalPendingAccepted/:id", async (req, res) => {
   try {
@@ -299,9 +295,6 @@ router.put("/hospitalPendingRejected/:id", async (req, res) => {
     res.status(500).send("Internal server error");
   }
 });
-
-// reporter : report history
-
 
 
 

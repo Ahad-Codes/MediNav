@@ -14,6 +14,8 @@ mongoose.connect(
 const usersRouter = require("./routes/Users");
 app.use("/user", usersRouter);
 
+const reportRouter = require("./routes/Report");
+app.use("/report", reportRouter);
 
 app.listen(3001, () => {
   console.log("Server running on port 3001");
