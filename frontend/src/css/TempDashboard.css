@@ -38,19 +38,11 @@
 .MainDashboard .table_box{
     background-color: #F4FCFF !important;
     min-width: fit-content;
-    
     height:fit-content;
-    /* border: 2px solid red; */
-    /* height: fit-content; */
-    /* padding: 40px 30px;s */
-    /* padding-top: 0px; */
     border-radius: 13px;
-    /* border: none !important; */
-
     display: flex; 
     justify-content: center;
     align-items: center;
-    
 }
 
 .MainDashboard .info_table{

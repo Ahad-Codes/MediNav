@@ -296,6 +296,6 @@ router.put("/hospitalPendingRejected/:id", async (req, res) => {
   }
 });
 
-// reporter : report history
+
 
 module.exports = router;

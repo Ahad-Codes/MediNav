@@ -2,29 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/UpdateProfileReporter.css";
-import { useCookies } from "react-cookie";
 
 export default function UpdateProfileReporter() {
-  const [cookies, setCookies] = useCookies(["access_token"]);
-  const navigate = useNavigate();
-
-  const logout = () => {
-    setCookies("access_token", "");
-    window.localStorage.removeItem("userID");
-    window.localStorage.removeItem("userType");
-    navigate("/");
-  };
-
   return (
     <div className="UpdateProfileReporter">
-      <button onClick={logout}>Logout</button>
       <div className="main_box">
         <div>
           <div className="updateProfileHeading">
             <h1>Update Profile</h1>
           </div>
           <div className="form_box">
-            {/* <Link to="/">back</Link> */}
             <form className="row g-3">
               <div className="mb-3 form_row">
                 <label for="exampleInputEmail1" className="form-label">

@@ -1,0 +1,87 @@
+.ReportAccident {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/ambulance_login.jpg");
+  }
+  
+  .content-box {
+    width: calc(100% - 100px);
+    height: calc(100% - 100px);
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+
+  }
+  
+  .form-box {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    height: 90px;
+    
+  }
+  
+  label {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+  }
+  
+  input,
+  textarea {
+    padding: 5px;
+    border: 1px solid #7B0BB0;
+    border-radius: 5px;
+    font-size: 1rem;
+    color:#7B0BB0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background-color: #E1F2F9;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+  color: #7B0BB0; 
+  font-size: 0.9rem;
+}
+  
+  button[type="submit"] {
+    background-color: #7B0BB0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .info-box {
+    flex: 1;
+    border: 1px solid #7B0BB0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    height: calc(100%-40px);
+    width: 100%;
+    box-sizing: border-box;
+    margin: 40px;
+  }
+
+  .map-container {
+    width: 100%;
+    height: 419px;
+    border-radius: 20px;
+}
+  
+  h2 {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-size: 22pt;
+  }
+

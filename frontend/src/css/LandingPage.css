@@ -1,28 +1,12 @@
-.LandingPage .nav_bar_button{
-    border: none;
-    background-color: #7B0BB0 !important;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 13px;
-    font-size:15px;
-}
-
-
-
 .LandingPage .main_page{
     height: fit-content;
-    /* width: 1600x; */
-    /* border: 2px; */
     background-image: url("../images/landing_ambulance.jpg");
     padding-top: 190px;
     padding-bottom: 5px;
 }
 
-
 .LandingPage .image_box{
     width: 100vh;
-    
-    /* height: 108; */
 }
 
 .LandingPage .heading_box{
