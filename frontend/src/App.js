@@ -19,7 +19,10 @@ import PendingRequestsPolice from "./pages/PendingRequestsPolice";
 import ManageReporterRequestsAdmin from "./pages/ManageReporterRequestsAdmin";
 import ManageHospitalRequestsAdmin from "./pages/ManageHospitalRequestsAdmin";
 import SignUpWarden from "./pages/SignUpWarden";
-// import Khuzaimah  from './pages/Reporter'
+import ReporterDashboard from "./pages/ReporterDashboard";
+import ViewBroadcasts from "./pages/ViewBroadcasts";
+import ViewHospitals from "./pages/ViewHospitals";
+
 
 function App() {
   return (
@@ -75,6 +78,7 @@ function App() {
           </Route>
 
           <Route path="/Reporter">
+            <Route index element={<ReporterDashboard />}></Route>
             <Route
               path="UpdateProfile"
               element={<UpdateProfileReporter />}
@@ -83,7 +87,16 @@ function App() {
               path="ReportHistory"
               element={<ReportHistoryReporter />}
             ></Route>
+            <Route
+              path="ViewBroadcasts"
+              element={<ViewBroadcasts />}
+            ></Route>
+            <Route
+              path="ViewHospitals"
+              element={<ViewHospitals />}
+            ></Route>
           </Route>
+
 
           <Route path="/Admin">
             <Route index element={<ManageReporterRequestsAdmin />}></Route>
@@ -111,11 +124,7 @@ function App() {
               element={<PendingRequestsPolice />}
             ></Route>
           </Route>
-
-          {/* <Route path="/khuzaimah">
-            <Route index element={<Khuzaimah />}></Route>
-
-          </Route> */}
+          
         </Routes>
       </Router>
     </div>
