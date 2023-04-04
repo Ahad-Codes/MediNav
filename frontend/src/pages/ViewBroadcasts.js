@@ -1,31 +1,53 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import "../css/LandingPage.css";
+import "../css/ViewBroadcasts.css";
 
 export default function ViewBroadcasts() {
   return (
-    <div className="LandingPage">
-
-      <div className="main_page">
-        <div className="container text-center">
-          <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2">
-            <div className="col heading_box">
-              <h1 id="main_heading">Viewing Broadcasts</h1>              
-            </div>
-          </div>
+    <div className="ReportHistoryReporter">
+      <div className="main_box">
+        <div className="updateProfileHeading">
+          <h1>View Broadcasts</h1>
         </div>
-
-        <div class="container text-center partner_boxes">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-            <div class="col">Column</div>
-            <div class="col">Column</div>
-            <div class="col">Column</div>
-            <div class="col">Column</div>
-          </div>
+        <div className="table_box">
+          <table className="table info_table table-borderless table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Incident Location</th>
+                <th scope="col">Reported By</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
+              <tr className="table_row">
+                <td className="non_button_item">obj.date</td>
+                <td className="non_button_item">obj.time</td>
+                <td className="non_button_item">obj.name</td>
+                <td className="non_button_item">obj.hospital</td>
+                
+              </tr>
+              <tr className="table_row">
+                <td className="non_button_item">obj.date</td>
+                <td className="non_button_item">obj.time</td>
+                <td className="non_button_item">obj.name</td>
+                <td className="non_button_item">obj.hospital</td>
+                
+              </tr>
+              <tr className="table_row">
+                <td className="non_button_item">obj.date</td>
+                <td className="non_button_item">obj.time</td>
+                <td className="non_button_item">obj.name</td>
+                <td className="non_button_item">obj.hospital</td>
+                
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-
     </div>
   );
 }
