@@ -5,27 +5,49 @@ import "../css/LandingPage.css";
 
 export default function ViewHospitals() {
   return (
-    <div className="LandingPage">
-
-      <div className="main_page">
-        <div className="container text-center">
-          <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2">
-            <div className="col heading_box">
-              <h1 id="main_heading">Viewing Hospitals</h1>              
-            </div>
-          </div>
+    <div className="ReportHistoryReporter">
+      <div className="main_box">
+        <div className="updateProfileHeading">
+          <h1>View Hospitals</h1>
         </div>
-
-        <div class="container text-center partner_boxes">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-            <div class="col">Column</div>
-            <div class="col">Column</div>
-            <div class="col">Column</div>
-            <div class="col">Column</div>
-          </div>
+        <div className="table_box">
+          <table className="table info_table table-borderless table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Contact landline</th>
+                <th scope="col">Contact email</th>
+                <th scope="col">Ambulances</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
+              <tr className="table_row">
+                <td className="non_button_item">obj.name</td>
+                <td className="non_button_item">obj.landline</td>
+                <td className="non_button_item">obj.email</td>
+                <td className="non_button_item">obj.ambulances</td>
+                
+              </tr>
+              <tr className="table_row">
+              <td className="non_button_item">obj.name</td>
+                <td className="non_button_item">obj.landline</td>
+                <td className="non_button_item">obj.email</td>
+                <td className="non_button_item">obj.ambulances</td>
+                
+              </tr>
+              <tr className="table_row">
+              <td className="non_button_item">obj.name</td>
+                <td className="non_button_item">obj.landline</td>
+                <td className="non_button_item">obj.email</td>
+                <td className="non_button_item">obj.ambulances</td>
+                
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-
     </div>
   );
 }
