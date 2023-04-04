@@ -10,7 +10,7 @@ const reportSchema = new mongoose.Schema({
       ref: 'Hospital',
     },
     reporter_id: {
-      type: Number,
+      type: String,
       ref: 'Reporter',
       required: true
     },
