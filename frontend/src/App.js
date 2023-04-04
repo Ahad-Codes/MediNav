@@ -35,7 +35,7 @@ function App() {
                             index
                             element={
                                 <>
-                                    <Navbar myString={"Landing"} />
+                                    <Navbar myString={"Reporter"} />
                                     <LandingPage />
                                 </>
                             }
@@ -160,12 +160,16 @@ function App() {
                         />
                     </Route>
 
-                    <Route path="/Police">
-                        <Route index element={<PendingRequestsPolice />} />
-                        <Route
-                            path="PendingRequests"
-                            element={<PendingRequestsPolice />}
-                        />
+                    <Route 
+                    path="/Police"
+                    element = {
+                        <>
+                        <Navbar myString={"Reporter"}/>
+                        <PendingRequestsPolice/>
+                        </>
+
+                    }>
+                        
                     </Route>
                 </Routes>
             </Router>

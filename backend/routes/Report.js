@@ -12,10 +12,10 @@ const Report = require("../models/Reports");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-router.post("/", async (req, res) => {
-  const obj = req.body;
-  res.json(obj);
-});
+// router.post("/", async (req, res) => {
+//   const obj = req.body;
+//   res.json(obj);
+// });
 
 
 // router.post('/reportHistory', async (req, res) => {
@@ -35,12 +35,60 @@ router.post("/", async (req, res) => {
 // });
 
 
+router.post("/", async (req, res) => {
+
+  const accident = req.body.accident;
+  const victims = req.body.victims
+  const details = req.body.details
+  const landmark = req.body.landmark
+  const latitude = req.body.latitude
+  const longitude = req.body.longitude
+  const userID = req.body.userID
+
+
+  //console.log(window.localStorage.getItem("userID"))
+
+
+
+  var today = new Date();
+  
+
+
+  console.log(dateTime)
+
+  const newReport = new Report({
+
+    police_id: -1,
+    hospital_id: -1,
+    reporter_id: userID,
+    nearest_landmark: landmark,
+    title: accident,
+    description: details,
+    location: [latitude, longitude],
+    numVictims: victims,
+    status: 'open',
+    createdAt : today
+   
+  })
+
+  
+  try {
+    await newReport.save()
+  }
+  catch (error) { console.log(error) }
+  
+  console.log("Saved!")
+  res.json({ message: "Report Sent Successfully!" })
+
+})
+
+
 
 router.post("/reportHistory", async (req, res) => {
   //console.log(req.body.reporter_id)
   const reporterID = req.body.reporter_id
   const reports = await Report.find({ reporter_id: reporterID });
-  
+
   const reportData = await Promise.all(reports.map(async (report) => {
     try {
       // console.log(report)
@@ -49,7 +97,7 @@ router.post("/reportHistory", async (req, res) => {
         throw new Error('No hospital found for report ' + report._id);
       }
       return {
-        reportId : report.reportId,
+        _id: report._id,
         date: report.createdAt.toDateString(),
         time: report.createdAt.toTimeString().slice(0, 5),
         location: `${report.location[0].toFixed(3)}°, ${report.location[1].toFixed(3)}°`,
@@ -59,7 +107,7 @@ router.post("/reportHistory", async (req, res) => {
     } catch (err) {
       console.error(err);
       return {
-        reportId : report.reportId,
+        _id: report._id,
         date: report.createdAt.toDateString(),
         time: report.createdAt.toTimeString().slice(0, 5),
         location: `${report.location[0].toFixed(3)}°, ${report.location[1].toFixed(3)}°`,

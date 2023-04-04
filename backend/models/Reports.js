@@ -10,14 +10,16 @@ const reportSchema = new mongoose.Schema({
       ref: 'Hospital',
     },
     reporter_id: {
-      type: Number,
+      type: String,
       ref: 'Reporter',
       required: true
     },
-    reportId: {
-      type: Number,
-      unique: true
+
+    nearest_landmark: {
+      type: String,
+      required: true
     },
+    
     title: {
       type: String,
       required: true
@@ -30,9 +32,8 @@ const reportSchema = new mongoose.Schema({
         type: [Number],
         required: true
     },
-    severity: {
-      type: String,
-      enum: ['high', 'medium', 'low'],
+    numVictims: {
+      type: Number,
       required: true
     },
     status: {
@@ -42,12 +43,11 @@ const reportSchema = new mongoose.Schema({
     },
     createdAt: {
       type: Date,
-      default: Date.now, 
       required: true
     }
   });
 
-reportSchema.plugin(AutoIncrement, {inc_field: 'reportId'});
+//reportSchema.plugin(AutoIncrement, {inc_field: 'reportId'});
 const Report = mongoose.model('report', reportSchema);
 
 module.exports = Report;
