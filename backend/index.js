@@ -17,8 +17,6 @@ app.use("/user", usersRouter);
 const reportRouter = require("./routes/Report");
 app.use("/report", reportRouter);
 
-// const listRouter = require("./routes/List");
-// app.use("/list", listRouter)
 
 app.listen(3001, () => {
   console.log("Server running on port 3001");

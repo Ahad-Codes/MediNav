@@ -224,6 +224,7 @@ router.get("/policePending", async (req, res) => {
         const reports = await Report.find({ status: "accepted_hospital" })
             .sort({ createdAt: -1 })
             .exec();
+
         res.json(reports);
     } catch (error) {
         console.error(error);

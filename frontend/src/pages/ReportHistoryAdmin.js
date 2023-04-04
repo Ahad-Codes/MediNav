@@ -5,6 +5,18 @@ import "../css/ReportHistoryAdmin.css"
 
 export default function ReportHistoryAdmin() {
 
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/report/adminreportHistory")
+            .then(response => {
+                setData(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, []);
+
     return (
         <div className="ReportHistoryAdmin">
             <div className="main_box">
@@ -42,34 +54,26 @@ export default function ReportHistoryAdmin() {
                             </tr>
                         </thead>
                         <tbody >
-                            {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
-                            <tr className="table_row">
-                                <td className="non_button_item">obj.date</td>
-                                <td className="non_button_item">obj.time</td>
-                                <td className="non_button_item">obj.hospital</td>
-                                <td className="non_button_item">obj.reporter</td>
-                                <td>
-                                    <button className="table_button Pending">Pending</button>
-                                </td>
-                            </tr>
-                            <tr className="table_row">
-                                <td className="non_button_item">obj.date</td>
-                                <td className="non_button_item">obj.time</td>
-                                <td className="non_button_item">obj.hospital</td>
-                                <td className="non_button_item">obj.reporter</td>
-                                <td>
-                                    <button className="table_button Rejected">Rejected</button>
-                                </td>
-                            </tr>
-                            <tr className="table_row">
-                                <td className="non_button_item">obj.date</td>
-                                <td className="non_button_item">obj.time</td>
-                                <td className="non_button_item">obj.hospital</td>
-                                <td className="non_button_item">obj.reporter</td>
-                                <td>
-                                    <button className="table_button Accepted">Accepted</button>
-                                </td>
-                            </tr>
+                            {/* use map to iterate through the data and create table rows */}
+                            {data.map((obj, index) => (
+                                <tr key={index} className="table_row">
+                                    <td className="non_button_item">{obj.date}</td>
+                                    <td className="non_button_item">{obj.time}</td>
+                                    <td className="non_button_item">{obj.hospital}</td>
+                                    <td className="non_button_item">{obj.reporter}</td>
+                                    <td>
+                                        {obj.stat === "open" && (
+                                            <button className="table_button Pending">Pending</button>
+                                        )}
+                                        {obj.stat === "rejected" && (
+                                            <button className="table_button Rejected">Rejected</button>
+                                        )}
+                                        {obj.stat === "accepted_police" && (
+                                            <button className="table_button Accepted">Accepted</button>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
 
                         </tbody>
                     </table>

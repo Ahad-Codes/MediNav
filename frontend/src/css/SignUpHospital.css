@@ -1,6 +1,7 @@
-.SignUpHospital .main_box{
+.SignUpHospital {
     background-image: url("../images/ambulance_login.jpg");
-    height: auto;
+    background-size:cover;
+    height: 100vh;
     /* width: 100vh; */
     display: flex;
     justify-content: center;

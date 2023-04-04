@@ -14,6 +14,7 @@
     align-content: center; */
 }
 
+
 .LandingPage .image_box{
     width: 100vh;
 }
@@ -65,9 +66,16 @@
 }
 
 .LandingPage .partner_boxes{
-    margin-top: 160px;
+    margin-top: 100px;
     color: white;
     margin-bottom: 80px;
+}
+
+.LandingPage .logo_image img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    /* border: 1px solid yellow; */
 }
 
 .LandingPage .button{
