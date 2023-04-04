@@ -22,12 +22,8 @@ import SignUpWarden from "./pages/SignUpWarden";
 import ReporterDashboard from "./pages/ReporterDashboard";
 import ViewBroadcasts from "./pages/ViewBroadcasts";
 import ViewHospitals from "./pages/ViewHospitals";
-<<<<<<< HEAD
-
-=======
 import Navbar from "./components/Navbar";
 import ReportAccident from "./pages/ReportAccident";
->>>>>>> talha
 
 function App() {
   return (
@@ -89,18 +85,6 @@ function App() {
             />
             <Route
               path="ReportHistory"
-<<<<<<< HEAD
-              element={<ReportHistoryReporter />}
-            ></Route>
-            <Route
-              path="ViewBroadcasts"
-              element={<ViewBroadcasts />}
-            ></Route>
-            <Route
-              path="ViewHospitals"
-              element={<ViewHospitals />}
-            ></Route>
-=======
               element={
                 <>
                   <Navbar myString={"Reporter"} />
@@ -135,7 +119,6 @@ function App() {
                 </>
               }
             />
->>>>>>> talha
           </Route>
 
 
@@ -160,10 +143,6 @@ function App() {
             <Route index element={<PendingRequestsPolice />} />
             <Route path="PendingRequests" element={<PendingRequestsPolice />} />
           </Route>
-<<<<<<< HEAD
-          
-=======
->>>>>>> talha
         </Routes>
       </Router>
     </div>
