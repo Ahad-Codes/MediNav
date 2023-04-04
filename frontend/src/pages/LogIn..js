@@ -87,7 +87,7 @@ export default function LogIn() {
             Don't have an accout?<Link to="/SignUp/Reporter"> Sign Up</Link>
           </p>
           <p className="bring_link_to_center">
-            Forget Your Password?<Link>Click Here</Link>
+            Forgot Your Password?<Link>Click Here</Link>
           </p>
         </div>
       </div>
