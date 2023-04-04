@@ -4,6 +4,23 @@ import { Link, useNavigate } from "react-router-dom";
 import "../css/ReportHistoryHospital.css"
 
 export default function ReportHistoryHospital() {
+    const [reportData, setReportData] = useState([]);
+
+    useEffect(() => {
+        const fetchReports = async () => {
+            try {
+                console.log("this is working")
+                const response = await axios.post("http://localhost:3001/report/hospitalreportHistory", {
+                    hospital_id: '641f364e6ed6bec790c04763'
+                });
+                console.log(response)
+                setReportData(response.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchReports();
+    }, []);
 
     return (
         <div className="ReportHistoryHospital">
@@ -23,35 +40,25 @@ export default function ReportHistoryHospital() {
                             </tr>
                         </thead>
                         <tbody >
-                            {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
-                            <tr className="table_row">
-                                <td className="non_button_item">obj.date</td>
-                                <td className="non_button_item">obj.time</td>
-                                <td className="non_button_item">obj.name</td>
-                                <td className="non_button_item">obj.reporter</td>
-                                <td>
-                                    <button className="table_button Pending">Pending</button>
-                                </td>
-                            </tr>
-                            <tr className="table_row">
-                                <td className="non_button_item">obj.date</td>
-                                <td className="non_button_item">obj.time</td>
-                                <td className="non_button_item">obj.name</td>
-                                <td className="non_button_item">obj.reporter</td>
-                                <td>
-                                    <button className="table_button Rejected">Rejected</button>
-                                </td>
-                            </tr>
-                            <tr className="table_row">
-                                <td className="non_button_item">obj.date</td>
-                                <td className="non_button_item">obj.time</td>
-                                <td className="non_button_item">obj.name</td>
-                                <td className="non_button_item">obj.reporter</td>
-                                <td>
-                                    <button className="table_button Accepted">Accepted</button>
-                                </td>
-                            </tr>
-
+                            {reportData.map((report) => (
+                                <tr className="table_row" key={report.reportId}>
+                                    <td className="non_button_item">{report.date}</td>
+                                    <td className="non_button_item">{report.time}</td>
+                                    <td className="non_button_item">{report.location}</td>
+                                    <td className="non_button_item">{report.reporter}</td>
+                                    <td>
+                                        {report.stat === "open" && (
+                                            <button className="table_button Pending">Pending</button>
+                                        )}
+                                        {report.stat === "rejected" && (
+                                            <button className="table_button Rejected">Rejected</button>
+                                        )}
+                                        {report.stat === "accepted_police" && (
+                                            <button className="table_button Accepted">Accepted</button>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
