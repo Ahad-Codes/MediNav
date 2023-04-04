@@ -26,6 +26,8 @@ import Navbar from "./components/Navbar";
 import ReportAccident from "./pages/ReportAccident";
 
 function App() {
+
+  
   return (
     <div className="App">
       <Router>

@@ -4,7 +4,15 @@ import { Link, useNavigate } from "react-router-dom";
 import "../css/LandingPage.css";
 
 
+
 export default function LandingPage() {
+
+  const navigate = useNavigate();
+
+  const onReportClick = () => {
+    navigate("Login");
+  };
+
   return (
     <div className="LandingPage">
       <div className="main_page">
@@ -14,7 +22,7 @@ export default function LandingPage() {
             <div className="heading_box">
               <h1 id="main_heading">Your Safety,</h1>
               <h1 id="guaranteed">Guaranteed.</h1>
-              <button className="button">
+              <button className="button" onClick={onReportClick}>
                 <h1>REPORT INCIDENT</h1>
               </button>
             </div>

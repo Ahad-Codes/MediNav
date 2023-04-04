@@ -49,15 +49,15 @@ function Map() {
 
       <p>
         <button className="button" onClick={onViewBroadcastClick}>
-          <h1>View Broadcasts</h1>
+          View Broadcasts
         </button>
 
         <button className="button" onClick={() => navigate("ReportAccident")}>
-          <h1>Report Incident</h1>
+          Report Incident
         </button>
 
         <button className="button" onClick={onViewHospitalClick}>
-          <h1>View Nearest Hospitals</h1>
+          View Nearest Hospitals
         </button>
       </p>
     </div>

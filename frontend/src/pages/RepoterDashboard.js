@@ -29,7 +29,7 @@ function Map() {
   const navigate = useNavigate();
 
   const onViewBroadcastClick = () => {
-    navigate('ViewBroadcasts');
+    navigate('../ViewBroadcasts');
   }
 
   const onViewHospitalClick = () => {
