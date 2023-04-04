@@ -5,6 +5,9 @@ import "../css/Navbar.css";
 import { useCookies } from "react-cookie";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 function Navbar(props) {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -12,10 +15,19 @@ function Navbar(props) {
     const [cookies, setCookies] = useCookies(["access_token"]);
     const navigate = useNavigate();
 
+    const handleMenuOpen = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+    };
+
     const logout = () => {
         setCookies("access_token", "");
         window.localStorage.removeItem("userID");
         window.localStorage.removeItem("userType");
+        handleMenuClose();
         navigate("/");
     };
 
@@ -109,9 +121,26 @@ function Navbar(props) {
                     <PhoneInTalkIcon />
                     <div className="nav-icon">1122</div>
                     {newString === "Reporter" ? (
-                        <button className="nav_bar_button " onClick={logout}>
-                            <AccountCircleOutlinedIcon />
-                        </button>
+                        <>
+                            <IconButton onClick={handleMenuOpen}>
+                                <AccountCircleOutlinedIcon fontSize="large" />
+                            </IconButton>
+                            <Menu
+                                anchorEl={anchorEl}
+                                open={Boolean(anchorEl)}
+                                onClose={handleMenuClose}
+                            >
+                                <MenuItem onClick={logout}>Logout</MenuItem>
+                                <MenuItem
+                                    onClick={() => {
+                                        handleMenuClose();
+                                        navigate("/Reporter/UpdateProfile");
+                                    }}
+                                >
+                                    UpdateProfile
+                                </MenuItem>
+                            </Menu>
+                        </>
                     ) : (
                         <Link to="LogIn">
                             <button className="nav_bar_button ">Log In</button>
