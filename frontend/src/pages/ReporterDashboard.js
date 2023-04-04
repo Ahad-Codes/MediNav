@@ -15,7 +15,7 @@ export default function TempDashboard() {
     <div className="MainDashboard">
       <div className="main_box">
         <div className="updateProfileHeading">
-          <h1>Main Dashboard</h1>
+          <h2 className="heading">Live Location</h2>
         </div>
         <div className="table_box">
           <Map />
