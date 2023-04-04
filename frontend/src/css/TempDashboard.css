@@ -1,16 +1,18 @@
 .map-container {
     width: 100%;
-    height: 50vh;
+    height: 80vh;
 }
 
 
 .MainDashboard{
     background-image: url("../images/update_bg.jpg");
+    background-size: cover;
     height: 100vh;
     /* width: 100%; */
     display: flex; 
     justify-content: center;
     align-items: center;
+
     /* flex-direction: row  !important; */
     /* border: 2px solid red; */
 
@@ -22,31 +24,32 @@
     width: 90%;
     height: fit-content;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
    
 }
 
-.MainDashboard .updateProfileHeading{
-    background-color:#7c0bb07f;
-    color: white;
-    border-radius: 13px;
-    padding: 2px;
-    margin-bottom: 10px;
-    width: 100%;
-}
 
+
+.MainDashboard .heading{
+    background-color: white;
+    border-radius: 7px;
+    width: fit-content ;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    color:  #55007C;
+    /* font-weight: 500; */
+
+}
 
 .MainDashboard .table_box{
     background-color: #F4FCFF !important;
     min-width: fit-content;
-    
     height:fit-content;
-    /* border: 2px solid red; */
-    /* height: fit-content; */
-    /* padding: 40px 30px;s */
-    /* padding-top: 0px; */
     border-radius: 13px;
-    /* border: none !important; */
-
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -68,6 +71,16 @@
     width: 85px;
     height: 30px;
     border: none;
+}
+
+.MainDashboard .button{
+    background-color: #7B0BB0;
+    color: white !important;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 20px;
+    margin-right: 5px;
 }
 
 .MainDashboard .Accepted{

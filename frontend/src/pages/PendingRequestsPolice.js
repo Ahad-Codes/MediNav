@@ -7,6 +7,11 @@ import "../css/PendingRequestsPolice.css";
 export default function PendingRequestsPolice() {
   const [cookies, setCookies] = useCookies(["access_token"]);
   const navigate = useNavigate();
+  const [reports, setReports] = useState([]);
+
+  useEffect(() => {
+    fetchReport();
+  }, []);
 
   const logout = () => {
     setCookies("access_token", "");
@@ -14,6 +19,44 @@ export default function PendingRequestsPolice() {
     window.localStorage.removeItem("userType");
     navigate("/");
   };
+
+  async function fetchReport() {
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/user/policePending`
+      );
+      setReports(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const handleAccept = async (reportID) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/user/policePendingAccepted/${reportID}`,
+        { status: "accepted" }
+      );
+      console.log(response.data);
+      fetchReport(); // Refresh the report list after accepting
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleReject = async (reportID) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/user/policePendingRejected/${reportID}`,
+        { status: "rejected" }
+      );
+      console.log(response.data);
+      fetchReport(); // Refresh the report list after rejecting
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="PendingRequestsPolice">
       <button onClick={logout}>Logout</button>
@@ -34,46 +77,33 @@ export default function PendingRequestsPolice() {
               </tr>
             </thead>
             <tbody>
-              {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
-              <tr className="table_row">
-                <td className="non_button_item">obj.type</td>
-                <td className="non_button_item">obj.hospital</td>
-                <td className="non_button_item">obj.incident_location</td>
-                <td className="non_button_item">obj.nearest_landmark</td>
-                <td className="non_button_item">obj.time</td>
-                <td>
-                  <div className="btn-group">
-                    <button className="btn button_left">Accept</button>
-                    <button className="btn button_right">Reject</button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="table_row">
-                <td className="non_button_item">obj.type</td>
-                <td className="non_button_item">obj.hospital</td>
-                <td className="non_button_item">obj.incident_location</td>
-                <td className="non_button_item">obj.nearest_landmark</td>
-                <td className="non_button_item">obj.time</td>
-                <td>
-                  <div className="btn-group">
-                    <button className="btn button_left">Accept</button>
-                    <button className="btn button_right">Reject</button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="table_row">
-                <td className="non_button_item">obj.type</td>
-                <td className="non_button_item">obj.hospital</td>
-                <td className="non_button_item">obj.incident_location</td>
-                <td className="non_button_item">obj.nearest_landmark</td>
-                <td className="non_button_item">obj.time</td>
-                <td>
-                  <div className="btn-group">
-                    <button className="btn button_left">Accept</button>
-                    <button className="btn button_right">Reject</button>
-                  </div>
-                </td>
-              </tr>
+              {reports.map((report) => (
+                <tr key={report._id} className="table_row">
+                  <td className="non_button_item">{report.title}</td>
+                  <td className="non_button_item">{report.hospital_id}</td>
+                  <td className="non_button_item">
+                    {report.location[0]}, {report.location[1]}
+                  </td>
+                  <td className="non_button_item"></td>
+                  <td className="non_button_item">{report.createdAt}</td>
+                  <td>
+                    <div className="btn-group">
+                      <button
+                        onClick={() => handleAccept(report._id)}
+                        className="btn button_left"
+                      >
+                        Accept
+                      </button>
+                      <button
+                        onClick={() => handleReject(report._id)}
+                        className="btn button_right"
+                      >
+                        Reject
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

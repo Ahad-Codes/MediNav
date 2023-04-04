@@ -1,34 +1,38 @@
-.LandingPage .nav_bar_button{
-    border: none;
-    background-color: #7B0BB0 !important;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 13px;
-    font-size:15px;
-}
-
-
-
 .LandingPage .main_page{
     height: fit-content;
-    /* width: 1600x; */
-    /* border: 2px; */
     background-image: url("../images/landing_ambulance.jpg");
+    /* background-repeat: round; */
+    background-size:cover;
     padding-top: 190px;
     padding-bottom: 5px;
-}
 
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    align-content: center; */
+}
 
 .LandingPage .image_box{
     width: 100vh;
-    
-    /* height: 108; */
+}
+
+.LandingPage .bring_to_center{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+   justify-content: space-between !important;
+  
+   /* row-gap: 100px; */
 }
 
 .LandingPage .heading_box{
     text-align: left;
-    padding-left: 30px;
+    /* padding-left: 30px; */
     color: white;
+    /* border: 1px solid yellow; */
 }
 
 .LandingPage #main_heading{
@@ -44,6 +48,7 @@
 }
 
 .LandingPage #main_text{
+    /* border: 1px solid yellow; */
     margin-top: 80px;
     font-size: 25px;
     font-weight: 700px !important;

@@ -1,9 +1,36 @@
+
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/ReportHistoryReporter.css";
 
 export default function ReportHistoryReporter() {
+  const navigate = useNavigate();
+  const [reportData, setReportData] = useState([]);
+
+
+
+
+
+
+  useEffect(() => {
+    const fetchReports = async () => {
+      try {
+        // const token = 1234 //localStorage.getItem("token");
+        const response = await axios.post("http://localhost:3001/report/reportHistory", {
+          reporter_id : 9876
+        });
+        console.log(response)
+        setReportData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    fetchReports();
+  }, []);
+  
   return (
     <div className="ReportHistoryReporter">
       <div className="main_box">
@@ -22,34 +49,29 @@ export default function ReportHistoryReporter() {
               </tr>
             </thead>
             <tbody>
-              {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
-              <tr className="table_row">
-                <td className="non_button_item">obj.date</td>
-                <td className="non_button_item">obj.time</td>
-                <td className="non_button_item">obj.name</td>
-                <td className="non_button_item">obj.hospital</td>
-                <td>
-                  <button className="table_button Pending">Pending</button>
-                </td>
-              </tr>
-              <tr className="table_row">
-                <td className="non_button_item">obj.date</td>
-                <td className="non_button_item">obj.time</td>
-                <td className="non_button_item">obj.name</td>
-                <td className="non_button_item">obj.hospital</td>
-                <td>
-                  <button className="table_button Rejected">Rejected</button>
-                </td>
-              </tr>
-              <tr className="table_row">
-                <td className="non_button_item">obj.date</td>
-                <td className="non_button_item">obj.time</td>
-                <td className="non_button_item">obj.name</td>
-                <td className="non_button_item">obj.hospital</td>
-                <td>
-                  <button className="table_button Accepted">Accepted</button>
-                </td>
-              </tr>
+              {reportData.map((report) => (
+                <tr className="table_row" key={report.reportId}>
+                  <td className="non_button_item">{report.date}</td>
+                  <td className="non_button_item">{report.time}</td>
+                  <td className="non_button_item">{report.location}</td>
+                  <td className="non_button_item">{report.hospital}</td>
+                  <td>
+                    {report.stat === "open" && (
+                      <button className="table_button Pending">
+                        Pending
+                      </button>
+                    )}
+                    {report.stat === "rejected" && (
+                      <button className="table_button Rejected">
+                        Rejected
+                      </button>
+                    )}
+                    {report.stat === "accepted_police" && (
+                      <button className="table_button Accepted">Accepted</button>
+                    )}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -57,3 +79,4 @@ export default function ReportHistoryReporter() {
     </div>
   );
 }
+

@@ -1,5 +1,11 @@
 import { useMemo } from "react";
+<<<<<<< HEAD
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+=======
+import { GoogleMap, useLoadScript } from "@react-google-maps/api";
+import {useNavigate} from 'react-router-dom';
+
+>>>>>>> main
 import "../css/TempDashboard.css"
 
 export default function TempDashboard() {
@@ -23,6 +29,7 @@ export default function TempDashboard() {
 }
 
 function Map() {
+<<<<<<< HEAD
   
     console.log("Loaded")
   return (
@@ -31,3 +38,42 @@ function Map() {
 
   );
 }
+=======
+
+  const navigate = useNavigate();
+
+  const onViewBroadcastClick = () => {
+    navigate('ViewBroadcasts');
+  }
+
+  const onViewHospitalClick = () => {
+    navigate('ViewHospitals');
+  }
+  
+  console.log("Loaded")
+  return (
+    <div>
+      <div>
+        <GoogleMap zoom={14} center={{ lat:31.465001, lng:74.393663}} mapContainerClassName="map-container"/>
+      </div>
+    
+    <p>
+    
+        <button className="button" onClick={onViewBroadcastClick}>
+            <h1>View Broadcasts</h1>
+        </button>
+        
+        <button className="button">
+          <h1>Report Incident</h1>
+        </button>
+
+        <button className="button" onClick={onViewHospitalClick}>
+          <h1>View Nearest Hospitals</h1>
+        </button>
+    </p>
+    </div>
+
+
+  );
+}
+>>>>>>> main
