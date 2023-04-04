@@ -41,10 +41,11 @@ export default function ReportHistoryReporter() {
           <table className="table info_table table-borderless table-hover">
             <thead>
               <tr>
+                <th scope="col">Report ID</th>
                 <th scope="col">Date</th>
                 <th scope="col">Time</th>
                 <th scope="col">Incident Location</th>
-                <th scope="col">Reported By</th>
+                <th scope="col">Hospital</th>
                 <th scope="col"></th>
               </tr>
             </thead>

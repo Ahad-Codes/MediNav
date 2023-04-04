@@ -36,25 +36,38 @@ router.post("/", async (req, res) => {
 
 
 
-
 router.post("/reportHistory", async (req, res) => {
   //console.log(req.body.reporter_id)
   const reporterID = req.body.reporter_id
   const reports = await Report.find({ reporter_id: reporterID });
-  //console.log(reports)
+  
   const reportData = await Promise.all(reports.map(async (report) => {
-    const hospital = await HospitalModel.findOne({ _id: report.hospital_id });
-    return {
-      reportId : report.reportId,
-      date: report.createdAt.toDateString(),
-      time: report.createdAt.toTimeString().slice(0, 5),
-      location: `${report.location[0].toFixed(3)}°, ${report.location[1].toFixed(3)}°`,
-      hospital: hospital.name,
-      stat: report.status
+    try {
+      // console.log(report)
+      const hospital = await HospitalModel.findOne({ _id: report.hospital_id });
+      if (!hospital) {
+        throw new Error('No hospital found for report ' + report._id);
+      }
+      return {
+        reportId : report.reportId,
+        date: report.createdAt.toDateString(),
+        time: report.createdAt.toTimeString().slice(0, 5),
+        location: `${report.location[0].toFixed(3)}°, ${report.location[1].toFixed(3)}°`,
+        hospital: hospital.name,
+        stat: report.status
+      }
+    } catch (err) {
+      console.error(err);
+      return {
+        reportId : report.reportId,
+        date: report.createdAt.toDateString(),
+        time: report.createdAt.toTimeString().slice(0, 5),
+        location: `${report.location[0].toFixed(3)}°, ${report.location[1].toFixed(3)}°`,
+        hospital: 'Not found',
+        stat: report.status
+      }
     }
   }));
-
-  // console.log(reportData)
   res.json(reportData)
 });
 
