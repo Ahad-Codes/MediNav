@@ -1,12 +1,7 @@
 /* .map-container {
     width: 100%;
-<<<<<<< HEAD
-    height: 80vh;
-}
-=======
     height: 50vh;
 } */
->>>>>>> master
 
 
 .MainDashboard {
@@ -62,12 +57,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
-    
-=======
     width: 90%;
     /* border: 1px solid red; */
->>>>>>> master
 }
 
 /* .map-container {
