@@ -2,15 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/LandingPage.css";
-
-
-
 export default function LandingPage() {
-
   const navigate = useNavigate();
 
   const onReportClick = () => {
     navigate("reporter/ReportAccident");
+    navigate("Login");
   };
 
   return (
@@ -36,7 +33,6 @@ export default function LandingPage() {
             </div>
           {/* </div> */}
         </div>
-
         <div class="container  partner_boxes">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
             <div class="col">Column</div>
@@ -46,7 +42,6 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-
       <div id="mission_statement_box">
         <h1>Mission Statement</h1>
         <p>
@@ -88,7 +83,6 @@ export default function LandingPage() {
           <h1>Contact Us</h1>
         </button>
       </div>
-
       {/* <div>
                 adisnhda
             </div> */}

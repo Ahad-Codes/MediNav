@@ -11,6 +11,8 @@
     padding: 4px 12px;
     border-radius: 13px;
     font-size: 15px;
+   
+ 
     }
 
     .nav_bar_button:hover{
@@ -35,6 +37,13 @@
     display: inline-block;
     vertical-align: middle;
     }
+
+    .navbar-right {
+
+        margin-left: 33%;
+
+    }
+    
     
     .navbar-nav .nav-link {
     font-size: 16px;
