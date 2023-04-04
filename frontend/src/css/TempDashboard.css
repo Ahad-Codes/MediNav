@@ -1,27 +1,28 @@
-.map-container {
+/* .map-container {
     width: 100%;
     height: 50vh;
-}
+} */
 
 
-.MainDashboard{
+.MainDashboard {
     background-image: url("../images/update_bg.jpg");
     background-size: cover;
     height: 100vh;
     /* width: 100%; */
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
 
     /* flex-direction: row  !important; */
     /* border: 2px solid red; */
 
-    
-    
+
+
 }
 
-.MainDashboard .main_box{
+.MainDashboard .main_box {
     width: 90%;
+    /* border: 1px solid yellow; */
     height: fit-content;
 
     display: flex;
@@ -29,40 +30,118 @@
     align-items: center;
 
     flex-direction: column;
-   
+
 }
 
 
 
-.MainDashboard .heading{
+.MainDashboard .heading {
     background-color: white;
     border-radius: 7px;
-    width: fit-content ;
+    width: fit-content;
     margin-bottom: 10px;
     padding: 5px 10px;
-    color:  #55007C;
+    color: #55007C;
     /* font-weight: 500; */
 
 }
 
-.MainDashboard .table_box{
-    background-color: #F4FCFF !important;
+.MainDashboard .table_box {
+    /* background-color: #F4FCFF !important; */
     min-width: fit-content;
-    height:fit-content;
+    /* height:fit-content; */
     border-radius: 13px;
-    display: flex; 
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90%;
+    /* border: 1px solid red; */
 }
 
-.MainDashboard .info_table{
-    
-    width: 95%;
-    
-    
+/* .map-container {
+    width: 500px;
+} */
+
+.map-container1 {
+    height: 270px;
+    /* aspect-ratio: 16/9; */
+    /* width: 50%; */
+    border: 1px solid #8705C3;
+    border-radius: 14px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.MainDashboard .table_button{
+.MainDashboard .map_box {
+    /* width: 60%; */
+    width: 55%;
+    /* height: 28%; */
+    /* height: 20%; */
+    /* height: 20%; */
+    z-index: 2;
+    aspect-ratio: 25/10;
+    /* border: 5px solid red; */
+    /* height: 100px; */
+    /* height: 10px; */
+    /* height: 10% !important; */
+
+    /* border: 1px solid purple; */
+    /*border-radius: 12px; */
+    /* border-radius: 15px; */
+}
+
+.MainDashboard .content_box {
+    z-index: 1;
+    margin-top: -90px;
+    padding-top: 130px;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 14px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    /* background-color: white; */
+}
+
+.MainDashboard .context_box_heading {
+    color: #7B0BB0;
+}
+
+.MainDashboard .button_box {
+
+    /* border: 1px solid gr; */
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    /* background-color: #8705C3; */
+    margin: 20px 0px 40px 0px;
+
+}
+
+.MainDashboard .button_box button {
+    background-color: #8705C3;
+    color: white;
+    border: none;
+    /* font-size: 20px; */
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 8px 30px;
+    transition: .3s ease-in-out 0s;
+}
+
+.MainDashboard .button_box button:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+
+}
+
+
+
+/* .MainDashboard .table_button{
     
     color: white;
     font-weight: 500;
@@ -70,9 +149,9 @@
     width: 85px;
     height: 30px;
     border: none;
-}
+} */
 
-.MainDashboard .button{
+/* .MainDashboard .button{
     background-color: #7B0BB0;
     color: white !important;
     border-radius: 5px;
@@ -80,24 +159,4 @@
     border: none;
     margin-top: 20px;
     margin-right: 5px;
-}
-
-.MainDashboard .Accepted{
-    background-color: #38D063;
-}
-
-.MainDashboard .Rejected{
-    background-color: #DE3A3A;
-}
-
-.MainDashboard .Pending{
-    background-color: #BCB6BE;
-}
-
-.MainDashboard .table_row{
-    border-top: 1.5px #EDD8F7 solid;
-
-}
-.MainDashboard .non_button_item{
-    padding-top: 9.5px;
-}
+} */

@@ -17,9 +17,9 @@ export default function TempDashboard() {
         <div className="updateProfileHeading">
           <h2 className="heading">Live Location</h2>
         </div>
-        <div className="table_box">
-          <Map />
-        </div>
+        {/* <div > */}
+        <Map />
+        {/* </div> */}
       </div>
     </div>
   );
@@ -38,28 +38,32 @@ function Map() {
 
   console.log("Loaded");
   return (
-    <div>
-      <div>
+    <div className="table_box">
+      <div className="map_box">
         <GoogleMap
           zoom={14}
           center={{ lat: 31.465001, lng: 74.393663 }}
-          mapContainerClassName="map-container"
+          mapContainerClassName="map-container1"
         />
       </div>
+      <div className="content_box">
+        <div className="context_box_heading">
+          <h3>Medinav - Dashboard</h3>
+        </div>
+        <div className="button_box">
+          <button className="button" onClick={onViewBroadcastClick}>
+            View Broadcasts
+          </button>
 
-      <p>
-        <button className="button" onClick={onViewBroadcastClick}>
-          <h1>View Broadcasts</h1>
-        </button>
+          <button className="button" onClick={() => navigate("ReportAccident")}>
+            Report Incident
+          </button>
 
-        <button className="button" onClick={() => navigate("ReportAccident")}>
-          <h1>Report Incident</h1>
-        </button>
-
-        <button className="button" onClick={onViewHospitalClick}>
-          <h1>View Nearest Hospitals</h1>
-        </button>
-      </p>
+          <button className="button" onClick={onViewHospitalClick}>
+            View Nearest Hospitals
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
