@@ -59,16 +59,12 @@ function Navbar(props) {
             </li>
             <li className="nav-item">
     
-            <Link
-                to={
-                  newString === "Reporter"
-                    ? "/" + newString + "/ViewBroadcasts"
-                    : "/LogIn"
-                }
-                className="nav-link "
-              >
-                View Broadcasts
-              </Link>
+
+            <a className="nav-link" href="/ViewBroadcasts">
+            View Broadcasts
+
+            </a>
+           
             </li>
             <li className="nav-item">
             <Link

@@ -46,6 +46,16 @@ function App() {
             <Route index element={<LogIn />}></Route>
           </Route>
 
+          <Route
+              path="ViewBroadcasts"
+              element={
+                <>
+                  <Navbar myString={"Landing"} />
+                  <ViewBroadcasts />
+                </>
+              }
+            />
+
           <Route path="/SignUp">
             <Route index element={<SignUpReporter />}></Route>
             <Route path="Reporter" element={<SignUpReporter />} />
@@ -92,15 +102,7 @@ function App() {
                 </>
               }
             />
-            <Route
-              path="ViewBroadcasts"
-              element={
-                <>
-                  <Navbar myString={"Reporter"} />
-                  <ViewBroadcasts />
-                </>
-              }
-            />
+            
             <Route
               path="ViewHospitals"
               element={
