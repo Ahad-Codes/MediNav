@@ -58,14 +58,29 @@ function Navbar(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+    
+            <Link
+                to={
+                  newString === "Reporter"
+                    ? "/" + newString + "/ViewBroadcasts"
+                    : "/LogIn"
+                }
+                className="nav-link "
+              >
                 View Broadcasts
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+            <Link
+                to={
+                  newString === "Reporter"
+                    ? "/" + newString + "/ReportHistory"   // change with report history
+                    : "/LogIn"
+                }
+                className="nav-link "
+              >
                 View Report History
-              </a>
+              </Link>
             </li>
           </ul>
           <form className="d-flex" role="search">
