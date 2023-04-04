@@ -35,7 +35,7 @@ function Navbar(props) {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse navbar-right" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link
@@ -87,6 +87,9 @@ function Navbar(props) {
               aria-label="Search"
             />
           </form>
+
+            
+
           <PhoneInTalkIcon />
           <div className="nav-icon">1122</div>
           {newString === "Reporter" ? (
@@ -98,6 +101,7 @@ function Navbar(props) {
               <button className="nav_bar_button ">Log In</button>
             </Link>
           )}
+          
         </div>
       </div>
     </nav>
