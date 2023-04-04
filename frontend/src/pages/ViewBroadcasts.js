@@ -4,6 +4,20 @@ import { Link, useNavigate } from "react-router-dom";
 import "../css/ViewBroadcasts.css";
 
 export default function ViewBroadcasts() {
+  const [broadcasts, setBroadcasts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/report/brooadcastList")
+      .then((response) => {
+        console.log(response.data)
+        setBroadcasts(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div className="ReportHistoryReporter">
       <div className="main_box">
@@ -22,28 +36,14 @@ export default function ViewBroadcasts() {
               </tr>
             </thead>
             <tbody>
-              {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
-              <tr className="table_row">
-                <td className="non_button_item">obj.date</td>
-                <td className="non_button_item">obj.time</td>
-                <td className="non_button_item">obj.name</td>
-                <td className="non_button_item">obj.hospital</td>
-                
-              </tr>
-              <tr className="table_row">
-                <td className="non_button_item">obj.date</td>
-                <td className="non_button_item">obj.time</td>
-                <td className="non_button_item">obj.name</td>
-                <td className="non_button_item">obj.hospital</td>
-                
-              </tr>
-              <tr className="table_row">
-                <td className="non_button_item">obj.date</td>
-                <td className="non_button_item">obj.time</td>
-                <td className="non_button_item">obj.name</td>
-                <td className="non_button_item">obj.hospital</td>
-                
-              </tr>
+              {broadcasts.map((broadcast) => (
+                <tr key={broadcast._id} className="table_row">
+                  <td className="non_button_item">{broadcast.date}</td>
+                  <td className="non_button_item">{broadcast.time}</td>
+                  <td className="non_button_item">{broadcast.location}</td>
+                  <td className="non_button_item">{broadcast.reporter}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

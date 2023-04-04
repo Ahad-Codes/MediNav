@@ -133,4 +133,54 @@ router.get("/adminreportHistory", async (req, res) => {
 
 
 
+router.get("/brooadcastList", async (req, res) => {
+  try {
+    const reports = await Report.find().sort({ createdAt: -1 }).limit(20);
+
+    const reportData = await Promise.all(
+      reports.map(async (report) => {
+        try {
+          const reporter = await ReporterModel.findOne({
+            _id: report.reporter_id,
+          });
+          if (!reporter) {
+            throw new Error(
+              "No reporter found for report " + report._id.toString()
+            );
+          }
+          return {
+            reportId: report.reportId,
+            date: report.createdAt.toDateString(),
+            time: report.createdAt.toTimeString().slice(0, 5),
+            reporter: reporter.name,
+            stat: report.status,
+            location: `${report.location[0].toFixed(3)}°, ${report.location[1].toFixed(3)}°`
+          };
+        } catch (err) {
+          console.error(err);
+          return {
+            reportId: report.reportId,
+            date: report.createdAt.toDateString(),
+            time: report.createdAt.toTimeString().slice(0, 5),
+            reporter: "Not found",
+            location: `${report.location[0].toFixed(3)}°, ${report.location[1].toFixed(3)}°`
+          };
+        }
+      })
+    );
+
+    res.json(reportData);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+
+
+
+
+
+
+
 module.exports = router;
