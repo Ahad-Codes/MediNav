@@ -1,18 +1,38 @@
 .LandingPage .main_page{
     height: fit-content;
     background-image: url("../images/landing_ambulance.jpg");
+    /* background-repeat: round; */
+    background-size:cover;
     padding-top: 190px;
     padding-bottom: 5px;
+
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    align-content: center; */
 }
 
 .LandingPage .image_box{
     width: 100vh;
 }
 
+.LandingPage .bring_to_center{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+   justify-content: space-between !important;
+  
+   /* row-gap: 100px; */
+}
+
 .LandingPage .heading_box{
     text-align: left;
-    padding-left: 30px;
+    /* padding-left: 30px; */
     color: white;
+    /* border: 1px solid yellow; */
 }
 
 .LandingPage #main_heading{
@@ -28,6 +48,7 @@
 }
 
 .LandingPage #main_text{
+    /* border: 1px solid yellow; */
     margin-top: 80px;
     font-size: 25px;
     font-weight: 700px !important;

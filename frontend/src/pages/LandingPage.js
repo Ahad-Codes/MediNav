@@ -8,16 +8,16 @@ export default function LandingPage() {
   return (
     <div className="LandingPage">
       <div className="main_page">
-        <div className="container text-center">
-          <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2">
-            <div className="col heading_box">
+        <div className="container bring_to_center">
+          {/* <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2"> */}
+            <div className="heading_box">
               <h1 id="main_heading">Your Safety,</h1>
               <h1 id="guaranteed">Guaranteed.</h1>
               <button className="button">
                 <h1>REPORT INCIDENT</h1>
               </button>
             </div>
-            <div className="col">
+            <div >
               <div className="text_box">
                 <h1 id="main_text">
                   Delayed Emergency Response Services cause up to 10,000+ deaths
@@ -25,10 +25,10 @@ export default function LandingPage() {
                 </h1>
               </div>
             </div>
-          </div>
+          {/* </div> */}
         </div>
 
-        <div class="container text-center partner_boxes">
+        <div class="container  partner_boxes">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
             <div class="col">Column</div>
             <div class="col">Column</div>
