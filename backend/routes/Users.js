@@ -217,7 +217,6 @@ router.post("/login", async (req, res) => {
 });
 
 // moving on to the lists part where we have to show the lists to the actors
-
 // this method will return all the pending open requests for the police
 router.get("/policePending", async (req, res) => {
     try {

@@ -35,14 +35,7 @@ function Navbar(props) {
     return (
         <nav className="navbar navbar-expand-lg custom">
             <div className="container-fluid">
-                <a
-                    className={
-                        newString !== "Landing"
-                            ? "navbar-brand custom"
-                            : "navbar-brand custom new"
-                    }
-                    href="/"
-                >
+                <a className="navbar-brand custom" href="/">
                     <img src={mediNavLogo} alt="Logo" />
                     MediNav
                 </a>
@@ -61,55 +54,49 @@ function Navbar(props) {
                     className="collapse navbar-collapse"
                     id="navbarSupportedContent"
                 >
-                    {newString !== "Landing" ? (
-                        <ul className="navbar-nav mr-auto">
-                            <li className="nav-item">
-                                <Link
-                                    to={
-                                        newString === "Reporter"
-                                            ? "/" + newString
-                                            : "/"
-                                    }
-                                    className="nav-link "
-                                >
-                                    Dashboard
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link
-                                    to={
-                                        newString === "Reporter"
-                                            ? "/" +
-                                              newString +
-                                              "/ReportAccident"
-                                            : "/LogIn"
-                                    }
-                                    className="nav-link "
-                                >
-                                    Report Incident
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/ViewBroadcasts">
-                                    View Broadcasts
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <Link
-                                    to={
-                                        newString === "Reporter"
-                                            ? "/" + newString + "/ReportHistory" // change with report history
-                                            : "/LogIn"
-                                    }
-                                    className="nav-link "
-                                >
-                                    View Report History
-                                </Link>
-                            </li>
-                        </ul>
-                    ) : (
-                        <></>
-                    )}
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <Link
+                                to={
+                                    newString === "Landing"
+                                        ? "/Reporter"
+                                        : "/" + newString
+                                }
+                                className="nav-link "
+                            >
+                                Dashboard
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link
+                                to={
+                                    newString === "Reporter"
+                                        ? "/" + newString + "/ReportAccident"
+                                        : "/LogIn"
+                                }
+                                className="nav-link "
+                            >
+                                Report Incident
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/ViewBroadcasts">
+                                View Broadcasts
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <Link
+                                to={
+                                    newString === "Reporter"
+                                        ? "/" + newString + "/ReportHistory" // change with report history
+                                        : "/LogIn"
+                                }
+                                className="nav-link "
+                            >
+                                View Report History
+                            </Link>
+                        </li>
+                    </ul>
                     <form className="d-flex" role="search">
                         <input
                             className="form-control me-2 search-input"
