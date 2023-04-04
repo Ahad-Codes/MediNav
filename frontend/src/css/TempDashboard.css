@@ -130,7 +130,7 @@
     font-weight: 500;
     border-radius: 5px;
     padding: 8px 30px;
-    transition: .3s ease-in-out 0s;
+    transition: .3s ease-in-out .05s;
 }
 
 .MainDashboard .button_box button:hover {
