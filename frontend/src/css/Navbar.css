@@ -4,6 +4,7 @@
     height: 70px;
     }
     
+
     .nav_bar_button {
     border: none;
     background-color: #7B0BB0 !important;
@@ -11,6 +12,10 @@
     padding: 4px 12px;
     border-radius: 13px;
     font-size: 15px;
+    }
+
+    .nav_bar_button:hover{
+        background-color: #5c0783 !important;
     }
     
     .navbar-brand.custom {
@@ -28,7 +33,7 @@
     
     .navbar-nav .nav-link {
     font-size: 16px;
-    font-weight: bold;
+    font-weight:500;
     color: black;
     margin-right: 20px;
     }
