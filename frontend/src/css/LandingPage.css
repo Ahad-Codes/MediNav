@@ -72,8 +72,8 @@
 }
 
 .LandingPage .logo_image img{
-    width: 140px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
     /* border: 1px solid yellow; */
 }
