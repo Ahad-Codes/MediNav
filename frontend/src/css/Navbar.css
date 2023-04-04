@@ -3,7 +3,6 @@
     border-bottom: 3px solid #00BFFF;
     height: 70px;
     }
-    
 
     .nav_bar_button {
     border: none;
@@ -25,6 +24,12 @@
     font-weight: bold;
     margin-right: 20px;
     }
+
+    .navbar-brand.custom.new {
+        color: #7B0BB0;
+        font-weight: bold;
+        margin-right: 650px;
+        }
     
     .navbar-brand img {
     width: 40px;
