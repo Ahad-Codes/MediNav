@@ -1,10 +1,20 @@
-.LogIn .main_box{
+.LogIn{
     background-image: url("../images/ambulance_login.jpg");
+    background-size:cover;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+/* .LogIn .main_box{
+    background-image: url("../images/ambulance_login.jpg");
+    background-size:cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 
 
 .LogIn .form_box{
