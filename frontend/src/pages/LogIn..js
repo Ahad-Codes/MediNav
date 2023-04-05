@@ -88,10 +88,10 @@ export default function LogIn() {
           </form>
 
           <p className="bring_link_to_center alternate_links_p">
-            Don't have an accout?<Link className="alternate_links" to="/SignUp/Reporter"> Sign Up</Link>
+            Don't have an accout? <Link className="alternate_links" to="/SignUp/Reporter">Sign Up</Link>
           </p>
           <p className="bring_link_to_center alternate_links_p">
-            Forgot Your Password?<Link className="alternate_links"> Click Here</Link>
+            Forgot Your Password? <Link className="alternate_links">Click Here</Link>
           </p>
         </div>
       </div>
