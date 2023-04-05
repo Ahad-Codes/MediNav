@@ -86,6 +86,14 @@
     border: none;
     margin-top: 20px;
 }
+.LandingPage .button:hover{
+    background-color: #6d0c9a;
+    color: white !important;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 20px;
+}
 
 .LandingPage .button h1{
     font-size: 18px;

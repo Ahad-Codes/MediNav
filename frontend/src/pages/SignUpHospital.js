@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/SignUpHospital.css";
+import ReplyIcon from '@mui/icons-material/Reply';
+import mediNavLogo from "../images/medinav_logo.png";
+
 
 export default function SignUpHospital() {
   const [name, setName] = useState("");
@@ -40,8 +43,12 @@ export default function SignUpHospital() {
     <div className="SignUpHospital">
       <div className="main_box">
         <div className="form_box">
-          <Link to="/">back</Link>
-          <h3>Signup to Medinav</h3>
+          
+          <Link to="/" className="back_link"><ReplyIcon fontSize="small" /></Link>
+          <div className="form_heading">
+            <h3>Login to</h3><img className="img_logo" src={mediNavLogo} alt="Logo" /><h3 className="logo_text"> Medinav</h3>
+          </div>
+
           <form className="row g-3" onSubmit={onSubmit}>
             <div className="mb-3 form_row">
               <label for="exampleInputEmail1" className="form-label">
