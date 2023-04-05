@@ -18,7 +18,7 @@ function Map(props) {
 
 function ReportAccident() {
   const [accident, setAccident] = useState("");
-  const [landamrk, setLandmark] = useState("");
+  const [landmark, setLandmark] = useState("");
   const [victims, setVictims] = useState("");
   const [details, setDetails] = useState("");
 
@@ -43,12 +43,16 @@ function ReportAccident() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+
+    var userID = window.localStorage.getItem("userID")
     try {
       const response = await axios.post("http://localhost:3001/report", {
+        userID,
         accident,
-        landamrk,
         victims,
         details,
+        landmark,
         longitude,
         latitude,
       });
@@ -89,7 +93,7 @@ function ReportAccident() {
                 id="landmark"
                 name="landmark"
                 placeholder="Nearest Landmark"
-                value={landamrk}
+                value={landmark}
                 onChange={(e) => {
                   setLandmark(e.target.value);
                 }}
