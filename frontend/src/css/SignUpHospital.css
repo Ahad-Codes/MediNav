@@ -1,11 +1,14 @@
 .SignUpHospital {
-    background-image: url("../images/ambulance_login.jpg");
+    /* background-image: url("../images/ambulance_login.jpg"); */
     background-size: cover;
     height: 100vh;
     /* width: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #ede8f0;
+    /* background-color: #F6EDFF; */
+
 
 
 

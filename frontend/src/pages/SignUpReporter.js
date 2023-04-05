@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/SignUpReporter.css";
+import ReplyIcon from '@mui/icons-material/Reply';
+import mediNavLogo from "../images/medinav_logo.png";
 
 export default function SignUpReporter() {
   const [name, setName] = useState("");
