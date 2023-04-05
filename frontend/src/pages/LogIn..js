@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import "../css/LogIn.css";
+import mediNavLogo from "../images/medinav_logo.png";
+import ReplyIcon from '@mui/icons-material/Reply';
 
 export default function LogIn() {
   const [number, setNumber] = useState("");
@@ -28,10 +30,10 @@ export default function LogIn() {
           response.data.type === "Hospital"
             ? "/Hospital"
             : response.data.type === "Warden"
-            ? "/Police"
-            : response.data.type === "Admin"
-            ? "/Admin"
-            : "/Reporter"
+              ? "/Police"
+              : response.data.type === "Admin"
+                ? "/Admin"
+                : "/Reporter"
         );
       }
     } catch (error) {
@@ -43,11 +45,13 @@ export default function LogIn() {
     <div className="LogIn">
       <div className="main_box">
         <div className="form_box">
-          <Link to="/">back</Link>
-          <h3>Login to Medinav</h3>
+          <Link to="/" className="back_link"><ReplyIcon fontSize="small"/></Link>
+          <div className="form_heading">
+            <h3>Login to</h3><img className="img_logo" src={mediNavLogo} alt="Logo" /><h3 className="logo_text"> Medinav</h3>
+          </div>
           <form onSubmit={onSubmit}>
             <div className="mb-3 form_row">
-              <label for="exampleInputEmail1" className="form-label">
+              <label for="exampleInputEmail1">
                 Contact Number
               </label>
               <input
@@ -62,7 +66,7 @@ export default function LogIn() {
               />
             </div>
             <div className="mb-3 form_row">
-              <label for="exampleInputPassword1" className="form-label">
+              <label for="exampleInputPassword1">
                 Password
               </label>
               <input
@@ -83,11 +87,11 @@ export default function LogIn() {
             </div>
           </form>
 
-          <p className="bring_link_to_center">
-            Don't have an accout?<Link to="/SignUp/Reporter"> Sign Up</Link>
+          <p className="bring_link_to_center alternate_links_p">
+            Don't have an accout?<Link className="alternate_links" to="/SignUp/Reporter"> Sign Up</Link>
           </p>
-          <p className="bring_link_to_center">
-            Forgot Your Password?<Link>Click Here</Link>
+          <p className="bring_link_to_center alternate_links_p">
+            Forgot Your Password?<Link className="alternate_links"> Click Here</Link>
           </p>
         </div>
       </div>
