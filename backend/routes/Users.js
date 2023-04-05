@@ -332,4 +332,14 @@ router.post("/updateHospital", async (req, res) => {
 
 )
 
+
+router.post("/updateReporters", async (req,res) => {
+
+
+// get user id
+// update reporter fields in mongo
+
+
+})
+
 module.exports = router;
