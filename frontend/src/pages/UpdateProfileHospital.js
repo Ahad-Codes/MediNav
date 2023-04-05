@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/UpdateProfileHospital.css";
@@ -15,23 +15,31 @@ export default function UpdateProfileHospital() {
   const [oldPassword, setOldPassword] = useState("");
   const navigate = useNavigate();
 
+  var userID = window.localStorage.getItem("userID")
+  console.log(userID)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post("/api/hospital/profile");
-        setHospitalData(response.data);
+        const response = await axios.post("http://localhost:3001/user/getHospitalDetails", {
+          userID
+        });
+        console.log(response.data);
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     };
+
+
     fetchData();
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    var hosp_id = window.localStorage.getitem("userID")
     try {
       const updatedHospitalData = {
+        hosp_id,
         landline,
         primaryMobileNumber,
         secondaryMobileNumber,
@@ -41,7 +49,7 @@ export default function UpdateProfileHospital() {
         oldPassword,
       };
       const response = await axios.put(
-        "/api/hospital/profile",
+        "http://localhost:3001/user/updateHospital",
         updatedHospitalData
       );
       console.log(response.data);
@@ -51,9 +59,9 @@ export default function UpdateProfileHospital() {
     }
   };
 
-  if (!hospitalData) {
-    return <div>Loading...</div>;
-  }
+  // if (!hospitalData) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div className="UpdateProfileHospital">

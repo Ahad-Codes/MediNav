@@ -128,6 +128,8 @@ router.post("/signupHosp", async (req, res) => {
     });
     await newUser.save();
 
+    console.log("Hospital Registered")
+
     res.json({ message: "User Registered Succesfully" });
 });
 
@@ -209,10 +211,10 @@ router.post("/login", async (req, res) => {
         type: fetchUserHosp
             ? "Hospital"
             : fetchUserWard
-            ? "Warden"
-            : fetchUserAdmin
-            ? "Admin"
-            : "Reporter",
+                ? "Warden"
+                : fetchUserAdmin
+                    ? "Admin"
+                    : "Reporter",
     });
 });
 
@@ -302,5 +304,32 @@ router.put("/hospitalPendingRejected/:id", async (req, res) => {
         res.status(500).send("Internal server error");
     }
 });
+
+router.post("/getHospitalDetails", async (req, res) => {
+
+    try {
+        console.log("Request Rcvd")
+        console.log(req.body)
+        const hospitaldeets = await HospitalModel.findById(req.body.userID)
+        console.log(hospitaldeets)
+
+        res.send(hospitaldeets)
+
+    }
+    catch (error) {
+
+        console.log(error)
+    }
+
+
+
+})
+
+router.post("/updateHospital", async (req, res) => {
+    
+    
+}
+
+)
 
 module.exports = router;

@@ -22,7 +22,7 @@ export default function SignUpHospital() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/user/signupHosp", {
+      const response = await axios.post("http://localhost:3001/user/signupHosp", {
         name,
         address,
         email,
@@ -33,7 +33,8 @@ export default function SignUpHospital() {
         doctors,
         ambulances,
       });
-      navigate("/Login");
+      console.log(response)
+      // navigate("/Login");
     } catch (error) {
       console.error(error);
     }
