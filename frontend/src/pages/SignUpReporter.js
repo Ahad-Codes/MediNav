@@ -117,13 +117,13 @@ export default function SignUpReporter() {
             </div>
             <div className="bring_child_to_center">
               <button type="submit" className="btn btn-primary button">
-                Creat Account
+                Create Account
               </button>
             </div>
           </form>
 
           <p className="bring_link_to_center alternate_links_p">
-            Already an account?<Link className="alternate_links" to="/LogIn">Log In</Link>
+            Already an account? <Link className="alternate_links" to="/LogIn">Log In</Link>
           </p>
           <p className="bring_link_to_center alternate_links_p">
             <Link className="alternate_links" to="/SignUp/Hospital">Sign up</Link> as Hospital
