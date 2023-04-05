@@ -4,6 +4,47 @@ import { Link, useNavigate } from "react-router-dom";
 import "../css/LandingPage.css";
 
 export default function ViewHospitals() {
+  const [hospitals, setHospitals] = useState([]);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+          console.log(latitude, longitude)
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  }, []);
+
+  const getHospitals = () => {
+    axios
+      .post(`http://localhost:3001/report/viewhospitals`, {
+        latitude,
+        longitude
+      })
+      .then((response) => {
+        setHospitals(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    if (latitude && longitude) {
+      getHospitals();
+    }
+  }, [latitude, longitude]);
+
   return (
     <div className="ReportHistoryReporter">
       <div className="main_box">
@@ -22,28 +63,14 @@ export default function ViewHospitals() {
               </tr>
             </thead>
             <tbody>
-              {/* 3 different type of buttons, we will identify the type of button by adding a conditional on button variable or giving different class type */}
-              <tr className="table_row">
-                <td className="non_button_item">obj.name</td>
-                <td className="non_button_item">obj.landline</td>
-                <td className="non_button_item">obj.email</td>
-                <td className="non_button_item">obj.ambulances</td>
-                
-              </tr>
-              <tr className="table_row">
-              <td className="non_button_item">obj.name</td>
-                <td className="non_button_item">obj.landline</td>
-                <td className="non_button_item">obj.email</td>
-                <td className="non_button_item">obj.ambulances</td>
-                
-              </tr>
-              <tr className="table_row">
-              <td className="non_button_item">obj.name</td>
-                <td className="non_button_item">obj.landline</td>
-                <td className="non_button_item">obj.email</td>
-                <td className="non_button_item">obj.ambulances</td>
-                
-              </tr>
+              {hospitals.map((hospital) => (
+                <tr key={hospital.id} className="table_row">
+                  <td className="non_button_item">{hospital.name}</td>
+                  <td className="non_button_item">{hospital.landline}</td>
+                  <td className="non_button_item">{hospital.email}</td>
+                  <td className="non_button_item">{hospital.ambulances}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
