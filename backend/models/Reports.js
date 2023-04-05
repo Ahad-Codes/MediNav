@@ -14,13 +14,15 @@ const reportSchema = new mongoose.Schema({
       ref: 'Reporter',
       required: true
     },
-
-    nearest_landmark: {
+    numVictims: {
+      type: Number,
+      required: true
+    },
+    title: {
       type: String,
       required: true
     },
-    
-    title: {
+    nearest_landmark: {
       type: String,
       required: true
     },
@@ -32,10 +34,6 @@ const reportSchema = new mongoose.Schema({
         type: [Number],
         required: true
     },
-    numVictims: {
-      type: Number,
-      required: true
-    },
     status: {
       type: String,
       enum: ['open', 'accepted_hospital', 'rejected', "accepted_police"],
@@ -43,6 +41,7 @@ const reportSchema = new mongoose.Schema({
     },
     createdAt: {
       type: Date,
+      default: Date.now, 
       required: true
     }
   });

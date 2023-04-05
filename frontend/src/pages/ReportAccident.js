@@ -43,16 +43,16 @@ function ReportAccident() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-
     var userID = window.localStorage.getItem("userID")
+
     try {
       const response = await axios.post("http://localhost:3001/report", {
+
         userID,
         accident,
+        landmark,
         victims,
         details,
-        landmark,
         longitude,
         latitude,
       });
@@ -70,64 +70,62 @@ function ReportAccident() {
   return (
     <div className="ReportAccident">
       <div className="content-box">
-        <div className="form-box">
-          <form  onSubmit={handleSubmit}>
-            <h2>Report An Accident</h2>
-            <div className="form-group">
-              <label for="accident">Type of Accident</label>
-              <input
-                type="text"
-                id="accident"
-                name="accident"
-                placeholder="Type of Accident"
-                value={accident}
-                onChange={(e) => {
-                  setAccident(e.target.value);
-                }}
-              />
-            </div>
-            <div className="form-group">
-              <label for="landmark">Nearest Landmark</label>
-              <input
-                type="text"
-                id="landmark"
-                name="landmark"
-                placeholder="Nearest Landmark"
-                value={landmark}
-                onChange={(e) => {
-                  setLandmark(e.target.value);
-                }}
-              />
-            </div>
-            <div className="form-group">
-              <label for="numVictims">Number of Affected Victims</label>
-              <input
-                type="number"
-                id="numVictims"
-                name="numVictims"
-                placeholder="Number of Victims"
-                value={victims}
-                onChange={(e) => {
-                  setVictims(e.target.value);
-                }}
-              />
-            </div>
-            <div className="form-group">
-              <label for="message">Additional Details</label>
-              <input
-                type="text"
-                id="details"
-                name="details"
-                placeholder="Additional Details"
-                value={details}
-                onChange={(e) => {
-                  setDetails(e.target.value);
-                }}
-              />
-            </div>
-            <button type="submit">REPORT ACCIDENT</button>
-          </form>
-        </div>
+        <form className="form-box" onSubmit={handleSubmit}>
+          <h2>Report An Accident</h2>
+          <div className="form-group">
+            <label for="accident">Type of Accident</label>
+            <input
+              type="text"
+              id="accident"
+              name="accident"
+              placeholder="Type of Accident"
+              value={accident}
+              onChange={(e) => {
+                setAccident(e.target.value);
+              }}
+            />
+          </div>
+          <div className="form-group">
+            <label for="landmark">Nearest Landmark</label>
+            <input
+              type="text"
+              id="landmark"
+              name="landmark"
+              placeholder="Nearest Landmark"
+              value={landmark}
+              onChange={(e) => {
+                setLandmark(e.target.value);
+              }}
+            />
+          </div>
+          <div className="form-group">
+            <label for="numVictims">Number of Affected Victims</label>
+            <input
+              type="number"
+              id="numVictims"
+              name="numVictims"
+              placeholder="Number of Victims"
+              value={victims}
+              onChange={(e) => {
+                setVictims(e.target.value);
+              }}
+            />
+          </div>
+          <div className="form-group">
+            <label for="message">Additional Details</label>
+            <input
+              type="text"
+              id="details"
+              name="details"
+              placeholder="Additional Details"
+              value={details}
+              onChange={(e) => {
+                setDetails(e.target.value);
+              }}
+            />
+          </div>
+          <button type="submit">REPORT ACCIDENT</button>
+        </form>
         <div className="info-box">
           <Map latitude={latitude} longitude={longitude} />
         </div>
