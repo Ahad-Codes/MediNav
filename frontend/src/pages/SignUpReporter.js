@@ -34,11 +34,13 @@ export default function SignUpReporter() {
     <div className="SignUpReporter">
       <div className="main_box">
         <div className="form_box">
-          <Link to="/">back</Link>
-          <h3>Signup to Medinav</h3>
+          <Link to="/" className="back_link"><ReplyIcon fontSize="small" /></Link>
+          <div className="form_heading">
+            <h3>Sign up</h3><img className="img_logo" src={mediNavLogo} alt="Logo" /><h3 className="logo_text"> Medinav</h3>
+          </div>
           <form onSubmit={onSubmit}>
             <div className="mb-3 form_row">
-              <label for="exampleInputEmail1" className="form-label">
+              <label for="exampleInputEmail1" >
                 Full Name
               </label>
               <input
@@ -53,7 +55,7 @@ export default function SignUpReporter() {
               />
             </div>
             <div className="mb-3 form_row">
-              <label for="exampleInputEmail1" className="form-label">
+              <label for="exampleInputEmail1" >
                 Contact Number
               </label>
               <input
@@ -68,7 +70,7 @@ export default function SignUpReporter() {
               />
             </div>
             <div className="mb-3 form_row">
-              <label for="exampleInputEmail1" className="form-label">
+              <label for="exampleInputEmail1" >
                 CNIC
               </label>
               <input
@@ -83,7 +85,7 @@ export default function SignUpReporter() {
               />
             </div>
             <div className="mb-3 form_row">
-              <label for="exampleInputEmail1" className="form-label">
+              <label for="exampleInputEmail1" >
                 Email
               </label>
               <input
@@ -99,7 +101,7 @@ export default function SignUpReporter() {
             </div>
 
             <div className="mb-3 form_row">
-              <label for="exampleInputPassword1" className="form-label">
+              <label for="exampleInputPassword1" >
                 Password
               </label>
               <input
@@ -120,14 +122,14 @@ export default function SignUpReporter() {
             </div>
           </form>
 
-          <p className="bring_link_to_center">
-            Already an account?<Link to="/LogIn">Log In</Link>
+          <p className="bring_link_to_center alternate_links_p">
+            Already an account?<Link className="alternate_links" to="/LogIn">Log In</Link>
           </p>
-          <p className="bring_link_to_center">
-            <Link to="/SignUp/Hospital">Sign Up as Hospital</Link>
+          <p className="bring_link_to_center alternate_links_p">
+            <Link className="alternate_links" to="/SignUp/Hospital">Sign up</Link> as Hospital
           </p>
-          <p className="bring_link_to_center">
-            <Link to="/SignUp/Warden">Sign Up as Warden</Link>
+          <p className="bring_link_to_center alternate_links_p">
+            <Link className="alternate_links" to="/SignUp/Warden">Sign up</Link> as Warden
           </p>
         </div>
       </div>

@@ -52,7 +52,7 @@ export default function SignUpHospital() {
 
           <form className="row g-3" onSubmit={onSubmit}>
             <div className="mb-3 form_row">
-              <label for="exampleInputEmail1" clas>
+              <label for="exampleInputEmail1" >
                 Hospital Name
               </label>
               <input
