@@ -177,6 +177,31 @@ router.get("/brooadcastList", async (req, res) => {
 });
 
 
+router.get('/viewhospitals', async (req, res) => {
+  console.log(req.query)
+  const { latitude, longitude } = req.query;
+
+  try {
+    const hospitals = await HospitalModel.find();
+    const filteredHospitals = hospitals.filter(hospital => {
+      const hospitalLatitude = parseFloat(hospital.latitude);
+      const hospitalLongitude = parseFloat(hospital.longitude);
+      const distance = Math.acos(Math.sin(latitude) * Math.sin(hospitalLatitude) + Math.cos(latitude) * Math.cos(hospitalLatitude) * Math.cos(hospitalLongitude - longitude)) * 6371;
+      return distance <= 5;
+    });
+    const hospitalData = filteredHospitals.map(hospital => ({
+      name: hospital.name,
+      landline: hospital.landline,
+      email: hospital.email,
+      ambulances: hospital.ambulances,
+    }));
+    console.log(hospitalData)
+    res.json(hospitalData);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
+});
 
 
 
