@@ -182,7 +182,7 @@ export default function SignUpHospital() {
             </div>
             <div className="bring_child_to_center">
               <button type="submit" className="btn btn-primary button">
-                Creat Account
+                Create Account
               </button>
             </div>
           </form>

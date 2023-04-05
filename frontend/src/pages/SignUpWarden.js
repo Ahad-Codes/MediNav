@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/SignUpReporter.css";
+import ReplyIcon from '@mui/icons-material/Reply';
+import mediNavLogo from "../images/medinav_logo.png";
 
 export default function SignUpWarden() {
   const [name, setName] = useState("");
@@ -32,11 +34,13 @@ export default function SignUpWarden() {
     <div className="SignUpReporter">
       <div className="main_box">
         <div className="form_box">
-          <Link to="/">back</Link>
-          <h3>Signup to Medinav</h3>
+          <Link to="/" className="back_link"><ReplyIcon fontSize="small" /></Link>
+          <div className="form_heading">
+            <h3>Sign up</h3><img className="img_logo" src={mediNavLogo} alt="Logo" /><h3 className="logo_text"> Medinav</h3>
+          </div>
           <form onSubmit={onSubmit}>
             <div className="mb-3 form_row">
-              <label for="exampleInputEmail1" className="form-label">
+              <label for="exampleInputEmail1" >
                 Full Name
               </label>
               <input
@@ -51,7 +55,7 @@ export default function SignUpWarden() {
               />
             </div>
             <div className="mb-3 form_row">
-              <label for="exampleInputEmail1" className="form-label">
+              <label for="exampleInputEmail1" >
                 Contact Number
               </label>
               <input
@@ -66,7 +70,7 @@ export default function SignUpWarden() {
               />
             </div>
             <div className="mb-3 form_row">
-              <label for="exampleInputEmail1" className="form-label">
+              <label for="exampleInputEmail1" >
                 Department Address
               </label>
               <input
@@ -81,7 +85,7 @@ export default function SignUpWarden() {
               />
             </div>
             <div className="mb-3 form_row">
-              <label for="exampleInputEmail1" className="form-label">
+              <label for="exampleInputEmail1" >
                 Email
               </label>
               <input
@@ -97,7 +101,7 @@ export default function SignUpWarden() {
             </div>
 
             <div className="mb-3 form_row">
-              <label for="exampleInputPassword1" className="form-label">
+              <label for="exampleInputPassword1" >
                 Password
               </label>
               <input
@@ -113,19 +117,19 @@ export default function SignUpWarden() {
             </div>
             <div className="bring_child_to_center">
               <button type="submit" className="btn btn-primary button">
-                Creat Account
+                Create Account
               </button>
             </div>
           </form>
 
-          <p className="bring_link_to_center">
-            Already an account?<Link to="/LogIn">Log In</Link>
+          <p className="bring_link_to_center alternate_links_p">
+            Already an account? <Link className="alternate_links" to="/LogIn">Log In</Link>
           </p>
-          <p className="bring_link_to_center">
-            <Link to="/SignUp/Hospital">Sign Up as Hospital</Link>
+          <p className="bring_link_to_center alternate_links_p">
+            <Link className="alternate_links" to="/SignUp/Hospital">Sign up</Link> as Hospital
           </p>
-          <p className="bring_link_to_center">
-            <Link to="/SignUp/Reporter">Sign Up as Reporter</Link>
+          <p className="bring_link_to_center alternate_links_p">
+            <Link className="alternate_links" to="/SignUp/Reporter">Sign up</Link> as Reporter
           </p>
         </div>
       </div>

@@ -1,10 +1,12 @@
 .ReportAccident {
-  height: 100vh;
+  height: 91vh;
   display: flex;
   
   justify-content: center;
   align-items: center;
-  background-image: url("../images/ambulance_login.jpg");
+  /* background-image: url("../images/ambulance_login.jpg"); */
+  background-image: url("../images/update_bg.jpg");
+
   background-size:cover;
 }
 
@@ -22,6 +24,7 @@
   align-items: center;
   align-content: center;
   padding: 25px 40px 35px 40px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
 }
 
