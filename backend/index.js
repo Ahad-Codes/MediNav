@@ -20,3 +20,6 @@ app.use("/report", reportRouter);
 app.listen(3001, () => {
     console.log("Server running on port 3001");
 });
+
+
+// BACKEND API ROUTE: https://medinav-backend-8gvrb.ondigitalocean.app
