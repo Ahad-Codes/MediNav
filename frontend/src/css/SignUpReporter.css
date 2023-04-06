@@ -1,57 +1,122 @@
-.SignUpReporter .main_box{
-    background-image: url("../images/ambulance_login.jpg");
-    height: auto;
+.SignUpReporter {
+    /* background-image: url("../images/ambulance_login.jpg"); */
+    background-size: cover;
+    height: 100vh;
     /* width: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #ede8f0;
 
-    
-    
+
+
 }
 
 
-.SignUpReporter .form_box{
-    
+.SignUpReporter .form_box {
+
     text-align: left;
     background-color: white;
-    width: 400px;
-    padding: 40px 30px;
+    width: 26vw;
+    max-width: 400px;
+    min-width: 320px;
+    /* padding: 40px 30px; */
+    padding: 00px 30px;
+    padding-bottom: 25px;
     padding-top: 0px;
     border-radius: 13px;
-    
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+
 }
 
-.SignUpReporter .form_box h3{
+.SignUpReporter .back_link {
+    color: black;
+}
+
+.SignUpReporter .img_logo {
+    width: 40px;
+    height: 40px;
+}
+
+.SignUpReporter .logo_text {
+    color: #7B0BB0;
+}
+
+.SignUpReporter .form_heading {
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+/* 
+.SignUpReporter .form_box h3 {
     text-align: center;
     padding-bottom: 40px;
+} */
+
+.SignUpReporter .form_row {
+    padding: 0px !important;
+    margin: 0px !important;
 }
 
-.SignUpReporter .form_row{
-    padding:0px;
-    margin: 0px;
+.SignUpReporter label{
+    /* color: red; */
+    font-size: small;
+}
+.SignUpReporter input{
+    background-color:#EFF0F2;
+    color: #838383;
+    border: none;
+    font-size: small;
 }
 
-.SignUpReporter .bring_child_to_center{
+.SignUpReporter .bring_child_to_center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.SignUpReporter .button{
+.SignUpReporter .button {
     background-color: #7B0BB0;
     color: white !important;
     border-radius: 5px;
-    padding: 8px 90px;
     border: none;
     /* margin-top: 20px; */
     margin-bottom: 10px;
+    width: 14vw;
+    max-width: 210px;
+    min-width: fit-content;
+    margin-top: 5px;
+    /* width: 200px; */
+
 }
 
+.SignUpReporter .button:hover{
+    background-color: #63098d;
 
-.SignUpReporter .bring_link_to_center{
+}
+
+.SignUpReporter .bring_link_to_center {
     text-align: center;
     margin-bottom: 0px;
     padding-bottom: 0px;
     /* margin-top: 2px; */
+}
+
+.SignUpReporter .alternate_links_p{
+    font-size: small;
+    margin-bottom: 2px;
+}
+.SignUpReporter .alternate_links{
+    text-decoration: none;
+    color: #7B0BB0 !important;
+}
+
+.SignUpReporter .alternate_links:hover{
+    color: #63098d !important;
+    text-decoration: underline;
+
 }

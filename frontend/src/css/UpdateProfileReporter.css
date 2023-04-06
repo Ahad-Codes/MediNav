@@ -1,3 +1,12 @@
+.UpdateProfileReporter{
+    background-image: url("../images/update_bg.jpg");
+    height: 91vh;
+    /* width: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row  !important;
+}
 .UpdateProfileReporter .updateProfileHeading{
     background-color:#7c0bb07f;
     color: white;
@@ -6,52 +15,65 @@
     margin-bottom: 10px;
 }
 
-.UpdateProfileReporter .main_box{
-    background-image: url("../images/update_bg.jpg");
-    height: 100vh;
-    /* width: 100vh; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row  !important;
 
-    
-    
-}
 
 
 .UpdateProfileReporter .form_box{
     
     text-align: left;
     background-color: white;
-    width: 600px;
-    padding: 40px 30px;
-    /* padding-top: 0px; */
+    width: 65vw;
+    max-width: 550px;
+    min-width: 320px;
+    padding: 0px 30px;
+    padding-bottom: 32px;
+    padding-top: 40px;
     border-radius: 13px;
+    /* text-align: left;
+    background-color: white;
+    width: 40vw;
+    max-width: 450px;
+    min-width: 320px;
+    padding: 00px 30px;
+    padding-bottom: 25px;
+    padding-top: 0px;
+    border-radius: 13px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+
     
 }
 
-.UpdateProfileReporter .form_box h3{
-    text-align: center;
-    padding-bottom: 40px;
-}
+
 
 .UpdateProfileReporter .form_row{
-    padding:0px;
-    margin: 0px;
+    padding: 0px !important;
+    margin: 0px !important;
 }
-
+.UpdateProfileReporter label{
+    /* color: red; */
+    font-size: small;
+}
+.UpdateProfileReporter input{
+    background-color:#EFF0F2;
+    color: #838383;
+    border: none;
+    font-size: small;
+}
 .UpdateProfileReporter .bring_child_to_center{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* width: 400px; */
+    /* row-gap: 10px !important; */
 }
 
 .UpdateProfileReporter .button{
     background-color: #7B0BB0;
     color: white !important;
     border-radius: 5px;
-    padding: 8px 90px;
+    /* padding: 8px 90px; */
     border: none;
     /* margin-top: 20px; */
     margin-bottom: 10px;
@@ -69,17 +91,31 @@
 .UpdateProfileReporter .updateButton{
     color:white;
     background-color: #7B0BB0;
-    border-radius: 4px;
+    border-radius: 5px;
     border: none;
-    padding: 5px 50px;
-    margin-right: 20px;
+    width: 14vw;
+    max-width: 200px;
+    min-width: 126px;
+    /* padding: 5px 50px;
+    margin-right: 20px; */
 } 
+
+.UpdateProfileReporter .updateButton:hover{
+    background-color: #670993;
+}
 
 .UpdateProfileReporter .cancelButton{
     color:white;
     background-color:red;
-    border-radius: 4px;
+    border-radius: 5px;
     border: none;
-    padding: 5px 30px;
+    width: 6vw;
+    max-width: 80px;
+    min-width: fit-content;
+    /* padding: 5px 30px; */
     /* padding: 5px 30px; */
 } 
+.UpdateProfileReporter .cancelButton:hover{
+    background-color:rgb(235, 0, 0);
+
+}

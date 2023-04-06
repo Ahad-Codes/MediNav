@@ -40,6 +40,21 @@ export default function PendingRequestsHospital() {
     }
   };
 
+  const setDateFormat = (today) =>  {
+
+    var today = new Date(today)
+    console.log(today)
+
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date + ' -' + time;
+
+
+    return dateTime
+
+  }
+
+
   return (
     <div className="PendingRequestsHospital">
       <div className="main_box">
@@ -62,10 +77,10 @@ export default function PendingRequestsHospital() {
               {requests.map((request) => (
                 <tr key={request._id} className="table_row">
                   <td className="non_button_item">{request.title}</td>
-                  <td className="non_button_item">{0}</td>
-                  <td className="non_button_item">{"-"}</td>
+                  <td className="non_button_item">{request.numVictims}</td>
+                  <td className="non_button_item">{request.nearest_landmark}</td>
                   <td className="non_button_item">{request.description}</td>
-                  <td className="non_button_item">{request.createdAt}</td>
+                  <td className="non_button_item">{setDateFormat(request.createdAt)}</td>
                   <td>
                     <div className="btn-group">
                       <button className="btn button_left" onClick={() => acceptRequest(request._id)}>Accept</button>
