@@ -12,6 +12,8 @@ export default function ReportHistoryAdmin() {
     useEffect(() => {
         if (!Cookies.get("access_token")) {
             navigate("/");
+        } else if (window.localStorage.getItem("userType") !== "Admin") {
+            navigate("/");
         } else {
             axios
                 .get("http://localhost:3001/report/adminreportHistory")

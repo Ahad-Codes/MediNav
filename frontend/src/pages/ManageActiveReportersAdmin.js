@@ -22,6 +22,9 @@ export default function ManageActiveReportersAdmin() {
         };
         if (!Cookies.get("access_token")) {
             navigate("/");
+        }
+        if (window.localStorage.getItem("userType") !== "Admin") {
+            navigate("/");
         } else fetchReporters();
     }, []);
 

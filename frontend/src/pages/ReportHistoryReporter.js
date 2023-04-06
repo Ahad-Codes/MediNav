@@ -26,6 +26,8 @@ export default function ReportHistoryReporter() {
         };
         if (!Cookies.get("access_token")) {
             navigate("/");
+        } else if (window.localStorage.getItem("userType") !== "Reporter") {
+            navigate("/");
         } else fetchReports();
     }, []);
 
