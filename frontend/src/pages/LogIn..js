@@ -16,7 +16,7 @@ export default function LogIn() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://medinav-backend-8gvrb.ondigitalocean.app/user/login", {
+      const response = await axios.post("http://localhost:3001/user/login", {
         number,
         password,
       });
