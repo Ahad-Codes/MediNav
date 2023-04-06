@@ -99,6 +99,8 @@ router.post("/signupHosp", async (req, res) => {
         s_number,
         doctors,
         ambulances,
+        longitude,
+        latitude,
     } = req.body;
     const fetchUserHosp = await HospitalModel.findOne({
         $or: [{ email: email }, { p_number: p_number }],
@@ -125,6 +127,7 @@ router.post("/signupHosp", async (req, res) => {
         doctors,
         ambulances,
         approved: 0,
+        location: [longitude, latitude],
     });
     await newUser.save();
 
