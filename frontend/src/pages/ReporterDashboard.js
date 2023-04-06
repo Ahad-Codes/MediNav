@@ -15,7 +15,9 @@ export default function TempDashboard() {
         if (!Cookies.get("access_token")) {
             navigate("/");
         } else {
-            if (navigator.geolocation) {
+            if (window.localStorage.getItem("userType") !== "Reporter") {
+                navigate("/");
+            } else if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
                         setLatitude(position.coords.latitude);
@@ -53,9 +55,9 @@ function Map(props) {
     const { latitude, longitude } = props;
     const navigate = useNavigate();
 
-  const onViewBroadcastClick = () => {
-    navigate("/ViewBroadcasts");
-  };
+    const onViewBroadcastClick = () => {
+        navigate("/ViewBroadcasts");
+    };
 
     const onViewHospitalClick = () => {
         navigate("ViewHospitals");

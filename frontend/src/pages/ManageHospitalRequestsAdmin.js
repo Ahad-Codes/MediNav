@@ -21,6 +21,8 @@ export default function ManageHospitalRequestsAdmin() {
         };
         if (!Cookies.get("access_token")) {
             navigate("/");
+        } else if (window.localStorage.getItem("userType") !== "Admin") {
+            navigate("/");
         } else fetchHospitals();
     }, []);
 
