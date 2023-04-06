@@ -82,9 +82,18 @@ function Navbar(props) {
                                               "userType"
                                           ) === "Reporter"
                                         ? "/Reporter/ReportAccident"
-                                        : window.location.pathname
+                                        : "/LogIn"
                                 }
                                 className="nav-link "
+                                onClick={() => {
+                                    if (
+                                        window.localStorage.getItem(
+                                            "userType"
+                                        ) !== "Reporter"
+                                    ) {
+                                        logout();
+                                    }
+                                }}
                             >
                                 Report Incident
                             </Link>

@@ -71,6 +71,7 @@ function App() {
                             index
                             element={
                                 <>
+                                    <Navbar myString={"Hospital"} />
                                     <PendingRequestsHospital />
                                     <Footer />
                                 </>
