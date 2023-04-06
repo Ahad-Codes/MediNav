@@ -5,34 +5,45 @@ import "../css/PendingRequestsHospital.css";
 import Cookies from "js-cookie";
 
 export default function PendingRequestsHospital() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [requests, setRequests] = useState([]);
+  const [requests, setRequests] = useState([]);
 
-    useEffect(() => {
-        const fetchRequests = async () => {
-            const res = await axios.get(
-                "http://localhost:3001/user/hospitalPending"
-            );
-            setRequests(res.data);
-        };
-        if (!Cookies.get("access_token")) {
-            navigate("/");
-        } else fetchRequests();
-    }, []);
-
-    const acceptRequest = async (id) => {
-        try {
-            const res = await axios.put(
-                `http://localhost:3001/user/hospitalPendingAccepted/${id}`
-            );
-            setRequests((prevRequests) =>
-                prevRequests.filter((request) => request._id !== id)
-            );
-        } catch (error) {
-            console.error(error);
-        }
+  useEffect(() => {
+    const fetchRequests = async () => {
+      const res = await axios.get(
+        "http://localhost:3001/user/hospitalPending"
+      );
+      setRequests(res.data);
     };
+
+
+    if (!Cookies.get("access_token")) {
+      navigate("/");
+    } else if (window.localStorage.getItem("userType") !== 'Hospital') {
+      navigate("/");
+    }
+    else {
+    fetchRequests();
+    }
+
+    
+
+
+  }, []);
+
+  const acceptRequest = async (id) => {
+    try {
+      const res = await axios.put(
+        `http://localhost:3001/user/hospitalPendingAccepted/${id}`
+      );
+      setRequests((prevRequests) =>
+        prevRequests.filter((request) => request._id !== id)
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const rejectRequest = async (id) => {
     try {
@@ -40,14 +51,14 @@ export default function PendingRequestsHospital() {
       setRequests((prevRequests) =>
         prevRequests.filter((request) => request._id !== id)
       );
-     
+
     } catch (error) {
       console.error(error);
-     
+
     }
   };
 
-  const setDateFormat = (today) =>  {
+  const setDateFormat = (today) => {
 
     var today = new Date(today)
     console.log(today)
