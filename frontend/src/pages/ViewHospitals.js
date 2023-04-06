@@ -34,7 +34,7 @@ export default function ViewHospitals() {
 
     const getHospitals = () => {
         axios
-            .post(`http://localhost:3001/report/viewhospitals`, {
+            .post(`p`, {
                 latitude,
                 longitude,
             })

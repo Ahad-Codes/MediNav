@@ -128,8 +128,6 @@ router.post("/signupHosp", async (req, res) => {
     });
     await newUser.save();
 
-    console.log("Hospital Registered");
-
     res.json({ message: "User Registered Succesfully" });
 });
 
@@ -158,6 +156,7 @@ router.post("/signupWard", async (req, res) => {
         email,
         address,
         password: hashedPassword,
+        approved: 1,
     });
     await newUser.save();
 
@@ -204,6 +203,13 @@ router.post("/login", async (req, res) => {
             return res.json({ message: "User not approved" });
         }
     }
+
+    if (fetchUserWard) {
+        if (fetchUserWard.approved !== 1) {
+            return res.json({ message: "User not approved" });
+        }
+    }
+
     const token = jwt.sign({ id: fetchUser._id }, "secret");
     res.json({
         token,
