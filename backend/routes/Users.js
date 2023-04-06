@@ -128,7 +128,7 @@ router.post("/signupHosp", async (req, res) => {
     });
     await newUser.save();
 
-    console.log("Hospital Registered")
+    console.log("Hospital Registered");
 
     res.json({ message: "User Registered Succesfully" });
 });
@@ -211,10 +211,10 @@ router.post("/login", async (req, res) => {
         type: fetchUserHosp
             ? "Hospital"
             : fetchUserWard
-                ? "Warden"
-                : fetchUserAdmin
-                    ? "Admin"
-                    : "Reporter",
+            ? "Warden"
+            : fetchUserAdmin
+            ? "Admin"
+            : "Reporter",
     });
 });
 
@@ -305,40 +305,23 @@ router.put("/hospitalPendingRejected/:id", async (req, res) => {
 });
 
 router.post("/getHospitalDetails", async (req, res) => {
-
     try {
-        console.log("Request Rcvd")
-        console.log(req.body)
-        const hospitaldeets = await HospitalModel.findById(req.body.userID)
-        console.log(hospitaldeets)
+        console.log("Request Rcvd");
+        console.log(req.body);
+        const hospitaldeets = await HospitalModel.findById(req.body.userID);
+        console.log(hospitaldeets);
 
-        res.send(hospitaldeets)
-
+        res.send(hospitaldeets);
+    } catch (error) {
+        console.log(error);
     }
-    catch (error) {
+});
 
-        console.log(error)
-    }
+router.post("/updateHospital", async (req, res) => {});
 
-
-
-})
-
-router.post("/updateHospital", async (req, res) => {
-    
-    
-}
-
-)
-
-
-router.post("/updateReporters", async (req,res) => {
-
-
-// get user id
-// update reporter fields in mongo
-
-
-})
+router.post("/updateReporters", async (req, res) => {
+    // get user id
+    // update reporter fields in mongo
+});
 
 module.exports = router;

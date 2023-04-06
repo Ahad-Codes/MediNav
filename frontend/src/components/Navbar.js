@@ -8,6 +8,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Cookies from "js-cookie";
 
 function Navbar(props) {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -58,9 +59,13 @@ function Navbar(props) {
                         <li className="nav-item">
                             <Link
                                 to={
-                                    newString === "Landing"
-                                        ? "/Reporter"
-                                        : "/" + newString
+                                    window.localStorage.getItem("userType") ===
+                                    null
+                                        ? "/LogIn"
+                                        : "/" +
+                                          window.localStorage.getItem(
+                                              "userType"
+                                          )
                                 }
                                 className="nav-link "
                             >
@@ -70,9 +75,14 @@ function Navbar(props) {
                         <li className="nav-item">
                             <Link
                                 to={
-                                    newString === "Reporter"
-                                        ? "/" + newString + "/ReportAccident"
-                                        : "/LogIn"
+                                    window.localStorage.getItem("userType") ===
+                                    null
+                                        ? "/LogIn"
+                                        : window.localStorage.getItem(
+                                              "userType"
+                                          ) === "Reporter"
+                                        ? "/Reporter/ReportAccident"
+                                        : window.location.pathname
                                 }
                                 className="nav-link "
                             >
@@ -80,16 +90,25 @@ function Navbar(props) {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/ViewBroadcasts">
+                            <Link to="/ViewBroadcasts" className="nav-link ">
                                 View Broadcasts
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
                             <Link
                                 to={
-                                    newString === "Reporter"
-                                        ? "/" + newString + "/ReportHistory" // change with report history
-                                        : "/LogIn"
+                                    window.localStorage.getItem("userType") ===
+                                    null
+                                        ? "/LogIn"
+                                        : window.localStorage.getItem(
+                                              "userType"
+                                          ) === "Warden"
+                                        ? window.location.pathname
+                                        : "/" +
+                                          window.localStorage.getItem(
+                                              "userType"
+                                          ) +
+                                          "/ReportHistory"
                                 }
                                 className="nav-link "
                             >
@@ -107,7 +126,7 @@ function Navbar(props) {
                     </form>
                     <PhoneInTalkIcon />
                     <div className="nav-icon">1122</div>
-                    {newString === "Reporter" ? (
+                    {window.localStorage.getItem("userType") !== null ? (
                         <>
                             <IconButton onClick={handleMenuOpen}>
                                 <AccountCircleOutlinedIcon fontSize="large" />
@@ -121,7 +140,17 @@ function Navbar(props) {
                                 <MenuItem
                                     onClick={() => {
                                         handleMenuClose();
-                                        navigate("/Reporter/UpdateProfile");
+                                        navigate(
+                                            window.localStorage.getItem(
+                                                "userType"
+                                            ) === "Reporter"
+                                                ? "/Reporter/UpdateProfile"
+                                                : window.localStorage.getItem(
+                                                      "userType"
+                                                  ) === "Hospital"
+                                                ? "/Hospital/UpdateProfile"
+                                                : window.location.pathname
+                                        );
                                     }}
                                 >
                                     UpdateProfile
@@ -129,7 +158,7 @@ function Navbar(props) {
                             </Menu>
                         </>
                     ) : (
-                        <Link to="LogIn">
+                        <Link to="/LogIn">
                             <button className="nav_bar_button ">Log In</button>
                         </Link>
                     )}

@@ -24,7 +24,7 @@ import ViewBroadcasts from "./pages/ViewBroadcasts";
 import ViewHospitals from "./pages/ViewHospitals";
 import Navbar from "./components/Navbar";
 import ReportAccident from "./pages/ReportAccident";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -67,18 +67,41 @@ function App() {
                     </Route>
 
                     <Route path="/Hospital">
-                        <Route index element={<><PendingRequestsHospital /><Footer/></>} />
+                        <Route
+                            index
+                            element={
+                                <>
+                                    <PendingRequestsHospital />
+                                    <Footer />
+                                </>
+                            }
+                        />
                         <Route
                             path="UpdateProfile"
-                            element={<><UpdateProfileHospital /><Footer/></>}
+                            element={
+                                <>
+                                    <UpdateProfileHospital />
+                                    <Footer />
+                                </>
+                            }
                         />
                         <Route
                             path="ReportHistory"
-                            element={<><ReportHistoryHospital /><Footer /></>}
+                            element={
+                                <>
+                                    <ReportHistoryHospital />
+                                    <Footer />
+                                </>
+                            }
                         />
                         <Route
                             path="PendingRequests"
-                            element={<><PendingRequestsHospital /><Footer /></>}
+                            element={
+                                <>
+                                    <PendingRequestsHospital />
+                                    <Footer />
+                                </>
+                            }
                         />
                     </Route>
 
@@ -89,7 +112,7 @@ function App() {
                                 <>
                                     <Navbar myString={"Reporter"} />
                                     <ReporterDashboard />
-                                    <Footer/>
+                                    <Footer />
                                 </>
                             }
                         ></Route>
@@ -99,7 +122,7 @@ function App() {
                                 <>
                                     <Navbar myString={"Reporter"} />
                                     <ReporterDashboard />
-                                    <Footer/>
+                                    <Footer />
                                 </>
                             }
                         />
@@ -109,7 +132,7 @@ function App() {
                                 <>
                                     <Navbar myString={"Reporter"} />
                                     <UpdateProfileReporter />
-                                    <Footer/>
+                                    <Footer />
                                 </>
                             }
                         />
@@ -119,7 +142,7 @@ function App() {
                                 <>
                                     <Navbar myString={"Reporter"} />
                                     <ReportHistoryReporter />
-                                    <Footer/>
+                                    <Footer />
                                 </>
                             }
                         />
@@ -130,7 +153,7 @@ function App() {
                                 <>
                                     <Navbar myString={"Reporter"} />
                                     <ViewHospitals />
-                                    <Footer/>
+                                    <Footer />
                                 </>
                             }
                         />
@@ -140,7 +163,7 @@ function App() {
                                 <>
                                     <Navbar myString={"Reporter"} />
                                     <ReportAccident />
-                                    <Footer/>
+                                    <Footer />
                                 </>
                             }
                         />
@@ -149,31 +172,69 @@ function App() {
                     <Route path="/Admin">
                         <Route
                             index
-                            element={<><ManageReporterRequestsAdmin /><Footer /></>}
+                            element={
+                                <>
+                                    <ManageReporterRequestsAdmin />
+                                    <Footer />
+                                </>
+                            }
                         />
                         <Route
                             path="ReportHistory"
-                            element={<><ReportHistoryAdmin /><Footer /></>}
+                            element={
+                                <>
+                                    <ReportHistoryAdmin />
+                                    <Footer />
+                                </>
+                            }
                         />
                         <Route
                             path="ManageActiveReporters"
-                            element={<><ManangeActiveReportersAdmin /><Footer /></>}
+                            element={
+                                <>
+                                    <ManangeActiveReportersAdmin />
+                                    <Footer />
+                                </>
+                            }
                         />
                         <Route
                             path="ManageReporterRequests"
-                            element={<><ManageReporterRequestsAdmin /><Footer /></>}
+                            element={
+                                <>
+                                    <ManageReporterRequestsAdmin />
+                                    <Footer />
+                                </>
+                            }
                         />
                         <Route
                             path="ManageHospitalRequests"
-                            element={<><ManageHospitalRequestsAdmin /><Footer /></>}
+                            element={
+                                <>
+                                    <ManageHospitalRequestsAdmin />
+                                    <Footer />
+                                </>
+                            }
                         />
                     </Route>
 
                     <Route path="/Police">
-                        <Route index element={<><PendingRequestsPolice /><Footer /></>} />
+                        <Route
+                            index
+                            element={
+                                <>
+                                    <PendingRequestsPolice />
+                                    <Footer />
+                                </>
+                            }
+                        />
                         <Route
                             path="PendingRequests"
-                            element={<><PendingRequestsPolice /><Footer /></>}
+                            element={
+                                <>
+                                    <PendingRequestsPolice />
+                                    <Footer />
+                                </>
+                            }
                         />
                     </Route>
                 </Routes>
