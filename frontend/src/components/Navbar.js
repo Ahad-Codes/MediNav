@@ -12,7 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 function Navbar(props) {
     const [anchorEl, setAnchorEl] = useState(null);
 
-    const [cookies, setCookies] = useCookies(["access_token"]);
+    const [cookies, setCookies, removeCookie] = useCookies(["access_token"]);
     const navigate = useNavigate();
 
     const handleMenuOpen = (event) => {
@@ -23,8 +23,8 @@ function Navbar(props) {
         setAnchorEl(null);
     };
 
-    const logout = () => {
-        setCookies("access_token", "");
+    const logout = async () => {
+        removeCookie("access_token");
         window.localStorage.removeItem("userID");
         window.localStorage.removeItem("userType");
         handleMenuClose();
