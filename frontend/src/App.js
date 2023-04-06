@@ -70,7 +70,7 @@ function App() {
                         <Route
                             index
                             element={
-                                <>
+                                <>  
                                     <Navbar myString={"Hospital"} />
                                     <PendingRequestsHospital />
                                     <Footer />
@@ -81,6 +81,7 @@ function App() {
                             path="UpdateProfile"
                             element={
                                 <>
+                                    <Navbar myString={"Hospital"} />                                
                                     <UpdateProfileHospital />
                                     <Footer />
                                 </>
@@ -90,6 +91,7 @@ function App() {
                             path="ReportHistory"
                             element={
                                 <>
+                                    <Navbar myString={"Hospital"} />                                
                                     <ReportHistoryHospital />
                                     <Footer />
                                 </>
@@ -99,6 +101,7 @@ function App() {
                             path="PendingRequests"
                             element={
                                 <>
+                                    <Navbar myString={"Hospital"} />                                
                                     <PendingRequestsHospital />
                                     <Footer />
                                 </>
@@ -175,6 +178,7 @@ function App() {
                             index
                             element={
                                 <>
+                                    <Navbar myString={"Admin"} />
                                     <ManageReporterRequestsAdmin />
                                     <Footer />
                                 </>
@@ -184,6 +188,7 @@ function App() {
                             path="ReportHistory"
                             element={
                                 <>
+                                    <Navbar myString={"Admin"} />
                                     <ReportHistoryAdmin />
                                     <Footer />
                                 </>
@@ -193,6 +198,7 @@ function App() {
                             path="ManageActiveReporters"
                             element={
                                 <>
+                                    <Navbar myString={"Admin"} />
                                     <ManangeActiveReportersAdmin />
                                     <Footer />
                                 </>
@@ -202,6 +208,7 @@ function App() {
                             path="ManageReporterRequests"
                             element={
                                 <>
+                                    <Navbar myString={"Admin"} />
                                     <ManageReporterRequestsAdmin />
                                     <Footer />
                                 </>
@@ -211,6 +218,7 @@ function App() {
                             path="ManageHospitalRequests"
                             element={
                                 <>
+                                    <Navbar myString={"Admin"} />
                                     <ManageHospitalRequestsAdmin />
                                     <Footer />
                                 </>
@@ -223,6 +231,7 @@ function App() {
                             index
                             element={
                                 <>
+                                    <Navbar myString={"Warden"} />
                                     <PendingRequestsPolice />
                                     <Footer />
                                 </>
@@ -232,6 +241,7 @@ function App() {
                             path="PendingRequests"
                             element={
                                 <>
+                                    <Navbar myString={"Warden"} />
                                     <PendingRequestsPolice />
                                     <Footer />
                                 </>
