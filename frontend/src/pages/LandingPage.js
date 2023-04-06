@@ -11,8 +11,11 @@ export default function LandingPage() {
   const navigate = useNavigate();
 
   const onReportClick = () => {
+
+    
+
     navigate("reporter/ReportAccident");
-    navigate("Login");
+    //navigate("Login");
   };
 
   return (
