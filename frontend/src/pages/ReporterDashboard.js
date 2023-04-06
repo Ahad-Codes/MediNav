@@ -53,9 +53,9 @@ function Map(props) {
     const { latitude, longitude } = props;
     const navigate = useNavigate();
 
-    const onViewBroadcastClick = () => {
-        navigate("ViewBroadcasts");
-    };
+  const onViewBroadcastClick = () => {
+    navigate("/ViewBroadcasts");
+  };
 
     const onViewHospitalClick = () => {
         navigate("ViewHospitals");

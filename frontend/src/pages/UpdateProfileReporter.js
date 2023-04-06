@@ -23,10 +23,7 @@ export default function UpdateProfileReporter() {
                     <div className="form_box">
                         <form className="row g-3">
                             <div className="mb-3 form_row">
-                                <label
-                                    for="exampleInputEmail1"
-                                    className="form-label"
-                                >
+                                <label for="exampleInputEmail1">
                                     Display Name
                                 </label>
                                 <input
@@ -37,10 +34,7 @@ export default function UpdateProfileReporter() {
                                 />
                             </div>
                             <div className="mb-3 form_row">
-                                <label
-                                    for="exampleInputEmail1"
-                                    className="form-label"
-                                >
+                                <label for="exampleInputEmail1">
                                     Contact Number
                                 </label>
                                 <input
@@ -51,55 +45,56 @@ export default function UpdateProfileReporter() {
                                 />
                             </div>
                             <div className="mb-3 form_row">
-                                <label
-                                    for="exampleInputEmail1"
-                                    className="form-label"
-                                >
+                                <label for="exampleInputEmail1">
                                     New Password
                                 </label>
                                 <input
                                     type="password"
                                     className="form-control"
                                     id="exampleInputEmail1"
-                                    placeholder=""
+                                    placeholder="Enter New Password"
                                 />
                             </div>
                             <div className="mb-3 form_row">
-                                <label
-                                    for="exampleInputEmail1"
-                                    className="form-label"
-                                >
-                                    Reenter New Password
+                                <label for="exampleInputEmail1">
+                                    Re-enter New Password
                                 </label>
                                 <input
                                     type="password"
                                     className="form-control"
                                     id="exampleInputEmail1"
-                                    placeholder=""
+                                    placeholder="Re-enter New Password"
                                 />
                             </div>
                             <div className="mb-3 form_row">
-                                <label
-                                    for="exampleInputEmail1"
-                                    className="form-label"
-                                >
+                                <label for="exampleInputEmail1">
                                     Enter Old Password
                                 </label>
                                 <input
                                     type="password"
                                     className="form-control"
                                     id="exampleInputEmail1"
-                                    placeholder=""
+                                    placeholder="Enter Old Password"
                                 />
                             </div>
 
                             <div className="bring_child_to_center">
-                                <button type="submit" className="updateButton">
-                                    Update Profile
-                                </button>
-                                <button type="submit" className="cancelButton">
-                                    Cancel
-                                </button>
+                                <div>
+                                    <button
+                                        type="submit"
+                                        className="btn updateButton"
+                                    >
+                                        Update Profile
+                                    </button>
+                                </div>
+                                <div>
+                                    <button
+                                        type="submit"
+                                        className="btn cancelButton"
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
                             </div>
                         </form>
                     </div>

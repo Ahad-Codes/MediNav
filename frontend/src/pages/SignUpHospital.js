@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/SignUpHospital.css";
+import ReplyIcon from '@mui/icons-material/Reply';
+import mediNavLogo from "../images/medinav_logo.png";
+
 
 export default function SignUpHospital() {
   const [name, setName] = useState("");
@@ -19,7 +22,7 @@ export default function SignUpHospital() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/user/signupHosp", {
+      const response = await axios.post("http://localhost:3001/user/signupHosp", {
         name,
         address,
         email,
@@ -30,7 +33,8 @@ export default function SignUpHospital() {
         doctors,
         ambulances,
       });
-      navigate("/Login");
+      console.log(response)
+      // navigate("/Login");
     } catch (error) {
       console.error(error);
     }
@@ -40,11 +44,15 @@ export default function SignUpHospital() {
     <div className="SignUpHospital">
       <div className="main_box">
         <div className="form_box">
-          <Link to="/">back</Link>
-          <h3>Signup to Medinav</h3>
+
+          <Link to="/" className="back_link"><ReplyIcon fontSize="small" /></Link>
+          <div className="form_heading">
+            <h3>Sign up</h3><img className="img_logo" src={mediNavLogo} alt="Logo" /><h3 className="logo_text"> Medinav</h3>
+          </div>
+
           <form className="row g-3" onSubmit={onSubmit}>
             <div className="mb-3 form_row">
-              <label for="exampleInputEmail1" className="form-label">
+              <label for="exampleInputEmail1" >
                 Hospital Name
               </label>
               <input
@@ -59,7 +67,7 @@ export default function SignUpHospital() {
               />
             </div>
             <div className="mb-3 form_row">
-              <label for="exampleInputEmail1" className="form-label">
+              <label for="exampleInputEmail1" clas>
                 Address
               </label>
               <input
@@ -74,7 +82,7 @@ export default function SignUpHospital() {
               />
             </div>
             <div className="mb-3 form_row">
-              <label for="exampleInputPassword1" className="form-label">
+              <label for="exampleInputPassword1" >
                 Password
               </label>
               <input
@@ -88,8 +96,8 @@ export default function SignUpHospital() {
                 }}
               />
             </div>
-            <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">
+            <div class="col-md-6 form_row">
+              <label for="inputEmail4">
                 Email
               </label>
               <input
@@ -102,8 +110,8 @@ export default function SignUpHospital() {
                 }}
               />
             </div>
-            <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
+            <div class="col-md-6 form_row">
+              <label for="inputPassword4" >
                 Landline Number
               </label>
               <input
@@ -116,8 +124,8 @@ export default function SignUpHospital() {
                 }}
               />
             </div>
-            <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">
+            <div class="col-md-6 form_row">
+              <label for="inputEmail4" >
                 Primary Mobile Number
               </label>
               <input
@@ -130,8 +138,8 @@ export default function SignUpHospital() {
                 }}
               />
             </div>
-            <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
+            <div class="col-md-6 form_row">
+              <label for="inputPassword4" >
                 Secondary Mobile Number
               </label>
               <input
@@ -144,8 +152,8 @@ export default function SignUpHospital() {
                 }}
               />
             </div>
-            <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">
+            <div class="col-md-6 form_row">
+              <label for="inputEmail4" >
                 Number of On Call Doctors
               </label>
               <input
@@ -158,8 +166,8 @@ export default function SignUpHospital() {
                 }}
               />
             </div>
-            <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
+            <div class="col-md-6 form_row">
+              <label for="inputPassword4" >
                 Number of Operational Ambulances
               </label>
               <input
@@ -174,19 +182,19 @@ export default function SignUpHospital() {
             </div>
             <div className="bring_child_to_center">
               <button type="submit" className="btn btn-primary button">
-                Creat Account
+                Create Account
               </button>
             </div>
           </form>
 
-          <p className="bring_link_to_center">
-            Already an account?<Link to="/LogIn">Log In</Link>
+          <p className="bring_link_to_center alternate_links_p">
+            Already an account? <Link className="alternate_links" to="/LogIn">Log In</Link>
           </p>
-          <p className="bring_link_to_center">
-            <Link to="/SignUp/Reporter">Sign up as Reporter</Link>
+          <p className="bring_link_to_center alternate_links_p">
+            <Link className="alternate_links" to="/SignUp/Reporter">Sign up</Link> as Reporter
           </p>
-          <p className="bring_link_to_center">
-            <Link to="/SignUp/Warden">Sign up as Warden</Link>
+          <p className="bring_link_to_center alternate_links_p">
+            <Link className="alternate_links" to="/SignUp/Warden">Sign up</Link> as Warden
           </p>
         </div>
       </div>

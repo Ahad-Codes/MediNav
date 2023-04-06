@@ -14,6 +14,7 @@
     align-content: center; */
 }
 
+
 .LandingPage .image_box{
     width: 100vh;
 }
@@ -65,13 +66,28 @@
 }
 
 .LandingPage .partner_boxes{
-    margin-top: 160px;
+    margin-top: 100px;
     color: white;
     margin-bottom: 80px;
 }
 
+.LandingPage .logo_image img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    /* border: 1px solid yellow; */
+}
+
 .LandingPage .button{
     background-color: #7B0BB0;
+    color: white !important;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 20px;
+}
+.LandingPage .button:hover{
+    background-color: #6d0c9a;
     color: white !important;
     border-radius: 5px;
     padding: 10px 20px;

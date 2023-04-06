@@ -84,7 +84,7 @@ export default function PendingRequestsPolice() {
                   <td className="non_button_item">
                     {report.location[0]}, {report.location[1]}
                   </td>
-                  <td className="non_button_item"></td>
+                  <td className="non_button_item">{report.nearest_landmark}</td>
                   <td className="non_button_item">{report.createdAt}</td>
                   <td>
                     <div className="btn-group">

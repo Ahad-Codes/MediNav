@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/LandingPage.css";
+
+import edhiLogo from "../images/edhi.png"
+import gopLogo from "../images/gop.png"
+import skmhLogo from "../images/skmh.png"
+import nationalHospitalLogo from "../images/national_hospital.png"
 export default function LandingPage() {
   const navigate = useNavigate();
 
@@ -35,10 +40,10 @@ export default function LandingPage() {
         </div>
         <div class="container  partner_boxes">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-            <div class="col">Column</div>
-            <div class="col">Column</div>
-            <div class="col">Column</div>
-            <div class="col">Column</div>
+            <div class="col logo_image"><img src={gopLogo} alt="" /></div>
+            <div class="col logo_image"><img src={edhiLogo} alt="" /></div>
+            <div class="col logo_image"><img src={skmhLogo} alt="" /></div>
+            <div class="col logo_image"><img src={nationalHospitalLogo} alt="" /></div>
           </div>
         </div>
       </div>
