@@ -25,9 +25,18 @@ export default function ReportHistoryHospital() {
                 console.log(error);
             }
         };
+
+
         if (!Cookies.get("access_token")) {
             navigate("/");
-        } else fetchReports();
+          } else if (window.localStorage.getItem("userType") !== 'Hospital') {
+            navigate("/");
+          }
+          else {
+          fetchReports();
+          }
+
+
     }, []);
 
     return (

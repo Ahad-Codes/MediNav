@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import "../css/PendingRequestsPolice.css";
+import Cookies from "js-cookie";
 
 export default function PendingRequestsPolice() {
   const [cookies, setCookies] = useCookies(["access_token"]);
@@ -10,7 +11,16 @@ export default function PendingRequestsPolice() {
   const [reports, setReports] = useState([]);
 
   useEffect(() => {
+
+    if (!Cookies.get("access_token")) {
+      navigate("/");
+    } else if (window.localStorage.getItem("userType") !== 'Warden') {
+      navigate("/");
+    }
+    else {
     fetchReport();
+    }
+
   }, []);
 
   const logout = () => {

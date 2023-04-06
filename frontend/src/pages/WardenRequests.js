@@ -23,8 +23,18 @@ export default function WardenRequests() {
         console.log(error);
       }
     };
+
+
   
-    fetchReports();
+    if (!Cookies.get("access_token")) {
+      navigate("/");
+    } else if (window.localStorage.getItem("userType") !== 'Warden') {
+      navigate("/");
+    }
+    else {
+    fetchRequests();
+    }
+    
   }, []);
   
   return (

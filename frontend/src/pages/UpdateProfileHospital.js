@@ -34,9 +34,21 @@ export default function UpdateProfileHospital() {
                 console.log(error);
             }
         };
+
+
+
         if (!Cookies.get("access_token")) {
-            navigate("/");
-        } else fetchData();
+          navigate("/");
+        } else if (window.localStorage.getItem("userType") !== 'Hospital') {
+          navigate("/");
+        }
+        else {
+        fetchData();
+        }
+
+
+
+
     }, []);
 
     const handleSubmit = async (e) => {
