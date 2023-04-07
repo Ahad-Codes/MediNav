@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/LandingPage.css";
+import Typewriter from 'typewriter-effect';
 
 import edhiLogo from "../images/edhi.png"
 import gopLogo from "../images/gop.png"
@@ -12,7 +13,7 @@ export default function LandingPage() {
 
   const onReportClick = () => {
 
-    
+
 
     navigate("reporter/ReportAccident");
     //navigate("Login");
@@ -21,24 +22,34 @@ export default function LandingPage() {
   return (
     <div className="LandingPage">
       <div className="main_page">
-        
+
         <div className="container bring_to_center">
           {/* <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2"> */}
-            <div className="heading_box">
-              <h1 id="main_heading">Your Safety,</h1>
-              <h1 id="guaranteed">Guaranteed.</h1>
-              <button className="button" onClick={onReportClick}>
-                <h1>REPORT INCIDENT</h1>
-              </button>
+          <div className="heading_box">
+            <h1 id="main_heading">Your Safety,</h1>
+            <h1 id="guaranteed">Guaranteed.</h1>
+            <button className="button" onClick={onReportClick}>
+              <h1>REPORT INCIDENT</h1>
+            </button>
+          </div>
+          <div >
+            <div className="text_box">
+              <h1 id="main_text">
+                {/* Delayed Emergency Response Services cause up to 10,000+ deaths
+                around the world each year */}
+                <Typewriter
+                  options={{
+                    strings: ['Delayed Emergency Response Services cause up to 10,000+ deaths around the world each year', 'Add more quotes here boys','Hehe :P'],
+                    autoStart: true,
+                    loop: true,
+                    delay: 65,
+                    deleteSpeed: 50,
+                    pauseFor: 2000,
+                  }}
+                />
+              </h1>
             </div>
-            <div >
-              <div className="text_box">
-                <h1 id="main_text">
-                  Delayed Emergency Response Services cause up to 10,000+ deaths
-                  around the world each year
-                </h1>
-              </div>
-            </div>
+          </div>
           {/* </div> */}
         </div>
         <div class="container  partner_boxes">
@@ -94,6 +105,7 @@ export default function LandingPage() {
       {/* <div>
                 adisnhda
             </div> */}
+
     </div>
   );
 }
