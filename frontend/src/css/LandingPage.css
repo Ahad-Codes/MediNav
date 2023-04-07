@@ -1,8 +1,8 @@
-.LandingPage .main_page{
+.LandingPage .main_page {
     height: fit-content;
     background-image: url("../images/landing_ambulance.jpg");
     /* background-repeat: round; */
-    background-size:cover;
+    background-size: cover;
     padding-top: 190px;
     padding-bottom: 5px;
 
@@ -12,90 +12,134 @@
     justify-content: center;
     align-self: center;
     align-content: center; */
+
 }
 
 
-.LandingPage .image_box{
+.LandingPage .image_box {
     width: 100vh;
 }
 
-.LandingPage .bring_to_center{
+.LandingPage .bring_to_center {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     /* border: 1px solid red; */
-   justify-content: space-between !important;
-  
-   /* row-gap: 100px; */
+    justify-content: space-between !important;
+
+    /* row-gap: 100px; */
 }
 
-.LandingPage .heading_box{
+.LandingPage .heading_box {
     text-align: left;
     /* padding-left: 30px; */
     color: white;
     /* border: 1px solid yellow; */
 }
 
-.LandingPage #main_heading{
-    font-size: 80px;
+.LandingPage #main_heading {
+    /* font-size: 80px;  */
+    font-size: 5vw;
     text-align: left;
 }
-.LandingPage #guaranteed{
-    font-size: 80px;
+
+.LandingPage #guaranteed {
+    font-size: 5vw;
     text-align: left;
-    font-weight:645;
+    font-weight: 645;
     letter-spacing: 8px;
     /* width: 100; */
 }
 
-.LandingPage #main_text{
+.LandingPage #main_text {
     /* border: 1px solid yellow; */
     margin-top: 80px;
-    font-size: 25px;
+    font-size: 1.5vw;
     font-weight: 700px !important;
     color: white;
     /* background-color: #9e13de5f; */
-}
-.LandingPage .text_box{
-    /* padding-left: 4; */
-    width: 500px;
-    background-image: radial-gradient(#9e13de5f,#9e13de1d, rgba(0, 128, 0, 0));
+    animation-name: color;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    width: fit-content;
     border-radius: 1000px;
-    
+    padding: 0px 5px;
+    /* background-image: radial-gradient(#9e13de5f, #9e13de1d, rgba(0, 128, 0, 0)); */
+
 
 }
 
-.LandingPage .partner_boxes{
+
+.LandingPage .text_box {
+    /* padding-left: 4; */
+    width: 35vw;
+    max-width: 500px;
+    min-width: 300px;
+    /* background-image: radial-gradient(#9e13de5f, #9e13de1d, rgba(0, 128, 0, 0)); */
+    border-radius: 1000px;
+    display: flex;
+    justify-content: center;
+    /* animation-name: color;
+    animation-duration: 2s;
+    animation-iteration-count: infinite; */
+    /* background: rgb(165,89,203);
+    background: radial-gradient(circle, rgba(165,89,203,0.2190126050420168) 26%, rgba(172,18,173,0) 73%); */
+
+
+}
+
+@keyframes color {
+    
+    0%{
+        background-color: #6d0c9a38;
+
+    }
+    50% {
+        background-color: #6d0c9a00;
+    }
+    100%{
+        background-color: #6d0c9a38;
+
+    }
+    
+    /* 100%{
+        background-image: radial-gradient(#9e13de5f,#9e13de1d, rgba(0, 128, 0, 0));
+    } */
+    
+  }
+
+.LandingPage .partner_boxes {
     margin-top: 100px;
     color: white;
     margin-bottom: 80px;
 }
 
-.LandingPage .logo_image img{
+.LandingPage .logo_image img {
     width: 100px;
     height: 100px;
     object-fit: contain;
     /* border: 1px solid yellow; */
 }
 
-.LandingPage .button{
+.LandingPage .button {
     background-color: #7B0BB0;
     color: white !important;
     border-radius: 5px;
     padding: 10px 20px;
-    border: none;
+    border: none !important;
     margin-top: 20px;
 }
-.LandingPage .button:hover{
+
+.LandingPage .button:hover {
     background-color: #6d0c9a;
     color: white !important;
     border-radius: 5px;
     padding: 10px 20px;
-    border: none;
+    border: none !important;
     margin-top: 20px;
 }
 
-.LandingPage .button h1{
+.LandingPage .button h1 {
     font-size: 18px;
     font-weight: 800px !important;
     color: white !important;
@@ -103,16 +147,68 @@
 }
 
 
-.LandingPage #mission_statement_box  {
+.LandingPage #mission_statement_box {
     text-align: left;
     /* color: red; */
     padding: 120px 60px;
 }
-.LandingPage #mission_statement_box h1{
+
+.LandingPage #mission_statement_box h1 {
     color: #7B0BB0;
     letter-spacing: 5px;
 }
 
-.LandingPage #mission_statement_box p{
+.LandingPage #mission_statement_box p {
     font-size: 22px;
+}
+
+
+
+
+@media screen and (max-width:1000px) {
+    .LandingPage #main_text {
+        font-size: 17px;
+    }
+
+    .LandingPage #mission_statement_box h1 {
+        letter-spacing: 2px;
+        font-size: 28px;
+    }
+
+    .LandingPage #mission_statement_box p {
+        font-size: 18px !important;
+    }
+}
+
+@media screen and (max-width:780px) {
+    .LandingPage #main_heading {
+        /* font-size: 80px;  */
+        font-size: 40px;
+
+    }
+
+    .LandingPage #guaranteed {
+        font-size: 40px;
+
+    }
+
+
+
+
+}
+
+@media screen and (max-width:500px) {
+    .LandingPage #mission_statement_box h1 {
+        letter-spacing: 2px;
+        font-size: 20px !important;
+    }
+
+    .LandingPage #mission_statement_box p {
+        font-size: 16px !important;
+    }
+
+
+
+
+
 }
