@@ -59,7 +59,7 @@
     color: white;
     /* background-color: #9e13de5f; */
     animation-name: color;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     width: fit-content;
     border-radius: 1000px;
@@ -89,24 +89,43 @@
 }
 
 @keyframes color {
-    
-    0%{
-        background-color: #6d0c9a38;
+
+    /* 0%{
+        background-color: #7d11af38;
 
     }
     50% {
         background-color: #6d0c9a00;
     }
     100%{
-        background-color: #6d0c9a38;
+        background-color: #7d11af38;
+
+    } */
+    0% {
+        background-color: rgba(255, 0, 0, 0.25);
+    }
+
+    25% {
+        background-color: rgba(255, 0, 0, 0);
+    }
+
+    50% {
+        background-color: rgba(20, 20, 200, 0.25);
+    }
+
+    75% {
+        background-color: rgba(20, 20, 200, 0);
 
     }
-    
+    100% {
+        background-color: rgba(255, 0, 0, 0.25);
+    }
+
     /* 100%{
         background-image: radial-gradient(#9e13de5f,#9e13de1d, rgba(0, 128, 0, 0));
     } */
-    
-  }
+
+}
 
 .LandingPage .partner_boxes {
     margin-top: 100px;
