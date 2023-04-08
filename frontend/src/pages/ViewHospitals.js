@@ -8,6 +8,7 @@ export default function ViewHospitals() {
     const [hospitals, setHospitals] = useState([]);
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const navigate = useNavigate();
 
@@ -15,14 +16,15 @@ export default function ViewHospitals() {
         if (!Cookies.get("access_token")) {
             navigate("/");
         } else {
-            if (window.localStorage.getItem("userType") !== "Reporter") {
-                navigate("/");
-            } else if (navigator.geolocation) {
+            if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
                         setLatitude(position.coords.latitude);
                         setLongitude(position.coords.longitude);
-                        console.log(latitude, longitude);
+
+                        setLoading(false)
+                        console.log(latitude, longitude); // This will log the previous values of latitude and longitude
+                        getHospitals();
                     },
                     (error) => {
                         console.log(error);
@@ -32,27 +34,40 @@ export default function ViewHospitals() {
                 console.log("Geolocation is not supported by this browser.");
             }
         }
-    }, []);
+    }, [latitude, longitude]);
+
+
+    // useEffect(() => {
+    //     if (latitude && longitude) {
+    //         getHospitals();
+    //     }
+    // }, [latitude, longitude]);
+
+
 
     const getHospitals = () => {
-        axios
-            .post(`http://localhost:3001/report/viewhospitals`, {
+
+        if (latitude && longitude) {
+
+            console.log("Fetching hopsitals!")
+
+            axios.post(`http://localhost:3001/report/viewhospitals`, {
                 latitude,
                 longitude,
             })
-            .then((response) => {
-                setHospitals(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+                .then((response) => {
+                    setHospitals(response.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+
+
+        };
+
     };
 
-    useEffect(() => {
-        if (latitude && longitude) {
-            getHospitals();
-        }
-    }, [latitude, longitude]);
+
 
     return (
         <div className="ReportHistoryReporter">

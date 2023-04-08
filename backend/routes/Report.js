@@ -196,15 +196,15 @@ router.get("/brooadcastList", async (req, res) => {
     }
 });
 
-router.get("/viewhospitals", async (req, res) => {
-    console.log(req.query);
-    const { latitude, longitude } = req.query;
+router.post("/viewhospitals", async (req, res) => {
+    console.log(req.body);
+    const { latitude, longitude } = req.body;
 
     try {
         const hospitals = await HospitalModel.find();
         const filteredHospitals = hospitals.filter((hospital) => {
-            const hospitalLatitude = parseFloat(hospital.latitude);
-            const hospitalLongitude = parseFloat(hospital.longitude);
+            const hospitalLatitude = parseFloat(hospital.location[0]);
+            const hospitalLongitude = parseFloat(hospital.location[1]);
             const distance =
                 Math.acos(
                     Math.sin(latitude) * Math.sin(hospitalLatitude) +
@@ -212,14 +212,23 @@ router.get("/viewhospitals", async (req, res) => {
                             Math.cos(hospitalLatitude) *
                             Math.cos(hospitalLongitude - longitude)
                 ) * 6371;
-            return distance <= 5;
+            console.log(hospital.name, " : ", distance)
+            return distance <= 8600;
         });
+        console.log(filteredHospitals)
+        console.log("hello")
+        
         const hospitalData = filteredHospitals.map((hospital) => ({
             name: hospital.name,
             landline: hospital.landline,
             email: hospital.email,
             ambulances: hospital.ambulances,
+            latitude: hospital.location[0],
+            longitude: hospital.location[1]
         }));
+
+        
+
         console.log(hospitalData);
         res.json(hospitalData);
     } catch (err) {
