@@ -53,7 +53,7 @@ export default function LogIn() {
         </iframe> */}
         <iframe frameborder="0"
           height="100%"
-          width="100%" src="https://www.youtube.com/embed/xUmU_mVH_34?controls=0&autoplay=1&mute=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          width="100%" src="https://www.youtube.com/embed/xUmU_mVH_34?controls=0&autoplay=1&mute=1&amp;start=3" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
 
       <div className="main_box">
