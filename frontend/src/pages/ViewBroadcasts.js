@@ -12,6 +12,7 @@ export default function ViewBroadcasts() {
       .then((response) => {
         console.log(response.data)
         setBroadcasts(response.data);
+        console.log()
       })
       .catch((error) => {
         console.log(error);
@@ -31,6 +32,8 @@ export default function ViewBroadcasts() {
                 <th scope="col">Date</th>
                 <th scope="col">Time</th>
                 <th scope="col">Incident Location</th>
+                <th scope="col">Title</th>
+                <th scope="col">Affected</th>
                 <th scope="col">Reported By</th>
                 <th scope="col"></th>
               </tr>
@@ -41,7 +44,9 @@ export default function ViewBroadcasts() {
                   <td className="non_button_item">{broadcast.date}</td>
                   <td className="non_button_item">{broadcast.time}</td>
                   <td className="non_button_item">{broadcast.location}</td>
-                  <td className="non_button_item">{broadcast.reporter}</td>
+                  <td className="non_button_item">{broadcast.title}</td>
+                  <td className="non_button_item">{broadcast.numVictims}</td>
+                  <td className="non_button_item">{broadcast.title}</td>
                 </tr>
               ))}
             </tbody>

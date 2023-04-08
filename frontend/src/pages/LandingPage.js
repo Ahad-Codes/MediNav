@@ -39,7 +39,7 @@ export default function LandingPage() {
                 around the world each year */}
                 <Typewriter
                   options={{
-                    strings: ['Delayed Emergency Response Services cause up to 10,000+ deaths around the world each year', 'Add more quotes here boys','Hehe :P'],
+                    strings: ['Delayed Emergency Response Services cause up to 10,000+ deaths around the world each year', 'Over 1,000 people have used our website to report emergencies in the past month.','We have partnered with 50 hospitals and police department to ensure quick and efficient emergency response.','Our website provides real-time updates on emergency situations in your area, so you can stay informed and prepared.'],
                     autoStart: true,
                     loop: true,
                     delay: 65,

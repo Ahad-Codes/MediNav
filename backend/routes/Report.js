@@ -169,6 +169,8 @@ router.get("/brooadcastList", async (req, res) => {
                         time: report.createdAt.toTimeString().slice(0, 5),
                         reporter: reporter.name,
                         stat: report.status,
+                        title: report.title,
+                        numVictims: report.numVictims,
                         location: `${report.location[0].toFixed(
                             3
                         )}°, ${report.location[1].toFixed(3)}°`,
