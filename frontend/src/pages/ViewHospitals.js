@@ -15,7 +15,9 @@ export default function ViewHospitals() {
         if (!Cookies.get("access_token")) {
             navigate("/");
         } else {
-            if (navigator.geolocation) {
+            if (window.localStorage.getItem("userType") !== "Reporter") {
+                navigate("/");
+            } else if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
                         setLatitude(position.coords.latitude);

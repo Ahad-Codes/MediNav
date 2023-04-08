@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { GoogleMap, useLoadScript } from "@react-google-maps/api";
+import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "../css/TempDashboard.css";
@@ -53,6 +53,16 @@ export default function TempDashboard() {
 
 function Map(props) {
     const { latitude, longitude } = props;
+    const [showMarker, setShowMarker] = useState(false);
+
+    useEffect(() => {
+        const delay = setTimeout(() => {
+            setShowMarker(true);
+        }, 0);
+
+        return () => clearTimeout(delay);
+    }, []);
+
     const navigate = useNavigate();
 
     const onViewBroadcastClick = () => {
@@ -63,7 +73,6 @@ function Map(props) {
         navigate("ViewHospitals");
     };
 
-    console.log("Loaded");
     return (
         <div className="table_box">
             <div className="map_box">
@@ -71,7 +80,11 @@ function Map(props) {
                     zoom={14}
                     center={{ lat: latitude, lng: longitude }}
                     mapContainerClassName="map-container1"
-                />
+                >
+                    {showMarker && (
+                        <Marker position={{ lat: latitude, lng: longitude }} />
+                    )}
+                </GoogleMap>
             </div>
             <div className="content_box">
                 <div className="context_box_heading">

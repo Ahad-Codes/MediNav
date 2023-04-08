@@ -2,18 +2,32 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../css/ReportAccident.css";
-import { GoogleMap, useLoadScript } from "@react-google-maps/api";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import Cookies from "js-cookie";
 
 function Map(props) {
     const { latitude, longitude } = props;
+    const [showMarker, setShowMarker] = useState(false);
+
+    useEffect(() => {
+        const delay = setTimeout(() => {
+            setShowMarker(true);
+        }, 0);
+
+        return () => clearTimeout(delay);
+    }, []);
+
     return (
         <div>
             <GoogleMap
                 zoom={14}
                 center={{ lat: latitude, lng: longitude }}
                 mapContainerClassName="map-container"
-            />
+            >
+                {showMarker && (
+                    <Marker position={{ lat: latitude, lng: longitude }} />
+                )}
+            </GoogleMap>
         </div>
     );
 }
