@@ -7,11 +7,11 @@ import mediNavLogo from "../images/medinav_logo.png";
 import ReplyIcon from '@mui/icons-material/Reply';
 
 export default function LogIn() {
-    const [number, setNumber] = useState("");
-    const [password, setPassword] = useState("");
+  const [number, setNumber] = useState("");
+  const [password, setPassword] = useState("");
 
-    const [_, setCookies] = useCookies(["access_token"]);
-    const navigate = useNavigate();
+  const [_, setCookies] = useCookies(["access_token"]);
+  const navigate = useNavigate();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -43,9 +43,22 @@ export default function LogIn() {
 
   return (
     <div className="LogIn">
+      <div id="bg_video">
+        {/* <iframe
+          frameborder="0"
+          height="100%"
+          width="100%"
+          src="https://youtube.com/embed/ID?autoplay=1&controls=0&showinfo=0&autohide=1"
+        >
+        </iframe> */}
+        <iframe frameborder="0"
+          height="100%"
+          width="100%" src="https://www.youtube.com/embed/xUmU_mVH_34?controls=0&autoplay=1&mute=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
       <div className="main_box">
         <div className="form_box">
-          <Link to="/" className="back_link"><ReplyIcon fontSize="small"/></Link>
+          <Link to="/" className="back_link"><ReplyIcon fontSize="small" /></Link>
           <div className="form_heading">
             <h3>Login to</h3><img className="img_logo" src={mediNavLogo} alt="Logo" /><h3 className="logo_text"> Medinav</h3>
           </div>
