@@ -55,7 +55,15 @@ export default function SignUpHospital() {
                     latitude,
                 }
             );
-            navigate("/Login");
+
+            alert(response.data.message)
+            
+            if (response.data.success == 1) {
+                
+                navigate("/Login");
+            } 
+
+            
         } catch (error) {
             console.error(error);
         }

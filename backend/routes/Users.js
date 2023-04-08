@@ -85,7 +85,7 @@ router.post("/signupRep", async (req, res) => {
         approved: 0,
     });
     await newUser.save();
-    res.json({ message: "User Registered Succesfully" });
+    res.json({ success: 1,message: "User Registered Succesfully" });
 });
 
 router.post("/signupHosp", async (req, res) => {
@@ -109,9 +109,7 @@ router.post("/signupHosp", async (req, res) => {
         $or: [{ email: email }, { number: p_number }],
     });
     if (fetchUserHosp || fetchUserRep) {
-        res.json({
-            message: "A user with this email or number already exists",
-        });
+        res.json({success: 0, message: "A user with this email or number already exists",});
         return;
     }
 
@@ -131,7 +129,7 @@ router.post("/signupHosp", async (req, res) => {
     });
     await newUser.save();
 
-    res.json({ message: "User Registered Succesfully" });
+    res.json({ success:1, message: "User Registered Succesfully" });
 });
 
 router.post("/signupWard", async (req, res) => {
