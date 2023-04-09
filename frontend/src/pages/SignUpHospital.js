@@ -40,7 +40,7 @@ export default function SignUpHospital() {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:3001/user/signupHosp",
+                "https://medinav-backend-8gvrb.ondigitalocean.app/user/signupHosp",
                 {
                     name,
                     address,
@@ -55,13 +55,11 @@ export default function SignUpHospital() {
                     latitude,
                 }
             );
-            alert(response.data.message)
+            alert(response.data.message);
 
             if (response.data.success == 1) {
-
                 navigate("/Login");
-            } 
-
+            }
         } catch (error) {
             console.error(error);
         }

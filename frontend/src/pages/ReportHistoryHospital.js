@@ -14,7 +14,7 @@ export default function ReportHistoryHospital() {
             try {
                 console.log("this is working");
                 const response = await axios.post(
-                    "http://localhost:3001/report/hospitalreportHistory",
+                    "https://medinav-backend-8gvrb.ondigitalocean.app/report/hospitalreportHistory",
                     {
                         hospital_id: "641f364e6ed6bec790c04763",
                     }
@@ -26,17 +26,13 @@ export default function ReportHistoryHospital() {
             }
         };
 
-
         if (!Cookies.get("access_token")) {
             navigate("/");
-          } else if (window.localStorage.getItem("userType") !== 'Hospital') {
+        } else if (window.localStorage.getItem("userType") !== "Hospital") {
             navigate("/");
-          }
-          else {
-          fetchReports();
-          }
-
-
+        } else {
+            fetchReports();
+        }
     }, []);
 
     return (

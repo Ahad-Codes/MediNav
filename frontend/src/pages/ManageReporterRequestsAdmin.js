@@ -22,7 +22,7 @@ export default function ManageReporterRequestsAdmin() {
         const fetchReporters = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:3001/user/notApprovedRep"
+                    "https://medinav-backend-8gvrb.ondigitalocean.app/user/notApprovedRep"
                 );
                 setNotApprovedList(response.data);
             } catch (error) {
@@ -38,11 +38,14 @@ export default function ManageReporterRequestsAdmin() {
 
     const approveHandler = async (number) => {
         try {
-            await axios.post(`http://localhost:3001/user/approveRep`, {
-                number,
-            });
+            await axios.post(
+                `https://medinav-backend-8gvrb.ondigitalocean.app/user/approveRep`,
+                {
+                    number,
+                }
+            );
             const response = await axios.get(
-                "http://localhost:3001/user/notApprovedRep"
+                "https://medinav-backend-8gvrb.ondigitalocean.app/user/notApprovedRep"
             );
             setNotApprovedList(response.data);
         } catch (error) {
@@ -52,11 +55,14 @@ export default function ManageReporterRequestsAdmin() {
 
     const rejectHandler = async (number) => {
         try {
-            await axios.post(`http://localhost:3001/user/rejectRep`, {
-                number,
-            });
+            await axios.post(
+                `https://medinav-backend-8gvrb.ondigitalocean.app/user/rejectRep`,
+                {
+                    number,
+                }
+            );
             const response = await axios.get(
-                "http://localhost:3001/user/notApprovedRep"
+                "https://medinav-backend-8gvrb.ondigitalocean.app/user/notApprovedRep"
             );
             setNotApprovedList(response.data);
         } catch (error) {

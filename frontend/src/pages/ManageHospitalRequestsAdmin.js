@@ -12,7 +12,7 @@ export default function ManageHospitalRequestsAdmin() {
         const fetchHospitals = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:3001/user/notApprovedHosp"
+                    "https://medinav-backend-8gvrb.ondigitalocean.app/user/notApprovedHosp"
                 );
                 setNotApprovedList(response.data);
             } catch (error) {
@@ -28,11 +28,14 @@ export default function ManageHospitalRequestsAdmin() {
 
     const approveHandler = async (number) => {
         try {
-            await axios.post(`http://localhost:3001/user/approveHosp`, {
-                number,
-            });
+            await axios.post(
+                `https://medinav-backend-8gvrb.ondigitalocean.app/user/approveHosp`,
+                {
+                    number,
+                }
+            );
             const response = await axios.get(
-                "http://localhost:3001/user/notApprovedHosp"
+                "https://medinav-backend-8gvrb.ondigitalocean.app/user/notApprovedHosp"
             );
             setNotApprovedList(response.data);
         } catch (error) {
@@ -42,11 +45,14 @@ export default function ManageHospitalRequestsAdmin() {
 
     const rejectHandler = async (number) => {
         try {
-            await axios.post(`http://localhost:3001/user/rejectHosp`, {
-                number,
-            });
+            await axios.post(
+                `https://medinav-backend-8gvrb.ondigitalocean.app/user/rejectHosp`,
+                {
+                    number,
+                }
+            );
             const response = await axios.get(
-                "http://localhost:3001/user/notApprovedHosp"
+                "https://medinav-backend-8gvrb.ondigitalocean.app/user/notApprovedHosp"
             );
             setNotApprovedList(response.data);
         } catch (error) {

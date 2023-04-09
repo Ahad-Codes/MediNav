@@ -13,7 +13,7 @@ export default function ReportHistoryReporter() {
             try {
                 // const token = 1234 //localStorage.getItem("token");
                 const response = await axios.post(
-                    "http://localhost:3001/report/reportHistory",
+                    "https://medinav-backend-8gvrb.ondigitalocean.app/report/reportHistory",
                     {
                         reporter_id: "641f26f8ce736b06286bcbf2",
                     }

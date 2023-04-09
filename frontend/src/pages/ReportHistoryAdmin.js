@@ -16,7 +16,9 @@ export default function ReportHistoryAdmin() {
             navigate("/");
         } else {
             axios
-                .get("http://localhost:3001/report/adminreportHistory")
+                .get(
+                    "https://medinav-backend-8gvrb.ondigitalocean.app/report/adminreportHistory"
+                )
                 .then((response) => {
                     setData(response.data);
                 })

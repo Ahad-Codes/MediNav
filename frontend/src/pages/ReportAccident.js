@@ -70,15 +70,18 @@ function ReportAccident() {
         var userID = window.localStorage.getItem("userID");
 
         try {
-            const response = await axios.post("http://localhost:3001/report", {
-                userID,
-                accident,
-                landmark,
-                victims,
-                details,
-                longitude,
-                latitude,
-            });
+            const response = await axios.post(
+                "https://medinav-backend-8gvrb.ondigitalocean.app/report",
+                {
+                    userID,
+                    accident,
+                    landmark,
+                    victims,
+                    details,
+                    longitude,
+                    latitude,
+                }
+            );
             alert(response.data.longitude);
         } catch (error) {
             console.log(error);

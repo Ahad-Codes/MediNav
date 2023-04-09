@@ -22,7 +22,7 @@ export default function ViewHospitals() {
                         setLatitude(position.coords.latitude);
                         setLongitude(position.coords.longitude);
 
-                        setLoading(false)
+                        setLoading(false);
                         console.log(latitude, longitude); // This will log the previous values of latitude and longitude
                         getHospitals();
                     },
@@ -36,38 +36,32 @@ export default function ViewHospitals() {
         }
     }, [latitude, longitude]);
 
-
     // useEffect(() => {
     //     if (latitude && longitude) {
     //         getHospitals();
     //     }
     // }, [latitude, longitude]);
 
-
-
     const getHospitals = () => {
-
         if (latitude && longitude) {
+            console.log("Fetching hopsitals!");
 
-            console.log("Fetching hopsitals!")
-
-            axios.post(`http://localhost:3001/report/viewhospitals`, {
-                latitude,
-                longitude,
-            })
+            axios
+                .post(
+                    `https://medinav-backend-8gvrb.ondigitalocean.app/report/viewhospitals`,
+                    {
+                        latitude,
+                        longitude,
+                    }
+                )
                 .then((response) => {
                     setHospitals(response.data);
                 })
                 .catch((error) => {
                     console.log(error);
                 });
-
-
-        };
-
+        }
     };
-
-
 
     return (
         <div className="ReportHistoryReporter">

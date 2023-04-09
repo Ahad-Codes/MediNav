@@ -30,7 +30,7 @@ export default function PendingRequestsPolice() {
     async function fetchReport() {
         try {
             const response = await axios.get(
-                `http://localhost:3001/user/policePending`
+                `https://medinav-backend-8gvrb.ondigitalocean.app/user/policePending`
             );
             setReports(response.data);
         } catch (error) {
@@ -41,7 +41,7 @@ export default function PendingRequestsPolice() {
     const handleAccept = async (reportID) => {
         try {
             const response = await axios.put(
-                `http://localhost:3001/user/policePendingAccepted/${reportID}`,
+                `https://medinav-backend-8gvrb.ondigitalocean.app/user/policePendingAccepted/${reportID}`,
                 { status: "accepted" }
             );
             console.log(response.data);
@@ -54,7 +54,7 @@ export default function PendingRequestsPolice() {
     const handleReject = async (reportID) => {
         try {
             const response = await axios.put(
-                `http://localhost:3001/user/policePendingRejected/${reportID}`,
+                `https://medinav-backend-8gvrb.ondigitalocean.app/user/policePendingRejected/${reportID}`,
                 { status: "rejected" }
             );
             console.log(response.data);

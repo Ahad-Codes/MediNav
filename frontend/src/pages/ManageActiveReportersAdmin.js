@@ -13,7 +13,7 @@ export default function ManageActiveReportersAdmin() {
         const fetchReporters = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:3001/user/repList"
+                    "https://medinav-backend-8gvrb.ondigitalocean.app/user/repList"
                 );
                 setUserList(response.data);
             } catch (error) {
@@ -30,9 +30,12 @@ export default function ManageActiveReportersAdmin() {
 
     const blockHandler = async (number) => {
         try {
-            await axios.post(`http://localhost:3001/user/blockRep`, { number });
+            await axios.post(
+                `https://medinav-backend-8gvrb.ondigitalocean.app/user/blockRep`,
+                { number }
+            );
             const response = await axios.get(
-                "http://localhost:3001/user/repList"
+                "https://medinav-backend-8gvrb.ondigitalocean.app/user/repList"
             );
             setUserList(response.data);
         } catch (error) {
@@ -42,11 +45,14 @@ export default function ManageActiveReportersAdmin() {
 
     const unblockHandler = async (number) => {
         try {
-            await axios.post(`http://localhost:3001/user/approveRep`, {
-                number,
-            });
+            await axios.post(
+                `https://medinav-backend-8gvrb.ondigitalocean.app/user/approveRep`,
+                {
+                    number,
+                }
+            );
             const response = await axios.get(
-                "http://localhost:3001/user/repList"
+                "https://medinav-backend-8gvrb.ondigitalocean.app/user/repList"
             );
             setUserList(response.data);
         } catch (error) {
