@@ -10,10 +10,57 @@ const AdminModel = require("../models/Admin");
 const Report = require("../models/Reports");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+
+
 router.post("/", async (req, res) => {
-    const obj = req.body;
-    res.json(obj);
-});
+
+  const accident = req.body.accident;
+  const victims = req.body.victims
+  const details = req.body.details
+  const landmark = req.body.landmark
+  const latitude = req.body.latitude
+  const longitude = req.body.longitude
+  const userID = req.body.userID
+
+
+  //console.log(window.localStorage.getItem("userID"))
+
+
+
+  var today = new Date();
+
+
+
+
+
+  const newReport = new Report({
+
+    police_id: -1,
+    hospital_id: -1,
+    reporter_id: userID,
+    nearest_landmark: landmark,
+    title: accident,
+    description: details,
+    location: [latitude, longitude],
+    numVictims: victims,
+    status: 'open',
+    createdAt : today
+
+  })
+
+
+  try {
+    await newReport.save()
+  }
+  catch (error) { console.log(error) }
+
+  console.log("Saved!")
+  res.json({ message: "Report Sent Successfully!" })
+
+})
+
+
+
 router.post("/reportHistory", async (req, res) => {
     //console.log(req.body.reporter_id)
     const reporterID = req.body.reporter_id;
