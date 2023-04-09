@@ -167,7 +167,28 @@ function Navbar(props) {
                                         UpdateProfile
                                     </MenuItem>
                                 ) : (
-                                    <></>
+                                    <>
+                                        <MenuItem
+                                            onClick={() => {
+                                                handleMenuClose();
+                                                navigate(
+                                                    "/Admin/ManageActiveReporters"
+                                                );
+                                            }}
+                                        >
+                                            Manage Active Reporters
+                                        </MenuItem>
+                                        <MenuItem
+                                            onClick={() => {
+                                                handleMenuClose();
+                                                navigate(
+                                                    "/Admin/ManageHospitalRequests"
+                                                );
+                                            }}
+                                        >
+                                            Manage Hospital Requests
+                                        </MenuItem>
+                                    </>
                                 )}
                             </Menu>
                         </>
