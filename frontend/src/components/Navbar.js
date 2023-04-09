@@ -146,24 +146,29 @@ function Navbar(props) {
                                 onClose={handleMenuClose}
                             >
                                 <MenuItem onClick={logout}>Logout</MenuItem>
-                                <MenuItem
-                                    onClick={() => {
-                                        handleMenuClose();
-                                        navigate(
-                                            window.localStorage.getItem(
-                                                "userType"
-                                            ) === "Reporter"
-                                                ? "/Reporter/UpdateProfile"
-                                                : window.localStorage.getItem(
-                                                      "userType"
-                                                  ) === "Hospital"
-                                                ? "/Hospital/UpdateProfile"
-                                                : window.location.pathname
-                                        );
-                                    }}
-                                >
-                                    UpdateProfile
-                                </MenuItem>
+                                {window.localStorage.getItem("userType") !==
+                                "Admin" ? (
+                                    <MenuItem
+                                        onClick={() => {
+                                            handleMenuClose();
+                                            navigate(
+                                                window.localStorage.getItem(
+                                                    "userType"
+                                                ) === "Reporter"
+                                                    ? "/Reporter/UpdateProfile"
+                                                    : window.localStorage.getItem(
+                                                          "userType"
+                                                      ) === "Hospital"
+                                                    ? "/Hospital/UpdateProfile"
+                                                    : window.location.pathname
+                                            );
+                                        }}
+                                    >
+                                        UpdateProfile
+                                    </MenuItem>
+                                ) : (
+                                    <></>
+                                )}
                             </Menu>
                         </>
                     ) : (

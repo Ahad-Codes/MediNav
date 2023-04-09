@@ -6,17 +6,9 @@ import "../css/ManageReporterRequestsAdmin.css";
 import Cookies from "js-cookie";
 
 export default function ManageReporterRequestsAdmin() {
-    const [cookies, setCookies] = useCookies(["access_token"]);
     const [notApprovedList, setNotApprovedList] = useState([]);
 
     const navigate = useNavigate();
-
-    const logout = () => {
-        setCookies("access_token", "");
-        window.localStorage.removeItem("userID");
-        window.localStorage.removeItem("userType");
-        navigate("/");
-    };
 
     useEffect(() => {
         const fetchReporters = async () => {
@@ -72,7 +64,6 @@ export default function ManageReporterRequestsAdmin() {
 
     return (
         <div className="ManageReporterRequestsAdmin">
-            <button onClick={logout}>Logout</button>
             <div className="main_box">
                 <div className="updateProfileHeading">
                     <div className="heading_items">
