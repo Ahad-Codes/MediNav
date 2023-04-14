@@ -29,7 +29,8 @@ export default function PendingRequestsHospital() {
     const acceptRequest = async (id) => {
         try {
             const res = await axios.put(
-                `https://medinav-backend-8gvrb.ondigitalocean.app/user/hospitalPendingAccepted/${id}`
+                `https://medinav-backend-8gvrb.ondigitalocean.app/user/hospitalPendingAccepted/${id}`,
+                { hospital_id: window.localStorage.getItem("userID") }
             );
             setRequests((prevRequests) =>
                 prevRequests.filter((request) => request._id !== id)

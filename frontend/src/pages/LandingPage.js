@@ -12,8 +12,8 @@ export default function LandingPage() {
     const navigate = useNavigate();
 
     const onReportClick = () => {
-        if (window.localStorage.getItem("userType") === null) {
-            navigate("/LogIn");
+        if (window.localStorage.getItem("userType") !== "Reporter") {
+            navigate("/LogIn?from=landing");
         } else navigate("reporter/ReportAccident");
     };
 

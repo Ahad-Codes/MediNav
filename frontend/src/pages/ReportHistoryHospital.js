@@ -16,7 +16,7 @@ export default function ReportHistoryHospital() {
                 const response = await axios.post(
                     "https://medinav-backend-8gvrb.ondigitalocean.app/report/hospitalreportHistory",
                     {
-                        hospital_id: "641f364e6ed6bec790c04763",
+                        hospital_id: window.localStorage.getItem("userID"),
                     }
                 );
                 console.log(response);
@@ -71,6 +71,12 @@ export default function ReportHistoryHospital() {
                                         {report.stat === "open" && (
                                             <button className="table_button Pending">
                                                 Pending
+                                            </button>
+                                        )}
+                                        {report.stat ===
+                                            "accepted_hospital" && (
+                                            <button className="table_button Accepted">
+                                                Accepted
                                             </button>
                                         )}
                                         {report.stat === "rejected" && (

@@ -77,12 +77,12 @@ function Navbar(props) {
                                 to={
                                     window.localStorage.getItem("userType") ===
                                     null
-                                        ? "/LogIn"
+                                        ? "/LogIn?from=navbar"
                                         : window.localStorage.getItem(
                                               "userType"
                                           ) === "Reporter"
                                         ? "/Reporter/ReportAccident"
-                                        : "/LogIn"
+                                        : "/LogIn?from=navbar"
                                 }
                                 className="nav-link "
                                 onClick={() => {

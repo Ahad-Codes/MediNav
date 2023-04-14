@@ -82,7 +82,7 @@ function ReportAccident() {
                     latitude,
                 }
             );
-            alert(response.data.longitude);
+            alert(response.data.message);
         } catch (error) {
             console.log(error);
         }

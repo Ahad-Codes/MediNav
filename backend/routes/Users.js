@@ -131,7 +131,7 @@ router.post("/signupHosp", async (req, res) => {
     });
     await newUser.save();
 
-    res.json({ success: 1,message: "User Registered Succesfully" });
+    res.json({ success: 1, message: "User Registered Succesfully" });
 });
 
 router.post("/signupWard", async (req, res) => {
@@ -146,7 +146,10 @@ router.post("/signupWard", async (req, res) => {
         $or: [{ email: email }, { number: number }],
     });
     if (fetchUserHosp || fetchUserRep || fetchUserWard) {
-        res.json({success: 0, message: "A user with this email or number already exists",});
+        res.json({
+            success: 0,
+            message: "A user with this email or number already exists",
+        });
         return;
     }
 
@@ -161,7 +164,7 @@ router.post("/signupWard", async (req, res) => {
     });
     await newUser.save();
 
-    res.json({ success: 1,message: "User Registered Succesfully" });;
+    res.json({ success: 1, message: "User Registered Succesfully" });
 });
 
 router.post("/login", async (req, res) => {
@@ -283,10 +286,11 @@ router.get("/hospitalPending", async (req, res) => {
 
 // this is will process the accept and rejects from the hospitals
 router.put("/hospitalPendingAccepted/:id", async (req, res) => {
+    const hospital_id = req.body.hospital_id;
     try {
         const report = await Report.findByIdAndUpdate(
             req.params.id,
-            { status: "accepted_hospital" },
+            { status: "accepted_hospital", hospital_id: hospital_id },
             { new: true }
         );
         res.send(report);

@@ -11,14 +11,12 @@ export default function ReportHistoryReporter() {
     useEffect(() => {
         const fetchReports = async () => {
             try {
-                // const token = 1234 //localStorage.getItem("token");
                 const response = await axios.post(
                     "https://medinav-backend-8gvrb.ondigitalocean.app/report/reportHistory",
                     {
-                        reporter_id: "641f26f8ce736b06286bcbf2",
+                        reporter_id: window.localStorage.getItem("userID"),
                     }
                 );
-                // console.log(response)
                 setReportData(response.data);
             } catch (error) {
                 console.log(error);
@@ -65,6 +63,12 @@ export default function ReportHistoryReporter() {
                                     </td>
                                     <td>
                                         {report.stat === "open" && (
+                                            <button className="table_button Pending">
+                                                Pending
+                                            </button>
+                                        )}
+                                        {report.stat ===
+                                            "accepted_hospital" && (
                                             <button className="table_button Pending">
                                                 Pending
                                             </button>

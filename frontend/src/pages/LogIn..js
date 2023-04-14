@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import "../css/LogIn.css";
 import mediNavLogo from "../images/medinav_logo.png";
 import ReplyIcon from "@mui/icons-material/Reply";
+import Snackbar from "@mui/material/Snackbar";
 
 export default function LogIn() {
-    const [number, setNumber] = useState("");
-    const [password, setPassword] = useState("");
-
     const [_, setCookies] = useCookies(["access_token"]);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const fromNavbarLanding =
+        location.search.includes("from=navbar") ||
+        location.search.includes("from=landing");
+
+    const [number, setNumber] = useState("");
+    const [password, setPassword] = useState("");
+    const [showSnackbar, setShowSnackbar] = useState(fromNavbarLanding);
+
+    const handleCloseSnackbar = () => {
+        setShowSnackbar(false);
+    };
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -46,6 +57,19 @@ export default function LogIn() {
 
     return (
         <div className="LogIn">
+            {showSnackbar && (
+                <Snackbar
+                    open={showSnackbar}
+                    autoHideDuration={5000}
+                    onClose={handleCloseSnackbar}
+                    message="Please log in as a reporter"
+                    anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                    ContentProps={{
+                        style: { backgroundColor: "red", zIndex: 9999 },
+                    }}
+                    severity="error"
+                />
+            )}
             <div id="bg_video">
                 {/* <iframe
           frameborder="0"
