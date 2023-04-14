@@ -324,11 +324,48 @@ router.post("/getHospitalDetails", async (req, res) => {
     }
 });
 
-router.post("/updateHospital", async (req, res) => {});
+router.post("/updateHospital", async (req, res) => {
+
+    console.log("Update Hospital Request Recieved")
+    try {
+    const hospitalUpdate = await HospitalModel.findByIdAndUpdate(
+        req.body.hosp_id,
+        {landline: req.body.landline },
+        {p_number: req.body.primaryMobileNumber},
+        {s_number: req.body.secondaryMobileNumber},
+        {doctors: req.body.numOnCallDoctors },
+        {ambulances: req.body.numOperationalAmbulances},
+        {password: req.body.newPassword }
+        );
+
+       console.log("Updated Successfully!") 
+    } catch(error) {
+        console.log(error)
+    }
+
+
+
+});
 
 router.post("/updateReporters", async (req, res) => {
     // get user id
     // update reporter fields in mongo
+    console.log("Update Reporter Request Recieved")
+    try {
+    const reporterUpdate = await ReporterModel.findByIdAndUpdate(
+        req.body.user_id,
+        {number: req.body.number },
+        {name: req.body.displayName},
+        {password: req.body.newPassword},
+        );
+
+       console.log("Updated Successfully!") 
+    } catch(error) {
+        console.log(error)
+    }
+
+
+
 });
 
 module.exports = router;

@@ -7,6 +7,10 @@ import Cookies from "js-cookie";
 export default function UpdateProfileReporter() {
     const navigate = useNavigate();
 
+    const [displayName, setDisplayName] = useState("")
+    const [number, setNumber] = useState("")
+    const [newPassword, setNewPassword] = useState("")
+
     useEffect(() => {
         if (!Cookies.get("access_token")) {
             navigate("/");
@@ -14,6 +18,28 @@ export default function UpdateProfileReporter() {
             navigate("/");
         }
     });
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        var user_id = window.localStorage.getitem("userID");
+        try {
+            const updatedReporterData = {
+                user_id,
+                displayName,
+                number,
+                newPassword
+            };
+            const response = await axios.put(
+                "https://medinav-backend-8gvrb.ondigitalocean.app/user/updateReporters",
+                updatedReporterData
+            );
+            console.log(response.data);
+            navigate("/login");
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
         <div className="UpdateProfileReporter">
@@ -23,12 +49,12 @@ export default function UpdateProfileReporter() {
                         <h1>Update Profile</h1>
                     </div>
                     <div className="form_box">
-                        <form className="row g-3">
+                        <form className="row g-3" onSubmit={handleSubmit}>
                             <div className="mb-3 form_row">
                                 <label for="exampleInputEmail1">
                                     Display Name
                                 </label>
-                                <input
+                                <input onChange={(e) => {setDisplayName(e.target.value)}}
                                     type="text"
                                     className="form-control"
                                     id="exampleInputEmail1"
@@ -39,7 +65,7 @@ export default function UpdateProfileReporter() {
                                 <label for="exampleInputEmail1">
                                     Contact Number
                                 </label>
-                                <input
+                                <input onChange={(e) => {setNumber(e.target.value)}}
                                     type="number"
                                     className="form-control"
                                     id="exampleInputEmail1"
@@ -50,7 +76,7 @@ export default function UpdateProfileReporter() {
                                 <label for="exampleInputEmail1">
                                     New Password
                                 </label>
-                                <input
+                                <input onChange={(e) => {setNewPassword(e.target.value)}}
                                     type="password"
                                     className="form-control"
                                     id="exampleInputEmail1"
@@ -90,7 +116,7 @@ export default function UpdateProfileReporter() {
                                     </button>
                                 </div>
                                 <div>
-                                    <button
+                                    <button 
                                         type="submit"
                                         className="btn cancelButton"
                                     >

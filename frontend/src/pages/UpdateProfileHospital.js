@@ -43,6 +43,9 @@ export default function UpdateProfileHospital() {
         var hosp_id = window.localStorage.getitem("userID");
         try {
             const updatedHospitalData = {
+
+                
+
                 hosp_id,
                 landline,
                 primaryMobileNumber,
