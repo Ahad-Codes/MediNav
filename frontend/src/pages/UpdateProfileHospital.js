@@ -40,11 +40,11 @@ export default function UpdateProfileHospital() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        var hosp_id = window.localStorage.getitem("userID");
+        var hosp_id = window.localStorage.getItem("userID");
         try {
             const updatedHospitalData = {
 
-                
+
 
                 hosp_id,
                 landline,

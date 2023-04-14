@@ -22,7 +22,7 @@ export default function UpdateProfileReporter() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        var user_id = window.localStorage.getitem("userID");
+        var user_id = window.localStorage.getItem("userID");
         try {
             const updatedReporterData = {
                 user_id,
