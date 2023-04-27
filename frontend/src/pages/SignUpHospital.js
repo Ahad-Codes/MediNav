@@ -73,7 +73,7 @@ export default function SignUpHospital() {
         
         try {
             const response = await axios.post(
-                "http://localhost:3001/user/signupHosp",
+                "http://medinav-backend-8gvrb.ondigitalocean.app/user/signupHosp",
                 {
                     name,
                     address,
