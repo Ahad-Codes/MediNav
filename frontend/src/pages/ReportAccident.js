@@ -66,12 +66,35 @@ function ReportAccident() {
     }, []);
 
     const handleSubmit = async (e) => {
+
+
+
+
         e.preventDefault();
+
+        if (accident==="") {
+            alert("Please enter a valid type of accident!");
+            return;
+        }
+
+        if (landmark==="" || victims==="") {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+
+        if (accident === "") {
+
+            alert("Please enter a valid type of accident!")
+            return;
+        }
+
+
         var userID = window.localStorage.getItem("userID");
 
         try {
             const response = await axios.post(
-                "https://medinav-backend-8gvrb.ondigitalocean.app/report",
+                "http://medinav-backend-8gvrb.ondigitalocean.app/report",
                 {
                     userID,
                     accident,
@@ -82,7 +105,7 @@ function ReportAccident() {
                     latitude,
                 }
             );
-            alert(response.data.message);
+            alert(response.data.longitude);
         } catch (error) {
             console.log(error);
         }
@@ -161,5 +184,7 @@ function ReportAccident() {
         </div>
     );
 }
+
+
 
 export default ReportAccident;
