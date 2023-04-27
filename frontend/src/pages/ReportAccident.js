@@ -105,7 +105,7 @@ function ReportAccident() {
                     latitude,
                 }
             );
-            alert(response.data.longitude);
+            alert("Report Forwarded!");
         } catch (error) {
             console.log(error);
         }
