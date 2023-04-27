@@ -16,9 +16,37 @@ export default function SignUpWarden() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
+
+        if (name==="" || number==="" || address==="" || password==="" || email==="" ) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        if (!/^[a-zA-Z\s]*$/.test(name)) {
+            alert("Please enter a valid name.");
+            return;
+        }
+    
+        if (!/\S+@\S+\.\S+/.test(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+            alert("Password must contain at least 8 characters, including at least one letter and one number.");
+            return;
+        }
+
+        if (!/^[0-9]{11}$/.test(number)) {
+            alert("Please enter a valid primary phone number.");
+            return;
+        }
+
+        
+
         try {
             await axios.post(
-                "https://medinav-backend-8gvrb.ondigitalocean.app/user/signupWard",
+                "http://medinav-backend-8gvrb.ondigitalocean.app/user/signupWard",
                 {
                     name,
                     number,
