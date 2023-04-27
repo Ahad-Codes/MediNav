@@ -38,9 +38,42 @@ export default function SignUpHospital() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
+
+        if (name==="" || address==="" || email==="" || password==="" || landline==="" || p_number==="" || s_number==="" || doctors==="" || ambulances==="") {
+            alert("Please fill in all fields.");
+            return;
+        }
+    
+        if (!/^[a-zA-Z\s]*$/.test(name)) {
+            alert("Please enter a valid name.");
+            return;
+        }
+    
+        if (!/\S+@\S+\.\S+/.test(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+    
+        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+            alert("Password must contain at least 8 characters, including at least one letter and one number.");
+            return;
+        }
+    
+    
+        if (!/^[0-9]{11}$/.test(p_number)) {
+            alert("Please enter a valid primary phone number.");
+            return;
+        }
+    
+        if (!/^[0-9]{11}$/.test(s_number)) {
+            alert("Please enter a valid secondary phone number.");
+            return;
+        }
+    
+        
         try {
             const response = await axios.post(
-                "https://medinav-backend-8gvrb.ondigitalocean.app/user/signupHosp",
+                "http://localhost:3001/user/signupHosp",
                 {
                     name,
                     address,
@@ -58,6 +91,7 @@ export default function SignUpHospital() {
             alert(response.data.message);
 
             if (response.data.success == 1) {
+                alert("User Created Successfully!")
                 navigate("/Login");
             }
         } catch (error) {
